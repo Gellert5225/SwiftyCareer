@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5124FE146E00D0645D /* AppDelegate.swift */; };
+		D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */; };
+		D9E3DD5624FE146E00D0645D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5524FE146E00D0645D /* ContentView.swift */; };
+		D9E3DD5824FE147000D0645D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E3DD5724FE147000D0645D /* Assets.xcassets */; };
+		D9E3DD5B24FE147000D0645D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E3DD5A24FE147000D0645D /* Preview Assets.xcassets */; };
+		D9E3DD5E24FE147000D0645D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E3DD5C24FE147000D0645D /* LaunchScreen.storyboard */; };
+		D9E3DD6924FE147000D0645D /* UniPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD6824FE147000D0645D /* UniPlusTests.swift */; };
+		D9E3DD7424FE147000D0645D /* UniPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD7324FE147000D0645D /* UniPlusUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9E3DD6524FE147000D0645D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9E3DD4624FE146E00D0645D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9E3DD4D24FE146E00D0645D;
+			remoteInfo = UniPlus;
+		};
+		D9E3DD7024FE147000D0645D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9E3DD4624FE146E00D0645D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9E3DD4D24FE146E00D0645D;
+			remoteInfo = UniPlus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9E3DD4E24FE146E00D0645D /* UniPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E3DD5124FE146E00D0645D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D9E3DD5524FE146E00D0645D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D9E3DD5724FE147000D0645D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9E3DD5A24FE147000D0645D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D9E3DD5D24FE147000D0645D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9E3DD5F24FE147000D0645D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9E3DD6424FE147000D0645D /* UniPlusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E3DD6824FE147000D0645D /* UniPlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniPlusTests.swift; sourceTree = "<group>"; };
+		D9E3DD6A24FE147000D0645D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9E3DD6F24FE147000D0645D /* UniPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E3DD7324FE147000D0645D /* UniPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniPlusUITests.swift; sourceTree = "<group>"; };
+		D9E3DD7524FE147000D0645D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9E3DD4B24FE146E00D0645D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6124FE147000D0645D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6C24FE147000D0645D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9E3DD4524FE146E00D0645D = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD5024FE146E00D0645D /* UniPlus */,
+				D9E3DD6724FE147000D0645D /* UniPlusTests */,
+				D9E3DD7224FE147000D0645D /* UniPlusUITests */,
+				D9E3DD4F24FE146E00D0645D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9E3DD4F24FE146E00D0645D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD4E24FE146E00D0645D /* UniPlus.app */,
+				D9E3DD6424FE147000D0645D /* UniPlusTests.xctest */,
+				D9E3DD6F24FE147000D0645D /* UniPlusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9E3DD5024FE146E00D0645D /* UniPlus */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD5124FE146E00D0645D /* AppDelegate.swift */,
+				D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */,
+				D9E3DD5524FE146E00D0645D /* ContentView.swift */,
+				D9E3DD5724FE147000D0645D /* Assets.xcassets */,
+				D9E3DD5C24FE147000D0645D /* LaunchScreen.storyboard */,
+				D9E3DD5F24FE147000D0645D /* Info.plist */,
+				D9E3DD5924FE147000D0645D /* Preview Content */,
+			);
+			path = UniPlus;
+			sourceTree = "<group>";
+		};
+		D9E3DD5924FE147000D0645D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD5A24FE147000D0645D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D9E3DD6724FE147000D0645D /* UniPlusTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD6824FE147000D0645D /* UniPlusTests.swift */,
+				D9E3DD6A24FE147000D0645D /* Info.plist */,
+			);
+			path = UniPlusTests;
+			sourceTree = "<group>";
+		};
+		D9E3DD7224FE147000D0645D /* UniPlusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3DD7324FE147000D0645D /* UniPlusUITests.swift */,
+				D9E3DD7524FE147000D0645D /* Info.plist */,
+			);
+			path = UniPlusUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9E3DD4D24FE146E00D0645D /* UniPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E3DD7824FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlus" */;
+			buildPhases = (
+				D9E3DD4A24FE146E00D0645D /* Sources */,
+				D9E3DD4B24FE146E00D0645D /* Frameworks */,
+				D9E3DD4C24FE146E00D0645D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UniPlus;
+			productName = UniPlus;
+			productReference = D9E3DD4E24FE146E00D0645D /* UniPlus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9E3DD6324FE147000D0645D /* UniPlusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E3DD7B24FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlusTests" */;
+			buildPhases = (
+				D9E3DD6024FE147000D0645D /* Sources */,
+				D9E3DD6124FE147000D0645D /* Frameworks */,
+				D9E3DD6224FE147000D0645D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9E3DD6624FE147000D0645D /* PBXTargetDependency */,
+			);
+			name = UniPlusTests;
+			productName = UniPlusTests;
+			productReference = D9E3DD6424FE147000D0645D /* UniPlusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9E3DD6E24FE147000D0645D /* UniPlusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E3DD7E24FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlusUITests" */;
+			buildPhases = (
+				D9E3DD6B24FE147000D0645D /* Sources */,
+				D9E3DD6C24FE147000D0645D /* Frameworks */,
+				D9E3DD6D24FE147000D0645D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9E3DD7124FE147000D0645D /* PBXTargetDependency */,
+			);
+			name = UniPlusUITests;
+			productName = UniPlusUITests;
+			productReference = D9E3DD6F24FE147000D0645D /* UniPlusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9E3DD4624FE146E00D0645D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = UniPlus;
+				TargetAttributes = {
+					D9E3DD4D24FE146E00D0645D = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					D9E3DD6324FE147000D0645D = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D9E3DD4D24FE146E00D0645D;
+					};
+					D9E3DD6E24FE147000D0645D = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D9E3DD4D24FE146E00D0645D;
+					};
+				};
+			};
+			buildConfigurationList = D9E3DD4924FE146E00D0645D /* Build configuration list for PBXProject "UniPlus" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9E3DD4524FE146E00D0645D;
+			productRefGroup = D9E3DD4F24FE146E00D0645D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9E3DD4D24FE146E00D0645D /* UniPlus */,
+				D9E3DD6324FE147000D0645D /* UniPlusTests */,
+				D9E3DD6E24FE147000D0645D /* UniPlusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9E3DD4C24FE146E00D0645D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E3DD5E24FE147000D0645D /* LaunchScreen.storyboard in Resources */,
+				D9E3DD5B24FE147000D0645D /* Preview Assets.xcassets in Resources */,
+				D9E3DD5824FE147000D0645D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6224FE147000D0645D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6D24FE147000D0645D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9E3DD4A24FE146E00D0645D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */,
+				D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */,
+				D9E3DD5624FE146E00D0645D /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6024FE147000D0645D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E3DD6924FE147000D0645D /* UniPlusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9E3DD6B24FE147000D0645D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E3DD7424FE147000D0645D /* UniPlusUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9E3DD6624FE147000D0645D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9E3DD4D24FE146E00D0645D /* UniPlus */;
+			targetProxy = D9E3DD6524FE147000D0645D /* PBXContainerItemProxy */;
+		};
+		D9E3DD7124FE147000D0645D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9E3DD4D24FE146E00D0645D /* UniPlus */;
+			targetProxy = D9E3DD7024FE147000D0645D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9E3DD5C24FE147000D0645D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9E3DD5D24FE147000D0645D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9E3DD7624FE147000D0645D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9E3DD7724FE147000D0645D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9E3DD7924FE147000D0645D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"UniPlus/Preview Content\"";
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = UniPlus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9E3DD7A24FE147000D0645D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"UniPlus/Preview Content\"";
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = UniPlus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D9E3DD7C24FE147000D0645D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				INFOPLIST_FILE = UniPlusTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniPlus.app/UniPlus";
+			};
+			name = Debug;
+		};
+		D9E3DD7D24FE147000D0645D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				INFOPLIST_FILE = UniPlusTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniPlus.app/UniPlus";
+			};
+			name = Release;
+		};
+		D9E3DD7F24FE147000D0645D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				INFOPLIST_FILE = UniPlusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UniPlus;
+			};
+			name = Debug;
+		};
+		D9E3DD8024FE147000D0645D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XS2QV44L5G;
+				INFOPLIST_FILE = UniPlusUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UniPlus;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9E3DD4924FE146E00D0645D /* Build configuration list for PBXProject "UniPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E3DD7624FE147000D0645D /* Debug */,
+				D9E3DD7724FE147000D0645D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E3DD7824FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E3DD7924FE147000D0645D /* Debug */,
+				D9E3DD7A24FE147000D0645D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E3DD7B24FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E3DD7C24FE147000D0645D /* Debug */,
+				D9E3DD7D24FE147000D0645D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E3DD7E24FE147000D0645D /* Build configuration list for PBXNativeTarget "UniPlusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E3DD7F24FE147000D0645D /* Debug */,
+				D9E3DD8024FE147000D0645D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9E3DD4624FE146E00D0645D /* Project object */;
+}

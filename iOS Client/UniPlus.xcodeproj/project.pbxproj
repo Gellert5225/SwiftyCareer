@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AC51BCC0C1B10B48C13D694D /* Pods_UniPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD38990B886CC964F5FF8C6F /* Pods_UniPlus.framework */; };
+		D91185002500B6B90019EE2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91184FF2500B6B90019EE2D /* NotificationView.swift */; };
+		D91185022500B6EC0019EE2D /* ConnectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91185012500B6EC0019EE2D /* ConnectionsView.swift */; };
+		D91185042500B7460019EE2D /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91185032500B7460019EE2D /* DiscoverView.swift */; };
+		D91185062500B7F00019EE2D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91185052500B7F00019EE2D /* SearchBar.swift */; };
 		D927B59624FF71B40084F410 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927B59524FF71B40084F410 /* RegisterTextField.swift */; };
-		D9990F3724FFA8EA00D2BBD9 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9990F3624FFA8EA00D2BBD9 /* FirstView.swift */; };
+		D9990F3724FFA8EA00D2BBD9 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9990F3624FFA8EA00D2BBD9 /* FeedView.swift */; };
 		D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5124FE146E00D0645D /* AppDelegate.swift */; };
 		D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */; };
 		D9E3DD5624FE146E00D0645D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5524FE146E00D0645D /* RootView.swift */; };
@@ -22,6 +26,7 @@
 		D9E3DD8B24FE19DC00D0645D /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD8A24FE19DC00D0645D /* LandingView.swift */; };
 		D9E3DD8D24FE21D100D0645D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD8C24FE21D100D0645D /* Globals.swift */; };
 		D9E3DD8F24FE2F0400D0645D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD8E24FE2F0400D0645D /* RegisterView.swift */; };
+		D9FE374A2500B389009E4873 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FE37492500B389009E4873 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +50,12 @@
 		865CB617D837615FB28BDA42 /* Pods-UniPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniPlus.debug.xcconfig"; path = "Target Support Files/Pods-UniPlus/Pods-UniPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3A9D5A7104B57A270EC69A /* Pods-UniPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniPlus.release.xcconfig"; path = "Target Support Files/Pods-UniPlus/Pods-UniPlus.release.xcconfig"; sourceTree = "<group>"; };
 		CD38990B886CC964F5FF8C6F /* Pods_UniPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D91184FF2500B6B90019EE2D /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		D91185012500B6EC0019EE2D /* ConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsView.swift; sourceTree = "<group>"; };
+		D91185032500B7460019EE2D /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		D91185052500B7F00019EE2D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		D927B59524FF71B40084F410 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
-		D9990F3624FFA8EA00D2BBD9 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		D9990F3624FFA8EA00D2BBD9 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		D9E3DD4E24FE146E00D0645D /* UniPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E3DD5124FE146E00D0645D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +74,7 @@
 		D9E3DD8A24FE19DC00D0645D /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		D9E3DD8C24FE21D100D0645D /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		D9E3DD8E24FE2F0400D0645D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		D9FE37492500B389009E4873 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,16 @@
 				D9E3DD8C24FE21D100D0645D /* Globals.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D9633BCE2500039000D97D7E /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				D9FE37492500B389009E4873 /* CircleImage.swift */,
+				D927B59524FF71B40084F410 /* RegisterTextField.swift */,
+				D91185052500B7F00019EE2D /* SearchBar.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		D9E3DD4524FE146E00D0645D = {
@@ -185,9 +205,12 @@
 		D9E3DD8824FE192C00D0645D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D927B59524FF71B40084F410 /* RegisterTextField.swift */,
 				D9E3DD5524FE146E00D0645D /* RootView.swift */,
-				D9990F3624FFA8EA00D2BBD9 /* FirstView.swift */,
+				D9990F3624FFA8EA00D2BBD9 /* FeedView.swift */,
+				D91184FF2500B6B90019EE2D /* NotificationView.swift */,
+				D91185012500B6EC0019EE2D /* ConnectionsView.swift */,
+				D91185032500B7460019EE2D /* DiscoverView.swift */,
+				D9633BCE2500039000D97D7E /* Custom */,
 				D9E3DD8924FE193600D0645D /* Login_Register */,
 			);
 			path = UI;
@@ -275,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = UniPlus;
 				TargetAttributes = {
 					D9E3DD4D24FE146E00D0645D = {
@@ -386,14 +409,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91185062500B7F00019EE2D /* SearchBar.swift in Sources */,
 				D9E3DD8B24FE19DC00D0645D /* LandingView.swift in Sources */,
 				D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */,
 				D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */,
 				D927B59624FF71B40084F410 /* RegisterTextField.swift in Sources */,
 				D9E3DD8F24FE2F0400D0645D /* RegisterView.swift in Sources */,
-				D9990F3724FFA8EA00D2BBD9 /* FirstView.swift in Sources */,
+				D9FE374A2500B389009E4873 /* CircleImage.swift in Sources */,
+				D91185022500B6EC0019EE2D /* ConnectionsView.swift in Sources */,
+				D9990F3724FFA8EA00D2BBD9 /* FeedView.swift in Sources */,
 				D9E3DD8D24FE21D100D0645D /* Globals.swift in Sources */,
 				D9E3DD5624FE146E00D0645D /* RootView.swift in Sources */,
+				D91185002500B6B90019EE2D /* NotificationView.swift in Sources */,
+				D91185042500B7460019EE2D /* DiscoverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +494,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -526,6 +555,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

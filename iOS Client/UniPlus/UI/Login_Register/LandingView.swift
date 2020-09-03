@@ -12,7 +12,7 @@ struct LandingView: View {
     @State var showingLogin = false
     @State var showingRegister = false
     
-    @Environment (\.colorScheme) var colorScheme: ColorScheme
+    //@Environment (\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         ZStack {

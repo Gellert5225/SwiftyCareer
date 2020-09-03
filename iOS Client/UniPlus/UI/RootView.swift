@@ -10,31 +10,88 @@ import SwiftUI
 
 struct RootView: View {
     @State private var selection = 0
- 
-    var body: some View {
-        TabView(selection: $selection){
-            NavigationView {
-                FirstView()
-                .navigationBarTitle("First")
+    @State var showCompose = false
+    
+    private var actionSelection: Binding<Int> {
+        Binding<Int>(get: {
+            self.selection
+        }) { (newValue: Int) in
+            if newValue == 2 {
+              self.showCompose = true
+            } else {
+                self.selection = newValue
             }
+        }
+    }
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        //UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        //UINavigationBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
+        UINavigationBar.appearance().standardAppearance.shadowColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+    }
+    
+    var body: some View {
+        TabView(selection: actionSelection){
+            FeedView()
                 .tabItem {
                     VStack {
-                        Image("first")
-                        Text("First")
+                        if (selection == 0) {
+                            Image("HomeSelected")
+                        } else {
+                            Image("Home")
+                        }
                     }
                 }
                 .tag(0)
-            Text("Second View")
-                .font(.title)
+            DiscoverView()
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        if (selection == 1) {
+                            Image("SearchSelected")
+                        } else {
+                            Image("Search")
+                        }
                     }
                 }
                 .tag(1)
+            Text("Dummy View")
+                .tabItem {
+                    VStack {
+                        Image("Write")
+                    }
+                }
+                .tag(2)
+            ConnectionsView()
+                .tabItem {
+                    VStack {
+                       if (selection == 3) {
+                           Image("FriendsSelected")
+                       } else {
+                           Image("Friends")
+                       }
+                    }
+                }
+                .tag(3)
+           NotificationView()
+                .tabItem {
+                    VStack {
+                       if (selection == 4) {
+                           Image("AlertSelected")
+                       } else {
+                           Image("Alert")
+                       }
+                    }
+                }
+                .tag(4)
         }
-        
+            
+        .sheet(isPresented: self.$showCompose) {
+            Text("Compose View")
+        }
     }
 }
 
@@ -43,3 +100,4 @@ struct RootView_Previews: PreviewProvider {
         RootView()
     }
 }
+

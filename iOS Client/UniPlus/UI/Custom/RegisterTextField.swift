@@ -26,6 +26,10 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.tag = self.tag
         textField.delegate = context.coordinator
         textField.autocorrectionType = .no
+        if self.tag == 2 || self.tag == 3 {
+            textField.isSecureTextEntry = true
+            textField.textContentType = .oneTimeCode
+        }
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: LIGHT_GRAY]
@@ -44,7 +48,6 @@ struct TextFieldTyped: UIViewRepresentable {
         }
 
         if uiView.tag == self.selectedField && !finishedEditing {
-            print("show keyboard \(self.selectedField)")
             uiView.becomeFirstResponder()
         }
     }

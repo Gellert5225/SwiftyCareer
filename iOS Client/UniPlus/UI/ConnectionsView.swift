@@ -13,11 +13,11 @@ struct ConnectionsView: View {
         NavigationView {
             ZStack {
                 Color.dark
-                .edgesIgnoringSafeArea(.all)
+                    .edgesIgnoringSafeArea(.all)
                 
                 Text("Hello")
             }
-            
+            .edgesIgnoringSafeArea(.top)
             .navigationBarTitle("Connections", displayMode: .inline)
             .navigationBarItems(
                 leading: CircleImage(image: Image("Gellert")),

@@ -35,7 +35,7 @@ struct RootView: View {
     }
     
     var body: some View {
-        TabView(selection: actionSelection){
+        TabView(selection: actionSelection) {
             FeedView()
                 .tabItem {
                     VStack {

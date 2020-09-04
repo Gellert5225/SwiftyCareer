@@ -1,24 +1,24 @@
 //
-//  RegisterView.swift
+//  LoginView.swift
 //  UniPlus
 //
-//  Created by Gellert Li on 9/1/20.
+//  Created by Gellert Li on 9/4/20.
 //  Copyright © 2020 UniPlus. All rights reserved.
 //
 
 import SwiftUI
 import Parse
 
-struct RegisterView: View {
+struct LoginView: View {
     @Binding var showing: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var selectedField = 0
-    @State var fields: [String] = ["", "", "", ""]
+    @State var fields: [String] = ["", ""]
     @State var showRoot = false
     
     var bottomPadding: CGFloat = 20
-    var placeholders: [String] = ["Username", "Email", "Password", "Confirm Password"]
+    var placeholders: [String] = ["Username", "Password"]
     
     var body: some View {
         ZStack {
@@ -41,24 +41,28 @@ struct RegisterView: View {
                 }.padding()
                     .padding(.bottom, 10)
                 
-                Text("Create Your Account")
+                Text("Login to UniPlus")
                     .font(.title)
                     .bold()
                     .foregroundColor(.white)
                     .padding(.bottom, bottomPadding)
                 
                 VStack {
-                    ForEach(0..<4) { index in
+                    ForEach(0..<2) { index in
                         TextFieldTyped(
                             keyboardType: .default,
-                            returnVal: index == 3 ? .go : .next,
+                            returnVal: index == 1 ? .go : .next,
                             tag: index,
-                            secure: index > 1,
+                            secure: index == 1,
                             selectedField: self.$selectedField,
                             text: self.$fields[index],
                             placeholder: self.placeholders[index],
                             onCommit: {
-                                self.signUp()
+                                print(self.fields)
+                                withAnimation{
+                                    self.showRoot.toggle()
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
                             }
                         ).frame(height: 30)
                         Divider().background(Color.light_gray)
@@ -71,33 +75,13 @@ struct RegisterView: View {
             }
             
             RootView()
-                .offset(x: 0, y: self.showRoot ? 0 : UIScreen.main.bounds.height)
-        }
-    }
-    
-    func signUp() {
-        let user = PFUser()
-        user.username = self.fields[0]
-        user.password = self.fields[2]
-        user.email = self.fields[1]
-
-        user.signUpInBackground {
-          (succeeded: Bool, error: Error?) -> Void in
-          if let error = error {
-            let errorString = error.localizedDescription
-            print("Error: \(errorString)")
-          } else {
-           withAnimation{
-                self.showRoot.toggle()
-                self.presentationMode.wrappedValue.dismiss()
-            }
-          }
+               .offset(x: 0, y: self.showRoot ? 0 : UIScreen.main.bounds.height)
         }
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(showing: .constant(true))
+        LoginView(showing: .constant(true))
     }
 }

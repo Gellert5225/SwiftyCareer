@@ -13,11 +13,10 @@ struct NotificationView: View {
         NavigationView {
             ZStack {
                 Color.dark
-                .edgesIgnoringSafeArea(.all)
-                
+                    .edgesIgnoringSafeArea(.all)
                 Text("Hello")
             }
-            
+            .edgesIgnoringSafeArea(.top)
             .navigationBarTitle("Notification", displayMode: .inline)
             .navigationBarItems(
                 leading: CircleImage(image: Image("Gellert")),

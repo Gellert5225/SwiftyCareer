@@ -60,6 +60,9 @@ struct LandingView: View {
                 if showingRegister {
                     RegisterView(showing: $showingRegister)
                 }
+                if showingLogin {
+                    LoginView(showing: $showingLogin)
+                }
             }
         }
     }

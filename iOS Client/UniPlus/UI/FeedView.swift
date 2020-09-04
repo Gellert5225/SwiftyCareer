@@ -13,12 +13,10 @@ struct FeedView: View {
         NavigationView {
             ZStack {
                 Color.dark
-                .edgesIgnoringSafeArea(.all)
-                
+                    .edgesIgnoringSafeArea(.all)
                 Text("Hello")
             }
             .edgesIgnoringSafeArea(.top)
-            
             .navigationBarTitle("Feed", displayMode: .inline)
             .navigationBarItems(
                 leading: CircleImage(image: Image("Gellert")),

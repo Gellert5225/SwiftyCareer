@@ -12,6 +12,7 @@ struct TextFieldTyped: UIViewRepresentable {
     let keyboardType: UIKeyboardType
     let returnVal: UIReturnKeyType
     let tag: Int
+    let secure: Bool
     @Binding var selectedField: Int
     @Binding var text: String
     var placeholder: String
@@ -24,12 +25,9 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.keyboardType = self.keyboardType
         textField.returnKeyType = self.returnVal
         textField.tag = self.tag
+        textField.isSecureTextEntry = secure
         textField.delegate = context.coordinator
         textField.autocorrectionType = .no
-        if self.tag == 2 || self.tag == 3 {
-            textField.isSecureTextEntry = true
-            textField.textContentType = .oneTimeCode
-        }
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: LIGHT_GRAY]

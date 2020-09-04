@@ -27,7 +27,7 @@ struct DiscoverView: View {
     var body: some View {
         ZStack {
             BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
-           SearchNavigation(text: $searchString, tapped: tapped, search: search, cancel: cancel) {
+            SearchNavigation(text: $searchString, tapped: tapped, search: search, cancel: cancel) {
                 ZStack {
                     BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
                     
@@ -37,6 +37,7 @@ struct DiscoverView: View {
                     leading: CircleImage(image: Image("Gellert")),
                     trailing: Image("ChatRed")
                 )
+                    .edgesIgnoringSafeArea(.top)
             }
         }
     }

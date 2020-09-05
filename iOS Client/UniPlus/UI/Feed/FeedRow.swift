@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct FeedRow: View {
-
+    var feed: Feed
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             FeedUserTitleView()
             
-            FeedTextView()
+            FeedTextView(feed)
         }
         .listRowBackground(Color.dark)
     }
@@ -22,6 +23,7 @@ struct FeedRow: View {
 
 struct FeedRow_Previews: PreviewProvider {
     static var previews: some View {
-        FeedRow()
+        FeedRow(feed: Feed(id: 1, userName: "G", bio: "G", text: "G"))
+        
     }
 }

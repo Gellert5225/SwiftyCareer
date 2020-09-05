@@ -23,7 +23,7 @@ struct FeedView: View {
                 BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
                 
                 FeedList()
-                    .listRowBackground(Color.clear)
+                    //.listRowBackground(Color.clear)
                     .disabled(self.showMenu)
             }
             

@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct FeedList: View {
+    var feeds = generateFeed()
     var body: some View {
         List {
-            ForEach(0..<10, id: \.self) { _ in
-                FeedRow()
+            ForEach(feeds) { feed in
+                FeedRow(feed: feed)
             }
+            .listRowBackground(Color.dark)
         }
         .onAppear() {
-                UITableView.appearance().backgroundColor = .clear
+                UITableView.appearance().backgroundColor = TABLE_BACK
                 UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
         }
         .background(BACKGROUND_COLOR)

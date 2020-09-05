@@ -6,6 +6,7 @@
 //  Copyright © 2020 UniPlus. All rights reserved.
 //
 import SwiftUI
+import UIKit
 
 struct SearchNavigation<Content: View>: UIViewControllerRepresentable {
     @Binding var text: String
@@ -53,8 +54,12 @@ struct SearchNavigation<Content: View>: UIViewControllerRepresentable {
             
             rootViewController.navigationItem.titleView = searchBarContainer
             
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UI_TINT_COLOR], for: .normal)
+
+            
             if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField,
                 let glassIconView = textFieldInsideSearchBar.leftView as? UIImageView {
+                    textFieldInsideSearchBar.textColor = .white
                     textFieldInsideSearchBar.layer.cornerRadius = 15
                     textFieldInsideSearchBar.layer.masksToBounds = true
                     //Magnifying glass

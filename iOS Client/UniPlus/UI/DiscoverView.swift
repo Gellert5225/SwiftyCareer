@@ -34,7 +34,7 @@ struct DiscoverView: View {
                     Text("Hello")
                 }
                 .navigationBarItems(
-                    leading: CircleImage(image: Image("Gellert")),
+                    leading: CircleImage(image: Image("Gellert"), width: 30, height:30),
                     trailing: Image("ChatRed")
                 )
                     .edgesIgnoringSafeArea(.top)

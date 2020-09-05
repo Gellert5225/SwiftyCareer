@@ -14,12 +14,23 @@ struct NotificationView: View {
             ZStack {
                 Color.dark
                     .edgesIgnoringSafeArea(.all)
-                Text("Hello")
+                
+                List {
+                    ForEach(0..<10) { _ in
+                        HStack {
+                            Text("Hello")
+                        }
+                    }
+                }
+                .onAppear() {
+                    UITableView.appearance().backgroundColor = .clear
+                    UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
+                }
             }
             .edgesIgnoringSafeArea(.top)
             .navigationBarTitle("Notification", displayMode: .inline)
             .navigationBarItems(
-                leading: CircleImage(image: Image("Gellert")),
+                leading: CircleImage(image: Image("Gellert"), width: 30, height:30),
                 trailing: Image("ChatRed")
             )
         }

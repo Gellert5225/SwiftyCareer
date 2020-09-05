@@ -10,7 +10,9 @@ import Foundation
 import SwiftUI
 
 let TINT_COLOR = Color(red: 53.0/255, green: 111/255, blue: 177/255)
+let UI_TINT_COLOR = UIColor(red: 53.0/255, green: 111/255, blue: 177/255, alpha: 1.0)
 let BACKGROUND_COLOR = Color(red: 42.0/255, green: 47.0/255, blue: 63.0/255)
+let UI_BACKGROUND_COLOR = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
 let LIGHT_GRAY = UIColor(red: 145.0/255, green: 154.0/255, blue: 172.0/255, alpha: 1.0)
 
 extension Color {

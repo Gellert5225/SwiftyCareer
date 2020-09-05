@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ConnectionsView: View {
+struct ConnectionsView: View {    
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,7 +20,7 @@ struct ConnectionsView: View {
             .edgesIgnoringSafeArea(.top)
             .navigationBarTitle("Connections", displayMode: .inline)
             .navigationBarItems(
-                leading: CircleImage(image: Image("Gellert")),
+                leading: CircleImage(image: Image("Gellert"), width: 30, height:30),
                 trailing: Image("ChatRed")
             )
         }

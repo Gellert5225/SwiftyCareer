@@ -18,7 +18,7 @@ struct LandingView: View {
         ZStack {
             NavigationView {
                 ZStack {
-                    BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
+                    Color.background_color.edgesIgnoringSafeArea(.all)
                     VStack {
                         Image("LandingIcon")
                             .resizable()
@@ -40,7 +40,7 @@ struct LandingView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.8, height: 40)
                         .foregroundColor(.white)
-                        .background(TINT_COLOR)
+                        .background(Color.tint_color)
                         .cornerRadius(40)
                         .font(.headline)
                         

@@ -22,7 +22,7 @@ struct RegisterView: View {
     
     var body: some View {
         ZStack {
-            BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
+            Color.background_color.edgesIgnoringSafeArea(.all)
             
             VStack {
                 HStack {

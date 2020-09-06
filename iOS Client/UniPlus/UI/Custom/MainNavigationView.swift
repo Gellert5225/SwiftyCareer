@@ -38,7 +38,7 @@ struct MainNavigationView<Content: View>: UIViewControllerRepresentable {
             
             rootViewController.navigationItem.title = title
             
-            var image = UIImage(named: "Gellert")?.roundedImageWithBorder(width: 1, color: LIGHT_GRAY)
+            var image = UIImage(named: "Gellert")?.roundedImageWithBorder(width: 1, color: UIColor.light_gray)
             image = image?.withRenderingMode(.alwaysOriginal)
             rootViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style:.plain, target: nil, action: nil)
         }

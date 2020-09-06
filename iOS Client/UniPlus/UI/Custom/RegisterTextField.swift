@@ -30,7 +30,7 @@ struct TextFieldTyped: UIViewRepresentable {
         textField.autocorrectionType = .no
         textField.attributedPlaceholder = NSAttributedString(
             string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: LIGHT_GRAY]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.light_gray]
         )
         textField.textColor = .white
 

@@ -9,17 +9,19 @@
 import Foundation
 import SwiftUI
 
-let TINT_COLOR = Color(red: 53.0/255, green: 111/255, blue: 177/255)
-let UI_TINT_COLOR = UIColor(red: 53.0/255, green: 111/255, blue: 177/255, alpha: 1.0)
-let BACKGROUND_COLOR = Color(red: 42.0/255, green: 47.0/255, blue: 63.0/255)
-let UI_BACKGROUND_COLOR = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
-let LIGHT_GRAY = UIColor(red: 145.0/255, green: 154.0/255, blue: 172.0/255, alpha: 1.0)
-let TABLE_BACK = UIColor(red: 32/255, green: 37/255, blue: 53/255, alpha: 1)
+extension UIColor {
+    static let tint_color = UIColor(red: 53.0/255, green: 111/255, blue: 177/255, alpha: 1.0)
+    static let background_color = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
+    static let light_gray = UIColor(red: 145.0/255, green: 154.0/255, blue: 172.0/255, alpha: 1.0)
+    static let tableview_background = UIColor(red: 32/255, green: 37/255, blue: 53/255, alpha: 1)
+}
 
 extension Color {
     static let white = Color.white
     static let dark = Color(red: 42.0/255, green: 47.0/255, blue: 63.0/255)
     static let light_gray = Color(red: 145.0/255, green: 154.0/255, blue: 172.0/255)
+    static let tint_color = Color(red: 53.0/255, green: 111/255, blue: 177/255)
+    static let background_color = Color(red: 42.0/255, green: 47.0/255, blue: 63.0/255)
 
     static func backgroundColor(for colorScheme: ColorScheme) -> Color {
         if colorScheme == .light {
@@ -66,4 +68,10 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
         }
     }
 
+}
+
+class HostingController<ContentView>: UIHostingController<ContentView> where ContentView : View {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

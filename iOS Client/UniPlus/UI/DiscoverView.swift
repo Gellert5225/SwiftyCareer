@@ -26,10 +26,10 @@ struct DiscoverView: View {
     
     var body: some View {
         ZStack {
-            BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
+            Color.background_color.edgesIgnoringSafeArea(.all)
             SearchNavigation(text: $searchString, tapped: tapped, search: search, cancel: cancel) {
                 ZStack {
-                    BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
+                    Color.background_color.edgesIgnoringSafeArea(.all)
                     
                     Text("Hello")
                 }

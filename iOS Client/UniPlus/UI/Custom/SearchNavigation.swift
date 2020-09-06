@@ -54,7 +54,7 @@ struct SearchNavigation<Content: View>: UIViewControllerRepresentable {
             
             rootViewController.navigationItem.titleView = searchBarContainer
             
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UI_TINT_COLOR], for: .normal)
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.tint_color], for: .normal)
 
             
             if let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField,
@@ -64,7 +64,7 @@ struct SearchNavigation<Content: View>: UIViewControllerRepresentable {
                     textFieldInsideSearchBar.layer.masksToBounds = true
                     //Magnifying glass
                     glassIconView.image = glassIconView.image?.withRenderingMode(.alwaysTemplate)
-                    glassIconView.tintColor = LIGHT_GRAY
+                glassIconView.tintColor = UIColor.light_gray
             }
             
             _text = searchText

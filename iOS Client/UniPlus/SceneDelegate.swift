@@ -16,24 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         let currentUser = PFUser.current()
         
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
-        UITabBar.appearance().shadowImage = UIImage.colorForNavBar(color: LIGHT_GRAY)
+        UITabBar.appearance().shadowImage = UIImage.colorForNavBar(color: UIColor.light_gray)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             if (currentUser != nil) {
-                window.rootViewController = UIHostingController(rootView: RootView())
+                window.rootViewController = HostingController(rootView: RootView())
             } else {
-                window.rootViewController = UIHostingController(rootView: LandingView())
+                window.rootViewController = HostingController(rootView: LandingView())
             }
             self.window = window
             window.makeKeyAndVisible()

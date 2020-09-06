@@ -40,7 +40,7 @@ class MyModel: ObservableObject {
     
     func load() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            self.feeds = generateFeed()
+            //self.feeds = generateFeed()
             self.loading = false
         }
     }

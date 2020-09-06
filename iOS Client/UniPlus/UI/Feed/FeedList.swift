@@ -28,10 +28,10 @@ struct FeedList: View {
                     .listRowBackground(Color.dark)
                 }
                 .onAppear() {
-                        UITableView.appearance().backgroundColor = TABLE_BACK
+                    UITableView.appearance().backgroundColor = UIColor.tableview_background
                         UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
                 }
-                .background(BACKGROUND_COLOR)
+                .background(Color.background_color)
                 .listStyle(GroupedListStyle())
             }
         }

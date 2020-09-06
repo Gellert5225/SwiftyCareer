@@ -23,8 +23,8 @@ struct RefreshScrollView<ROOTVIEW>: UIViewRepresentable where ROOTVIEW: View {
         let view = pz
         //pz.frame = CGRect(x: 0, y: 0 - height, width: width, height: height)
         view.delegate = context.coordinator
-        view.bgColor = TABLE_BACK
-        view.statusTextColor = LIGHT_GRAY
+        view.bgColor = UIColor.tableview_background
+        view.statusTextColor = UIColor.light_gray
         
         let control = UIScrollView()
         control.refreshControl = UIRefreshControl()
@@ -32,7 +32,7 @@ struct RefreshScrollView<ROOTVIEW>: UIViewRepresentable where ROOTVIEW: View {
         control.addSubview(view)
         //control.refreshControl?.addSubview(pz)
         //control.refreshControl?.addTarget(context.coordinator, action: #selector(Coordinator.pullToRefreshDidTrigger), for: .valueChanged)
-        control.refreshControl?.backgroundColor = TABLE_BACK
+        control.refreshControl?.backgroundColor = UIColor.tableview_background
         let childView = UIHostingController(rootView: rootView() )
         childView.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
         control.delegate = context.coordinator

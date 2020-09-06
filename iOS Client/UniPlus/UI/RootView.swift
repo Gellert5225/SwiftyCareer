@@ -30,7 +30,7 @@ struct RootView: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         //UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         //UINavigationBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
-        UINavigationBar.appearance().barTintColor = UI_BACKGROUND_COLOR
+        UINavigationBar.appearance().barTintColor = UIColor.background_color
         UINavigationBar.appearance().standardAppearance.shadowColor = .white
         UINavigationBar.appearance().isTranslucent = false
     }

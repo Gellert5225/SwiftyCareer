@@ -20,7 +20,7 @@ struct FeedView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                BACKGROUND_COLOR.edgesIgnoringSafeArea(.all)
+                Color.background_color.edgesIgnoringSafeArea(.all)
                 
                 FeedList()
                     //.listRowBackground(Color.clear)

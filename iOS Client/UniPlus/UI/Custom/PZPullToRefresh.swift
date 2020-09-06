@@ -176,14 +176,12 @@ open class PZPullToRefreshView: UIView {
 
     @objc open func refreshScrollViewDidScroll(_ scrollView: UIScrollView) {
         if state == .loading {
-            UIView.beginAnimations(nil, context: nil)
-            UIView.setAnimationDuration(0.2)
-            var offset = max(scrollView.contentOffset.y * -1, 0)
-            offset = min(offset, thresholdValue)
-            //scrollView.setContentOffset(CGPoint(x:0.0, y:-offset), animated: true)
-            scrollView.contentInset = UIEdgeInsets(top: offset, left: 0.0, bottom: 0.0, right: 0.0)
-            UIView.commitAnimations()
-
+            UIView.animate(withDuration: 0.2, animations: {
+                var offset = max(scrollView.contentOffset.y * -1, 0)
+                offset = min(offset, self.thresholdValue)
+                //scrollView.setContentOffset(CGPoint(x:0.0, y:-offset), animated: true)
+                scrollView.contentInset = UIEdgeInsets(top: offset, left: 0.0, bottom: 0.0, right: 0.0)
+            })
         } else if scrollView.isDragging {
             let loading = false
             if state == .pulling && scrollView.contentOffset.y > -thresholdValue && scrollView.contentOffset.y <= 0.0 && !loading {
@@ -204,10 +202,9 @@ open class PZPullToRefreshView: UIView {
     }
     
     @objc open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView, _ inset: UIEdgeInsets) {
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(0.3)
-        scrollView.contentInset = inset
-        UIView.commitAnimations()
+        UIView.animate(withDuration: 0.3, animations: {
+            scrollView.contentInset = inset
+        })
         arrowImage?.isHidden = false
         state = .normal
     }
@@ -221,12 +218,11 @@ open class PZPullToRefreshView: UIView {
     }
     
     func beginRefresh (_ scrollView: UIScrollView){
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(0.2)
-        var offset = max(scrollView.contentOffset.y * -1, 0)
-        offset = min(offset, thresholdValue)
-        scrollView.contentInset = UIEdgeInsets(top: thresholdValue, left: 0.0, bottom: 0.0, right: 0.0)
-        UIView.commitAnimations()
+        UIView.animate(withDuration: 0.2, animations: {
+            var offset = max(scrollView.contentOffset.y * -1, 0)
+            offset = min(offset, self.thresholdValue)
+            scrollView.contentInset = UIEdgeInsets(top: self.thresholdValue, left: 0.0, bottom: 0.0, right: 0.0)
+        })
     }
     
 }

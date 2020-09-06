@@ -10,19 +10,31 @@ import SwiftUI
 
 struct FeedList: View {
     var feeds = generateFeed()
+    @ObservedObject var model = MyModel()
+    
+    var view = PZPullToRefreshView(frame: CGRect(x: 0, y: -100, width: 100, height: 100))
+    
     var body: some View {
-        List {
-            ForEach(feeds) { feed in
-                FeedRow(feed: feed)
+        GeometryReader{ geometry in
+            RefreshScrollView(width: geometry.size.width, height: geometry.size.height, pz: PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - geometry.size.height, width: geometry.size.width, height: geometry.size.height)), handlePullToRefresh: {
+                print("handle")
+               
+            
+            }) {
+                List {
+                    ForEach(self.feeds) { feed in
+                        FeedRow(feed: feed)
+                    }
+                    .listRowBackground(Color.dark)
+                }
+                .onAppear() {
+                        UITableView.appearance().backgroundColor = TABLE_BACK
+                        UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
+                }
+                .background(BACKGROUND_COLOR)
+                .listStyle(GroupedListStyle())
             }
-            .listRowBackground(Color.dark)
         }
-        .onAppear() {
-                UITableView.appearance().backgroundColor = TABLE_BACK
-                UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
-        }
-        .background(BACKGROUND_COLOR)
-        .listStyle(GroupedListStyle())
     }
 }
 

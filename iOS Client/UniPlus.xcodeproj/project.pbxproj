@@ -42,6 +42,8 @@
 		D9500E46250366BA000D50B7 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9500E31250366BA000D50B7 /* SF-UI-Text-Bold.otf */; };
 		D9500E4825036844000D50B7 /* FeedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9500E4725036844000D50B7 /* FeedTextView.swift */; };
 		D97758AE25043DCB00B0BE8E /* DummyFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97758AD25043DCB00B0BE8E /* DummyFeeder.swift */; };
+		D97758B025045CBE00B0BE8E /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97758AF25045CBE00B0BE8E /* PullToRefresh.swift */; };
+		D97758B225048BD700B0BE8E /* PZPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97758B125048BD700B0BE8E /* PZPullToRefresh.swift */; };
 		D9990F3724FFA8EA00D2BBD9 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9990F3624FFA8EA00D2BBD9 /* FeedView.swift */; };
 		D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5124FE146E00D0645D /* AppDelegate.swift */; };
 		D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E3DD5324FE146E00D0645D /* SceneDelegate.swift */; };
@@ -114,6 +116,8 @@
 		D9500E31250366BA000D50B7 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
 		D9500E4725036844000D50B7 /* FeedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTextView.swift; sourceTree = "<group>"; };
 		D97758AD25043DCB00B0BE8E /* DummyFeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFeeder.swift; sourceTree = "<group>"; };
+		D97758AF25045CBE00B0BE8E /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
+		D97758B125048BD700B0BE8E /* PZPullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PZPullToRefresh.swift; sourceTree = "<group>"; };
 		D9990F3624FFA8EA00D2BBD9 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		D9E3DD4E24FE146E00D0645D /* UniPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E3DD5124FE146E00D0645D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				D927B59524FF71B40084F410 /* RegisterTextField.swift */,
 				D91185052500B7F00019EE2D /* SearchBar.swift */,
 				D9500E162503464E000D50B7 /* MainNavigationView.swift */,
+				D97758AF25045CBE00B0BE8E /* PullToRefresh.swift */,
+				D97758B125048BD700B0BE8E /* PZPullToRefresh.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -552,6 +558,8 @@
 				D9500E4825036844000D50B7 /* FeedTextView.swift in Sources */,
 				D9500E172503464E000D50B7 /* MainNavigationView.swift in Sources */,
 				D9E3DD8D24FE21D100D0645D /* Globals.swift in Sources */,
+				D97758B025045CBE00B0BE8E /* PullToRefresh.swift in Sources */,
+				D97758B225048BD700B0BE8E /* PZPullToRefresh.swift in Sources */,
 				D9E3DD5624FE146E00D0645D /* RootView.swift in Sources */,
 				D9500E1B25036169000D50B7 /* FeedUserTitleView.swift in Sources */,
 				D91185002500B6B90019EE2D /* NotificationView.swift in Sources */,

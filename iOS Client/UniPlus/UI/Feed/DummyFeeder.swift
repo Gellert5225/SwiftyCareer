@@ -26,3 +26,22 @@ func generateFeed() -> [Feed] {
     
     return feedArray
 }
+
+class MyModel: ObservableObject {
+    @Published var loading: Bool = false {
+        didSet {
+            if oldValue == false && loading == true {
+                self.load()
+            }
+        }
+    }
+    
+    @Published var feeds: [Feed] = generateFeed()
+    
+    func load() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            self.feeds = generateFeed()
+            self.loading = false
+        }
+    }
+}

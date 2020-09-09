@@ -60,7 +60,7 @@ struct RootView: View {
                         }
                     }
                     .tag(1)
-                Text("Dummy View")
+                Text("")
                     .tabItem {
                         VStack {
                             Image("Write")

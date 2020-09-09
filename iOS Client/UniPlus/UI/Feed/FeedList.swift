@@ -21,9 +21,9 @@ struct FeedList: View {
                
             
             }) {
-                List {
-                    ForEach(self.feeds) { feed in
-                        FeedRow(feed: feed)
+                ScrollView(.vertical) {
+                    ForEach(0..<self.feeds.count, id:\.self) { i in
+                        FeedRow(feed: self.feeds[i])
                     }
                     .listRowBackground(Color.dark)
                 }

@@ -14,8 +14,14 @@ struct FeedRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             FeedUserTitleView()
+                .padding(10)
             
-            FeedTextView(feed)
+            FeedTextView(self.feed)
+                .padding([.leading, .trailing], 10)
+            
+            FeedImageView(images: [Image("sample1"), Image("sample2"), Image("sample3"), Image("sample4"), Image("sample5")])
+            
+            ExDivider()
         }
         .listRowBackground(Color.dark)
     }
@@ -23,7 +29,18 @@ struct FeedRow: View {
 
 struct FeedRow_Previews: PreviewProvider {
     static var previews: some View {
-        FeedRow(feed: Feed(id: 1, userName: "G", bio: "G", text: "G"))
+        FeedRow(feed: Feed(userName: "G", bio: "G", text: "G"))
         
+    }
+}
+
+struct ExDivider: View {
+    let color: Color = .light_gray
+    let width: CGFloat = 0.5
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(height: width)
+            .edgesIgnoringSafeArea(.horizontal)
     }
 }

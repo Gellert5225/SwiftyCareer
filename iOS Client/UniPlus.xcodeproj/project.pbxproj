@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AC51BCC0C1B10B48C13D694D /* Pods_UniPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD38990B886CC964F5FF8C6F /* Pods_UniPlus.framework */; };
 		D90A5809250220C200D9B362 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90A5808250220C200D9B362 /* LoginView.swift */; };
+		D90F79E62508AAD30010B0AA /* FeedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90F79E52508AAD30010B0AA /* FeedImageView.swift */; };
+		D90F79F32508B0D20010B0AA /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90F79F22508B0D20010B0AA /* PagingView.swift */; };
 		D91185002500B6B90019EE2D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91184FF2500B6B90019EE2D /* NotificationView.swift */; };
 		D91185022500B6EC0019EE2D /* ConnectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91185012500B6EC0019EE2D /* ConnectionsView.swift */; };
 		D91185042500B7460019EE2D /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91185032500B7460019EE2D /* DiscoverView.swift */; };
@@ -82,6 +84,8 @@
 		BB3A9D5A7104B57A270EC69A /* Pods-UniPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniPlus.release.xcconfig"; path = "Target Support Files/Pods-UniPlus/Pods-UniPlus.release.xcconfig"; sourceTree = "<group>"; };
 		CD38990B886CC964F5FF8C6F /* Pods_UniPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90A5808250220C200D9B362 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D90F79E52508AAD30010B0AA /* FeedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageView.swift; sourceTree = "<group>"; };
+		D90F79F22508B0D20010B0AA /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		D91184FF2500B6B90019EE2D /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		D91185012500B6EC0019EE2D /* ConnectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsView.swift; sourceTree = "<group>"; };
 		D91185032500B7460019EE2D /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
@@ -175,6 +179,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D90F79E72508AD0D0010B0AA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D927B59724FF803C0084F410 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +202,7 @@
 				D9500E1825035BFD000D50B7 /* FeedRow.swift */,
 				D9500E1A25036169000D50B7 /* FeedUserTitleView.swift */,
 				D9500E4725036844000D50B7 /* FeedTextView.swift */,
+				D90F79E52508AAD30010B0AA /* FeedImageView.swift */,
 				D97758AD25043DCB00B0BE8E /* DummyFeeder.swift */,
 			);
 			path = Feed;
@@ -232,6 +244,7 @@
 				D927B59524FF71B40084F410 /* RegisterTextField.swift */,
 				D91185052500B7F00019EE2D /* SearchNavigation.swift */,
 				D9500E162503464E000D50B7 /* MainNavigationView.swift */,
+				D90F79F22508B0D20010B0AA /* PagingView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -312,6 +325,7 @@
 		D9E3DD8324FE158100D0645D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D90F79E72508AD0D0010B0AA /* Images */,
 				D9500E1C250366AF000D50B7 /* Fonts */,
 				D9E3DD5C24FE147000D0645D /* LaunchScreen.storyboard */,
 				D9E3DD5F24FE147000D0645D /* Info.plist */,
@@ -555,6 +569,7 @@
 				D9500E1925035BFD000D50B7 /* FeedRow.swift in Sources */,
 				D9E3DD5224FE146E00D0645D /* AppDelegate.swift in Sources */,
 				D9500E10250317BD000D50B7 /* LeftMenuView.swift in Sources */,
+				D90F79F32508B0D20010B0AA /* PagingView.swift in Sources */,
 				D9E3DD5424FE146E00D0645D /* SceneDelegate.swift in Sources */,
 				D927B59624FF71B40084F410 /* RegisterTextField.swift in Sources */,
 				D9E3DD8F24FE2F0400D0645D /* RegisterView.swift in Sources */,
@@ -565,6 +580,7 @@
 				D9990F3724FFA8EA00D2BBD9 /* FeedView.swift in Sources */,
 				D9500E4825036844000D50B7 /* FeedTextView.swift in Sources */,
 				D9500E172503464E000D50B7 /* MainNavigationView.swift in Sources */,
+				D90F79E62508AAD30010B0AA /* FeedImageView.swift in Sources */,
 				D9E3DD8D24FE21D100D0645D /* Globals.swift in Sources */,
 				D97758B025045CBE00B0BE8E /* RefreshScrollView.swift in Sources */,
 				D97758B225048BD700B0BE8E /* PZPullToRefresh.swift in Sources */,
@@ -741,6 +757,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UniPlus/UniPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"UniPlus/Preview Content\"";
 				DEVELOPMENT_TEAM = XS2QV44L5G;
 				ENABLE_PREVIEWS = YES;
@@ -749,7 +766,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlus;
+				MARKETING_VERSION = 3.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiaheLi.UniPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
@@ -764,6 +782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = UniPlus/UniPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"UniPlus/Preview Content\"";
 				DEVELOPMENT_TEAM = XS2QV44L5G;
 				ENABLE_PREVIEWS = YES;
@@ -772,7 +791,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JiaheLi.UniPlus;
+				MARKETING_VERSION = 3.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiaheLi.UniPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;

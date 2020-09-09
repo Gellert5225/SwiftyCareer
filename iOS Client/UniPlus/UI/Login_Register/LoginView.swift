@@ -61,7 +61,7 @@ struct LoginView: View {
                                 print(self.fields)
                                 withAnimation{
                                     self.showRoot.toggle()
-                                    self.presentationMode.wrappedValue.dismiss()
+                                    //self.presentationMode.wrappedValue.dismiss()
                                 }
                             }
                         ).frame(height: 30)

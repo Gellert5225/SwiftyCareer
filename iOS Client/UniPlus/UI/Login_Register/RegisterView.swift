@@ -89,7 +89,7 @@ struct RegisterView: View {
           } else {
            withAnimation{
                 self.showRoot.toggle()
-                self.presentationMode.wrappedValue.dismiss()
+                //self.presentationMode.wrappedValue.dismiss()
             }
           }
         }

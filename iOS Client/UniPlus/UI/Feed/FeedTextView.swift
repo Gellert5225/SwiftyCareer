@@ -11,10 +11,8 @@ import SwiftUI
 struct FeedTextView: View {
     var feed: Feed
     
-    /* Indicates whether the user want to see all the text or not. */
     @State private var expanded: Bool = false
 
-    /* Indicates whether the text has been truncated in its display. */
     @State private var truncated: Bool = false
 
     init(_ feed: Feed) {
@@ -22,8 +20,6 @@ struct FeedTextView: View {
     }
 
     private func determineTruncation(_ geometry: GeometryProxy) {
-        // Calculate the bounding box we'd need to render the
-        // text given the width from the GeometryReader.
         let total = self.feed.text.boundingRect(
             with: CGSize(
                 width: geometry.size.width,
@@ -67,6 +63,6 @@ struct FeedTextView: View {
 
 struct FeedTextView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedTextView(Feed(id: 1, userName: "", bio: "", text: ""))
+        FeedTextView(Feed(userName: "", bio: "", text: ""))
     }
 }

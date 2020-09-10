@@ -14,9 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        #if DEBUG
+            print("Running on DEBUG")
+        #elseif RELEASE
+            print("Running on RELEASE")
+        #endif
+        
         let parseConfig = ParseClientConfiguration {
-            $0.applicationId = "ycUcZbElpxaa0UbV5wUGpGvjaj2wIbauRCyJFUyG"
-            $0.server = "https://uniplusdev.herokuapp.com/parse"
+            $0.applicationId = ENV.APP_ID
+            $0.server = ENV.SERVER_URL
         }
         Parse.initialize(with: parseConfig)
         return true

@@ -18,7 +18,8 @@
     "parse-server": "4.3.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "NODE_ENV=dev node index.js",
+    "start-prod": "NODE_ENV=prod node index.js"
   },
   "engines": {
     "node": ">=4.3"

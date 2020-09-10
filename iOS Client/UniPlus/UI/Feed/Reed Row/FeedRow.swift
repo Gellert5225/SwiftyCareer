@@ -21,6 +21,8 @@ struct FeedRow: View {
             
             FeedImageView(images: [Image("sample1"), Image("sample2"), Image("sample3"), Image("sample4"), Image("sample5")])
             
+            FeedActionView()
+            
             ExDivider()
         }
         .listRowBackground(Color.dark)

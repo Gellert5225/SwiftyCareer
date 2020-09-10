@@ -22,6 +22,7 @@ extension Color {
     static let light_gray = Color(red: 145.0/255, green: 154.0/255, blue: 172.0/255)
     static let tint_color = Color(red: 53.0/255, green: 111/255, blue: 177/255)
     static let background_color = Color(red: 42.0/255, green: 47.0/255, blue: 63.0/255)
+    static let like_selected_color = Color(red: 224/255, green: 32/255, blue: 72/255)
 
     static func backgroundColor(for colorScheme: ColorScheme) -> Color {
         if colorScheme == .light {

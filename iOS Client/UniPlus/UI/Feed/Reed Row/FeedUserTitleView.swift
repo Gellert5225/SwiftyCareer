@@ -9,11 +9,14 @@
 import SwiftUI
 
 struct FeedUserTitleView: View {
+    
+    var name: String
+    
     var body: some View {
         HStack {
             CircleImage(image: Image("Gellert"), width: 40, height:40)
             VStack(alignment: .leading) {
-                Text("Jiahe Gellert Li")
+                Text(name)
                     .font(.custom("SF UI Text Bold", size: 15))
                     .foregroundColor(.white)
                 Text("Undergraduate student at UCR")
@@ -26,6 +29,6 @@ struct FeedUserTitleView: View {
 
 struct FeedUserTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedUserTitleView()
+        FeedUserTitleView(name: "Jiahe Gellert Li")
     }
 }

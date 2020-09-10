@@ -13,7 +13,7 @@ struct FeedRow: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            FeedUserTitleView()
+            FeedUserTitleView(name: feed.userName)
                 .padding(10)
             
             FeedTextView(self.feed)

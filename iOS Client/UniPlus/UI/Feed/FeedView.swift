@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FeedView: View {
     @Binding var showMenu: Bool
-    
+        
     init(show: Binding<Bool>) {
 //        UITableView.appearance().backgroundColor = .clear
 //        UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))

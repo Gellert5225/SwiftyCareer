@@ -97,6 +97,7 @@ open class PZPullToRefreshView: UIView {
         }
     }
     
+    open var scrollView: UIScrollView?
    
     @objc open weak var delegate: PZPullToRefreshDelegate?
     open var lastUpdatedLabelCustomFormatter: ( (_ date:Date)->String )?
@@ -209,10 +210,10 @@ open class PZPullToRefreshView: UIView {
         state = .normal
     }
     
-    @objc open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView) {
-//        UIView.beginAnimations(nil, context: nil)
-//        UIView.setAnimationDuration(0.3)
-//        UIView.commitAnimations()
+    @objc open func refreshScrollViewDataSourceDidFinishedLoading() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.scrollView!.contentInset = UIEdgeInsets.zero
+        })
         arrowImage?.isHidden = false
         state = .normal
     }

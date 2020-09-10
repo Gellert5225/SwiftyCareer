@@ -17,31 +17,32 @@ struct Feed: Identifiable {
     var text: String
 }
 
-func generateFeed() -> [Feed] {
-    var feedArray: [Feed] = [Feed]()
-    
-    for index in 1...10 {
-        feedArray.append(Feed(userName: "Jiahe Gellert Li", bio: "Undergra student at UCR", text: "\(index) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
+class FeedModel: ObservableObject {
+    @Published var modelData: [Feed]
+        
+    init(modelData: [Feed]) {
+        self.modelData = modelData
     }
     
-    return feedArray
-}
+    func addElement(_ name: String, onSuccess success: @escaping () -> Void) {
+        var dummy: [Feed] = []
+        DispatchQueue.global(qos: .background).async {
+            dummy = generateFeed(name)
 
-class MyModel: ObservableObject {
-    @Published var loading: Bool = false {
-        didSet {
-            if oldValue == false && loading == true {
-                self.load()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.modelData = dummy
+                success()
             }
         }
     }
+}
+
+func generateFeed(_ name: String) -> [Feed] {
+    var feedArray: [Feed] = [Feed]()
     
-    @Published var feeds: [Feed] = generateFeed()
-    
-    func load() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            //self.feeds = generateFeed()
-            self.loading = false
-        }
+    for index in 1...10 {
+        feedArray.append(Feed(userName: name, bio: "Undergrad student at UCR", text: "\(index) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
     }
+    
+    return feedArray
 }

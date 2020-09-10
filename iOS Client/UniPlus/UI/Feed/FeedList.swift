@@ -9,37 +9,47 @@
 import SwiftUI
 
 struct FeedList: View {
-    var feeds = generateFeed()
-    @ObservedObject var model = MyModel()
+    @State var feedModel: FeedModel = FeedModel(modelData: generateFeed("Gellert"))
     
     var view = PZPullToRefreshView(frame: CGRect(x: 0, y: -100, width: 100, height: 100))
     
+    func handlePullToRefresh() {
+        //print(feedModel.modelData)
+    }
+    
     var body: some View {
         GeometryReader{ geometry in
-            RefreshScrollView(width: geometry.size.width, height: geometry.size.height, pz: PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - geometry.size.height, width: geometry.size.width, height: geometry.size.height)), handlePullToRefresh: {
-                print("handle")
-               
-            
-            }) {
-                ScrollView(.vertical) {
-                    ForEach(0..<self.feeds.count, id:\.self) { i in
-                        FeedRow(feed: self.feeds[i])
-                    }
-                    .listRowBackground(Color.dark)
-                }
-                .onAppear() {
-                    UITableView.appearance().backgroundColor = UIColor.tableview_background
-                        UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
-                }
-                .background(Color.background_color)
-                .listStyle(GroupedListStyle())
+            RefreshScrollView(feeds: $feedModel, width: geometry.size.width, height: geometry.size.height, pz: PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - geometry.size.height, width: geometry.size.width, height: geometry.size.height)), handlePullToRefresh: handlePullToRefresh) {
+                SwiftUIList(model: self.feedModel)
             }
         }
     }
 }
 
+struct SwiftUIList: View {
+        
+    @ObservedObject var model: FeedModel
+
+    var body: some View {
+        ScrollView(.vertical) {
+            ForEach(0..<self.model.modelData.count, id:\.self) { i in
+                FeedRow(feed: self.model.modelData[i])
+            }
+            .listRowBackground(Color.dark)
+        }
+        .onAppear() {
+            UITableView.appearance().backgroundColor = UIColor.tableview_background
+            UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
+        }
+        .background(Color.background_color)
+        .listStyle(GroupedListStyle())
+    }
+}
+
 struct FeedList_Previews: PreviewProvider {
     static var previews: some View {
-        FeedList()
+        Group {
+            FeedList()
+        }
     }
 }

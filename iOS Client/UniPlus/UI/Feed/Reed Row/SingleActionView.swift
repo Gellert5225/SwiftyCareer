@@ -26,12 +26,12 @@ struct SingleActionView: View {
         }
         
         .onTapGesture(perform: {
-            if (selectedImageName != nil) {
-                shouldChangeImage.toggle()
-                if shouldChangeImage {
-                    number += 1
+            if (self.selectedImageName != nil) {
+                self.shouldChangeImage.toggle()
+                if self.shouldChangeImage {
+                    self.number += 1
                 } else {
-                    number -= 1
+                    self.number -= 1
                 }
             } else {
                 print("tapped comment")

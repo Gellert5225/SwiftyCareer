@@ -31,7 +31,7 @@ struct DiscoverView: View {
                 ZStack {
                     Color.background_color.edgesIgnoringSafeArea(.all)
                     
-                    Text(searchString)
+                    Text(self.searchString)
                 }
                 .navigationBarItems(
                     leading: CircleImage(image: Image("Gellert"), width: 30, height:30),

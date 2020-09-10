@@ -21,6 +21,9 @@ struct RefreshScrollView<Content: View>: UIViewRepresentable{
     }
 
     func makeUIView(context: Context) -> UIScrollView {
+        print(width)
+        print(height)
+        
         let view = pz
         view.delegate = context.coordinator
         view.bgColor = UIColor.tableview_background

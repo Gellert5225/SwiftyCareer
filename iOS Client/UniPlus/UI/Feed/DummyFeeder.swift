@@ -18,11 +18,7 @@ struct Feed: Identifiable {
 }
 
 class FeedModel: ObservableObject {
-    @Published var modelData: [Feed]
-        
-    init(modelData: [Feed]) {
-        self.modelData = modelData
-    }
+    @Published var modelData: [Feed] = []
     
     func addElement(_ name: String, onSuccess success: @escaping () -> Void) {
         var dummy: [Feed] = []

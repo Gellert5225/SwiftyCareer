@@ -39,6 +39,7 @@ struct RootView: View {
         ZStack(alignment: .leading) {
             TabView(selection: actionSelection) {
                 FeedView(show: $showMenu)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .tabItem {
                         VStack {
                             if (selection == 0) {

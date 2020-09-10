@@ -58,11 +58,7 @@ struct LoginView: View {
                             text: self.$fields[index],
                             placeholder: self.placeholders[index],
                             onCommit: {
-                                print(self.fields)
-                                withAnimation{
-                                    self.showRoot.toggle()
-                                    //self.presentationMode.wrappedValue.dismiss()
-                                }
+                                self.logIn()
                             }
                         ).frame(height: 30)
                         Divider().background(Color.light_gray)
@@ -76,6 +72,20 @@ struct LoginView: View {
             
             RootView()
                .offset(x: 0, y: self.showRoot ? 0 : UIScreen.main.bounds.height)
+        }
+    }
+    
+    func logIn() {
+        PFUser.logInWithUsername(inBackground: self.fields[0], password: self.fields[1]) {
+            (user: PFUser?, error: Error?) -> Void in
+              if user != nil {
+                withAnimation{
+                    self.showRoot.toggle()
+                    //self.presentationMode.wrappedValue.dismiss()
+                }
+              } else {
+                // The login failed. Check error to see why.
+              }
         }
     }
 }

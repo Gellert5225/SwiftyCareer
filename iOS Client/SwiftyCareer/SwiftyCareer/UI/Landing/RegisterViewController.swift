@@ -120,6 +120,7 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                     self.present(prepareDrawerMenu(), animated:true, completion: nil)
                   } else {
                     print(error?.localizedDescription ?? "Unkown Error")
+                    self.present(showStandardDialog(title: "Error", message: error?.localizedDescription ?? "Unknown Error", defaultButton: "OK"), animated: true, completion: nil)
                   }
                 }
             } else {
@@ -137,6 +138,7 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                 user.signUpInBackground { (succeeded: Bool, error: Error?) -> Void in
                     if let error = error {
                         print(error.localizedDescription)
+                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
                     } else {
                         self.present(prepareDrawerMenu(), animated:true, completion: nil)
                     }

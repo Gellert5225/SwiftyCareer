@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */; };
+		D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */; };
+		D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C902513586B0050E936 /* PopupDialogButton.swift */; };
+		D9254CA12513586C0050E936 /* PopupDialogContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C912513586B0050E936 /* PopupDialogContainerView.swift */; };
+		D9254CA22513586C0050E936 /* TransitionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C922513586B0050E936 /* TransitionAnimations.swift */; };
+		D9254CA32513586C0050E936 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C932513586B0050E936 /* PresentationManager.swift */; };
+		D9254CA42513586C0050E936 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C942513586B0050E936 /* PresentationController.swift */; };
+		D9254CA52513586C0050E936 /* PopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C952513586B0050E936 /* PopupDialog.swift */; };
+		D9254CA62513586C0050E936 /* PopupDialog+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C962513586B0050E936 /* PopupDialog+Keyboard.swift */; };
+		D9254CA72513586C0050E936 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C972513586B0050E936 /* TransitionAnimator.swift */; };
+		D9254CA82513586C0050E936 /* UIImageView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C982513586B0050E936 /* UIImageView+Calculations.swift */; };
+		D9254CA92513586C0050E936 /* UIViewController+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C992513586B0050E936 /* UIViewController+Visibility.swift */; };
+		D9254CAA2513586C0050E936 /* PopupDialogDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C9A2513586C0050E936 /* PopupDialogDefaultView.swift */; };
+		D9254CAB2513586C0050E936 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C9B2513586C0050E936 /* InteractiveTransition.swift */; };
+		D9254CAC2513586C0050E936 /* PopupDialogDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C9C2513586C0050E936 /* PopupDialogDefaultViewController.swift */; };
+		D9254CAD2513586C0050E936 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C9D2513586C0050E936 /* UIView+Animations.swift */; };
+		D9254CBB251358DE0050E936 /* BlurLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB2251358DE0050E936 /* BlurLayer.swift */; };
+		D9254CBC251358DE0050E936 /* CGContext+CGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB3251358DE0050E936 /* CGContext+CGImage.swift */; };
+		D9254CBD251358DE0050E936 /* CGImage+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB4251358DE0050E936 /* CGImage+Accelerate.swift */; };
+		D9254CBE251358DE0050E936 /* CGRect+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB5251358DE0050E936 /* CGRect+Conversion.swift */; };
+		D9254CBF251358DE0050E936 /* CaptureQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB6251358DE0050E936 /* CaptureQuality.swift */; };
+		D9254CC0251358DE0050E936 /* TrackingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB7251358DE0050E936 /* TrackingMode.swift */; };
+		D9254CC1251358DE0050E936 /* DynamicBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB8251358DE0050E936 /* DynamicBlurView.swift */; };
+		D9254CC2251358DE0050E936 /* CALayer+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CB9251358DE0050E936 /* CALayer+Conversion.swift */; };
+		D9254CC3251358DE0050E936 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CBA251358DE0050E936 /* UIImage+Blur.swift */; };
+		D9254CDB25139ECB0050E936 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CDA25139ECB0050E936 /* Feed.swift */; };
+		D9254CE02513A0400050E936 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CDF2513A0400050E936 /* User.swift */; };
+		D9254CE72513A46E0050E936 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254CE62513A46E0050E936 /* FeedViewModel.swift */; };
 		D96221B02512EA48005A96EA /* DummyFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96221AF2512EA48005A96EA /* DummyFeeder.swift */; };
 		D96222142512F3D0005A96EA /* DrawerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96222132512F3D0005A96EA /* DrawerMenu.swift */; };
 		D962221E2512F3D7005A96EA /* DrawerMenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96222182512F3D6005A96EA /* DrawerMenuStyle.swift */; };
@@ -82,6 +110,34 @@
 		13D9381DBF9BF75C01CA6AFE /* Pods-SwiftyCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCareer.release.xcconfig"; path = "Target Support Files/Pods-SwiftyCareer/Pods-SwiftyCareer.release.xcconfig"; sourceTree = "<group>"; };
 		515AF4AD644D11F661CE89CA /* Pods_SwiftyCareer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCareer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F6F04CDAFBCCCEE5B4265D /* Pods-SwiftyCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCareer.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyCareer/Pods-SwiftyCareer.debug.xcconfig"; sourceTree = "<group>"; };
+		D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogOverlayView.swift; sourceTree = "<group>"; };
+		D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
+		D9254C902513586B0050E936 /* PopupDialogButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogButton.swift; sourceTree = "<group>"; };
+		D9254C912513586B0050E936 /* PopupDialogContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogContainerView.swift; sourceTree = "<group>"; };
+		D9254C922513586B0050E936 /* TransitionAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimations.swift; sourceTree = "<group>"; };
+		D9254C932513586B0050E936 /* PresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationManager.swift; sourceTree = "<group>"; };
+		D9254C942513586B0050E936 /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		D9254C952513586B0050E936 /* PopupDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialog.swift; sourceTree = "<group>"; };
+		D9254C962513586B0050E936 /* PopupDialog+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PopupDialog+Keyboard.swift"; sourceTree = "<group>"; };
+		D9254C972513586B0050E936 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		D9254C982513586B0050E936 /* UIImageView+Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Calculations.swift"; sourceTree = "<group>"; };
+		D9254C992513586B0050E936 /* UIViewController+Visibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Visibility.swift"; sourceTree = "<group>"; };
+		D9254C9A2513586C0050E936 /* PopupDialogDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultView.swift; sourceTree = "<group>"; };
+		D9254C9B2513586C0050E936 /* InteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
+		D9254C9C2513586C0050E936 /* PopupDialogDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultViewController.swift; sourceTree = "<group>"; };
+		D9254C9D2513586C0050E936 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		D9254CB2251358DE0050E936 /* BlurLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurLayer.swift; sourceTree = "<group>"; };
+		D9254CB3251358DE0050E936 /* CGContext+CGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGContext+CGImage.swift"; sourceTree = "<group>"; };
+		D9254CB4251358DE0050E936 /* CGImage+Accelerate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+Accelerate.swift"; sourceTree = "<group>"; };
+		D9254CB5251358DE0050E936 /* CGRect+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Conversion.swift"; sourceTree = "<group>"; };
+		D9254CB6251358DE0050E936 /* CaptureQuality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureQuality.swift; sourceTree = "<group>"; };
+		D9254CB7251358DE0050E936 /* TrackingMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingMode.swift; sourceTree = "<group>"; };
+		D9254CB8251358DE0050E936 /* DynamicBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBlurView.swift; sourceTree = "<group>"; };
+		D9254CB9251358DE0050E936 /* CALayer+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Conversion.swift"; sourceTree = "<group>"; };
+		D9254CBA251358DE0050E936 /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
+		D9254CDA25139ECB0050E936 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		D9254CDF2513A0400050E936 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D9254CE62513A46E0050E936 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		D96221AF2512EA48005A96EA /* DummyFeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFeeder.swift; sourceTree = "<group>"; };
 		D96222132512F3D0005A96EA /* DrawerMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenu.swift; sourceTree = "<group>"; };
 		D96222182512F3D6005A96EA /* DrawerMenuStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuStyle.swift; sourceTree = "<group>"; };
@@ -184,10 +240,68 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D9254C8D251358570050E936 /* PopupDialog */ = {
+			isa = PBXGroup;
+			children = (
+				D9254C9B2513586C0050E936 /* InteractiveTransition.swift */,
+				D9254C952513586B0050E936 /* PopupDialog.swift */,
+				D9254C962513586B0050E936 /* PopupDialog+Keyboard.swift */,
+				D9254C902513586B0050E936 /* PopupDialogButton.swift */,
+				D9254C912513586B0050E936 /* PopupDialogContainerView.swift */,
+				D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */,
+				D9254C9A2513586C0050E936 /* PopupDialogDefaultView.swift */,
+				D9254C9C2513586C0050E936 /* PopupDialogDefaultViewController.swift */,
+				D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */,
+				D9254C942513586B0050E936 /* PresentationController.swift */,
+				D9254C932513586B0050E936 /* PresentationManager.swift */,
+				D9254C922513586B0050E936 /* TransitionAnimations.swift */,
+				D9254C972513586B0050E936 /* TransitionAnimator.swift */,
+				D9254C982513586B0050E936 /* UIImageView+Calculations.swift */,
+				D9254C9D2513586C0050E936 /* UIView+Animations.swift */,
+				D9254C992513586B0050E936 /* UIViewController+Visibility.swift */,
+			);
+			path = PopupDialog;
+			sourceTree = "<group>";
+		};
+		D9254CB1251358CA0050E936 /* DynamicBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				D9254CB2251358DE0050E936 /* BlurLayer.swift */,
+				D9254CB9251358DE0050E936 /* CALayer+Conversion.swift */,
+				D9254CB6251358DE0050E936 /* CaptureQuality.swift */,
+				D9254CB3251358DE0050E936 /* CGContext+CGImage.swift */,
+				D9254CB4251358DE0050E936 /* CGImage+Accelerate.swift */,
+				D9254CB5251358DE0050E936 /* CGRect+Conversion.swift */,
+				D9254CB8251358DE0050E936 /* DynamicBlurView.swift */,
+				D9254CB7251358DE0050E936 /* TrackingMode.swift */,
+				D9254CBA251358DE0050E936 /* UIImage+Blur.swift */,
+			);
+			path = DynamicBlurView;
+			sourceTree = "<group>";
+		};
+		D9254CE42513A4560050E936 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9254CDA25139ECB0050E936 /* Feed.swift */,
+				D9254CDF2513A0400050E936 /* User.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		D9254CE52513A4630050E936 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9254CE62513A46E0050E936 /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D96221E12512F33E005A96EA /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */,
+				D9254CB1251358CA0050E936 /* DynamicBlurView */,
+				D9254C8D251358570050E936 /* PopupDialog */,
 				D96222272512F41C005A96EA /* ETCarouSwift */,
 				D96221E22512F367005A96EA /* DrawerMenu */,
 			);
@@ -246,6 +360,7 @@
 				D97166F82511B3AE002DC5B0 /* UI */,
 				D97166F72511B3A4002DC5B0 /* Model */,
 				D97166702511B003002DC5B0 /* AppDelegate.swift */,
+				D97166FC2511B3C9002DC5B0 /* Globals.swift */,
 				D97166B92511B0E2002DC5B0 /* Supporting Files */,
 			);
 			path = SwiftyCareer;
@@ -285,7 +400,8 @@
 		D97166F72511B3A4002DC5B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D97166FC2511B3C9002DC5B0 /* Globals.swift */,
+				D9254CE52513A4630050E936 /* ViewModel */,
+				D9254CE42513A4560050E936 /* DataModel */,
 				D96221AF2512EA48005A96EA /* DummyFeeder.swift */,
 			);
 			path = Model;
@@ -566,29 +682,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9254CA52513586C0050E936 /* PopupDialog.swift in Sources */,
+				D9254CC2251358DE0050E936 /* CALayer+Conversion.swift in Sources */,
 				D97166FD2511B3C9002DC5B0 /* Globals.swift in Sources */,
 				D962222C2512F427005A96EA /* CarouCollectionView.swift in Sources */,
+				D9254CC1251358DE0050E936 /* DynamicBlurView.swift in Sources */,
 				D98C58DC2511D68B00D06554 /* RegisterViewController.swift in Sources */,
+				D9254CA82513586C0050E936 /* UIImageView+Calculations.swift in Sources */,
+				D9254CAD2513586C0050E936 /* UIView+Animations.swift in Sources */,
+				D9254CA22513586C0050E936 /* TransitionAnimations.swift in Sources */,
 				D962221E2512F3D7005A96EA /* DrawerMenuStyle.swift in Sources */,
 				D98C58F22511EC0300D06554 /* RootViewController.swift in Sources */,
 				D98C58F82511F36500D06554 /* FeedTableViewController.swift in Sources */,
+				D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */,
 				D98C59132512041600D06554 /* MessageViewController.swift in Sources */,
 				D97166752511B003002DC5B0 /* LandingViewController.swift in Sources */,
 				D96222232512F3D7005A96EA /* SlideIn.swift in Sources */,
+				D9254CAC2513586C0050E936 /* PopupDialogDefaultViewController.swift in Sources */,
 				D962221F2512F3D7005A96EA /* Floating.swift in Sources */,
+				D9254CA12513586C0050E936 /* PopupDialogContainerView.swift in Sources */,
+				D9254CBC251358DE0050E936 /* CGContext+CGImage.swift in Sources */,
 				D96221B02512EA48005A96EA /* DummyFeeder.swift in Sources */,
 				D96222142512F3D0005A96EA /* DrawerMenu.swift in Sources */,
+				D9254CBE251358DE0050E936 /* CGRect+Conversion.swift in Sources */,
 				D98C590E2512023700D06554 /* LeftMenuViewController.swift in Sources */,
 				D98C58FD2511FA4C00D06554 /* Env.swift in Sources */,
+				D9254CAA2513586C0050E936 /* PopupDialogDefaultView.swift in Sources */,
 				D97166712511B003002DC5B0 /* AppDelegate.swift in Sources */,
 				D962224525130390005A96EA /* FeedCell.swift in Sources */,
+				D9254CE02513A0400050E936 /* User.swift in Sources */,
+				D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */,
+				D9254CA62513586C0050E936 /* PopupDialog+Keyboard.swift in Sources */,
 				D96222202512F3D7005A96EA /* Parallax.swift in Sources */,
 				D962222E2512F427005A96EA /* CarouView.swift in Sources */,
 				D9F0B8DC25132C4A009C7191 /* LoadingCell.swift in Sources */,
+				D9254CBD251358DE0050E936 /* CGImage+Accelerate.swift in Sources */,
+				D9254CE72513A46E0050E936 /* FeedViewModel.swift in Sources */,
 				D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */,
+				D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */,
 				D96222222512F3D7005A96EA /* Slide.swift in Sources */,
 				D962222D2512F427005A96EA /* CarouPageControl.swift in Sources */,
+				D9254CDB25139ECB0050E936 /* Feed.swift in Sources */,
+				D9254CAB2513586C0050E936 /* InteractiveTransition.swift in Sources */,
+				D9254CA72513586C0050E936 /* TransitionAnimator.swift in Sources */,
+				D9254CA32513586C0050E936 /* PresentationManager.swift in Sources */,
+				D9254CBB251358DE0050E936 /* BlurLayer.swift in Sources */,
+				D9254CBF251358DE0050E936 /* CaptureQuality.swift in Sources */,
 				D96222212512F3D7005A96EA /* Overlay.swift in Sources */,
+				D9254CA42513586C0050E936 /* PresentationController.swift in Sources */,
+				D9254CC0251358DE0050E936 /* TrackingMode.swift in Sources */,
+				D9254CC3251358DE0050E936 /* UIImage+Blur.swift in Sources */,
+				D9254CA92513586C0050E936 /* UIViewController+Visibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

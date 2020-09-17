@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class FeedCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -23,6 +24,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var shareLabel: UILabel!
     
+    @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     var feed: Feed {
         didSet {
             setup()
@@ -30,7 +32,7 @@ class FeedCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        feed = generateFeed(name: "Gellert")[0]
+        feed = Feed()
         super.init(coder: coder)
     }
     
@@ -46,19 +48,44 @@ class FeedCell: UITableViewCell {
     }
     
     func setup() {
-        profileImageView.image = feed.user.profilePicture
+        let userImageFile = feed.user!["profilePicture"] as! PFFileObject
+        userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let imageData = imageData {
+                self.profileImageView.image = UIImage(data:imageData)
+            }
+        }
+
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.light_gray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        usernameLabel.text = feed.user.username
-        bioLabel.text = feed.user.bio
+        usernameLabel.text = feed.user!.username
+        bioLabel.text = feed.user!["position"] as? String
         feedTextview.text = feed.text
-        imageScrollView.set(imageSet: feed.images)
-        imageScrollView.autoRideEnabled = false
-        imageScrollView.currentDotColor = .light_gray
+        var images: [UIImage] = []
+        if let imageArray = feed.images {
+            for imageFile in imageArray {
+                imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else if let imageData = imageData {
+                        images.append(UIImage(data:imageData)!)
+                    }
+                }
+            }
+        }
+        
+        if images.count != 0 {
+            imageScrollView.set(imageSet: images)
+            imageScrollView.currentDotColor = .light_gray
+        } else {
+            imageScrollView.removeConstraint(aspectRatio)
+        }
+
         bioLabel.textColor = .light_gray
         
-        likeImage.image = feed.likedByCurrentUser ? UIImage(named: "LikeSelected")! : UIImage(named: "Like")
+        likeImage.image = feed.isLikedByCurrentUser! ? UIImage(named: "LikeSelected")! : UIImage(named: "Like")
         likeLabel.textColor = .light_gray
         commentLabel.textColor = .light_gray
         shareLabel.textColor = .light_gray
@@ -79,11 +106,11 @@ class FeedCell: UITableViewCell {
     }
     
     @objc func handleLike(_ sender: UITapGestureRecognizer? = nil) {
-        if feed.likedByCurrentUser {
-            feed.likedByCurrentUser = false
+        if feed.isLikedByCurrentUser! {
+            feed.isLikedByCurrentUser = false
             likeImage.image = UIImage(named: "Like")
         } else {
-            feed.likedByCurrentUser = true
+            feed.isLikedByCurrentUser = true
             likeImage.image = UIImage(named: "LikeSelected")
         }
     }

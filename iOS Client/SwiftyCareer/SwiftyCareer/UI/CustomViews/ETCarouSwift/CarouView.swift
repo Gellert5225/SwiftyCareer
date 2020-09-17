@@ -28,28 +28,9 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private var currentImageIndex:Int!
     private var timeInterval:Double = 2
     
-    private var timer:Timer!
     open var width:CGFloat!
-    private var autoScrollEnabled = true
+    private var autoScrollEnabled = false
     private var scrollDirection:CarouDirection = .rightToLeft
-    
-    public var autoRideEnabled:Bool{
-        get {
-            self.autoScrollEnabled
-        }
-        set{
-            if newValue{
-                
-                if !self.autoScrollEnabled{
-                   self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(timedOut(sender:)), userInfo: nil, repeats: true)
-                }
-                
-            }else{
-                self.timer.invalidate()
-            }
-            self.autoScrollEnabled = newValue
-        }
-    }
     
     public var dotColor:UIColor{
         get {
@@ -84,27 +65,13 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
-    public var showTime:Double{
-        get{
-            return self.timeInterval
-        }
-        set {
-            guard newValue > 0 else { return }
-            self.timeInterval = newValue
-            self.timer.invalidate()
-            if self.autoScrollEnabled{
-                self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(timedOut(sender:)), userInfo: nil, repeats: true)
-            }
-        }
-    }
-    
     public func set(imageSet: [UIImage], rideDirection:CarouDirection = .rightToLeft) {
         self.images = imageSet
-        self.width = frame.width
+        self.width = self.frame.width
         
         guard self.images.count > 0 else {
             
-            let image = UIImage(color: UIColor.systemBlue, size: frame.size)
+            let image = UIImage(color: UIColor.systemBlue, size: self.frame.size)
             let imageView = UIImageView(image: image)
             imageView.frame = self.bounds
             self.addSubview(imageView)
@@ -149,9 +116,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
 //        self.pageControl.addTarget(self, action: #selector(self.pageControlUntapped(sender:)), for: .touchUpInside)
         self.addSubview(self.pageControl)
         
-        if self.autoScrollEnabled{
-            self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(timedOut(sender:)), userInfo: nil, repeats: true)
-        }
     }
     
     public init(frame: CGRect, imageSet:[UIImage], rideDirection:CarouDirection = .rightToLeft) {
@@ -167,9 +131,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.75)
     }
     
-    deinit {
-        self.timer.invalidate()
-    }
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -206,7 +167,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        self.timer.invalidate()
+        //self.timer.invalidate()
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -217,9 +178,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.pageControl.currentPage = index
         self.currentImageIndex = index
         
-        if self.autoScrollEnabled{
-            self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(timedOut(sender:)), userInfo: nil, repeats: true)
-        }
         
         guard let delegate = self.delegate else { return }
         guard delegate.responds(to: #selector(self.delegate?.carouViewDidChangeImage(_:index:))) else { return }
@@ -233,7 +191,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     @objc private func pageControlTapped(sender:UIPageControl){
-        self.timer.invalidate()
+        //self.timer.invalidate()
     }
     
     @objc private func pageControlUntapped(sender:UIPageControl){
@@ -241,9 +199,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.currentImageIndex = sender.currentPage+1
         let offsetX = CGFloat(sender.currentPage+1)*self.frame.size.width
         self.collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
-        if self.autoScrollEnabled{
-            self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(timedOut(sender:)), userInfo: nil, repeats: true)
-        }
+
     }
     
     @objc private func timedOut(sender:Timer){

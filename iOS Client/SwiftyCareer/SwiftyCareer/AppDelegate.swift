@@ -40,6 +40,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         
+//        PFCloud.callFunction(inBackground: "SendTestEmail", withParameters: nil) { (response, error) in
+//            print(response)
+//        }
+        
+//        let query = PFQuery(className: "_User")
+//        query.whereKey("display_name", matchesText: "Li")
+//        query.order(byAscending: "$score")
+//        query.selectKeys(["$score"])
+//        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let objects = objects {
+//                print("found \(objects.count) users")
+//                objects.forEach { (object) in
+//                    print("User \(object.objectId!) has \(object["score"] ?? "unknown") weight");
+//                }
+//            }
+//        }
+        
+//        let query = PFQuery(className: "_User")
+//        query.whereKey("display_name", matchesRegex: "g", modifiers: "i")
+//        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let objects = objects {
+//                print("found \(objects.count) users")
+//                objects.forEach { (object) in
+//                    print("User \(object.objectId!) has \(object["score"] ?? "unknown") weight");
+//                }
+//            }
+//        }
+        
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)

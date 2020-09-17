@@ -7,20 +7,20 @@
 
 import UIKit
 
-class Feed {
-    var user: User
+class DummyFeed {
+    var user: DummyUser
     var text: String
     var images: [UIImage]
     var likedByCurrentUser = false
     
-    init(withUser user: User, feedText text: String, feedImages images: [UIImage]) {
+    init(withUser user: DummyUser, feedText text: String, feedImages images: [UIImage]) {
         self.user = user
         self.text = text
         self.images = images
     }
 }
 
-class User {
+class DummyUser {
     var username: String
     var bio: String
     var profilePicture: UIImage
@@ -32,12 +32,13 @@ class User {
     }
 }
 
-class FeedModel {
-    var modelData: [Feed] = []
+class DummyFeedModel {
+    var modelData: [DummyFeed] = []
     var isLoading = true 
     
     func addElement(_ name: String, onSuccess success: @escaping () -> Void) {
-        var dummy: [Feed] = []
+        var dummy: [DummyFeed] = []
+
         DispatchQueue.global(qos: .background).async {
             dummy = generateFeed(name: name)
 
@@ -50,11 +51,11 @@ class FeedModel {
     }
 }
 
-func generateFeed(name: String) -> [Feed] {
-    var feeds: [Feed] = []
-    let user = User(withUsername: name, bio: "Full Stack Developer", profilePicture: UIImage(named: "Gellert")!)
+func generateFeed(name: String) -> [DummyFeed] {
+    var feeds: [DummyFeed] = []
+    let user = DummyUser(withUsername: name, bio: "Full Stack Developer", profilePicture: UIImage(named: "Gellert")!)
     for index in 1...10 {
-        let feed = Feed(withUser: user, feedText: "\(index) this is some awesome text, but is super long to test the wrapping and auto resizing of my UITableView", feedImages: [UIImage(named: "sample1")!, UIImage(named:"sample2")!, UIImage(named:"sample3")!, UIImage(named:"sample4")!, UIImage(named:"sample5")!])
+        let feed = DummyFeed(withUser: user, feedText: "\(index) this is some awesome text, but is super long to test the wrapping and auto resizing of my UITableView", feedImages: [UIImage(named: "sample1")!, UIImage(named:"sample2")!, UIImage(named:"sample3")!, UIImage(named:"sample4")!, UIImage(named:"sample5")!])
         feeds.append(feed)
     }
     

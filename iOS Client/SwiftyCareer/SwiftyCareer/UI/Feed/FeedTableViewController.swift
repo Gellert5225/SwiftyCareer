@@ -10,20 +10,24 @@ import Parse
 
 class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
     
-    var feedModel = FeedModel()
+    var feedModel = FeedViewModel()
     
     var refreshView: PZPullToRefreshView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        feedModel.addElement("Gellert Jiahe Li") {
-            self.tableView.reloadData()
-            if self.refreshView == nil {
-                let view = PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - self.tableView.bounds.size.height, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                view.delegate = self
-                self.tableView.addSubview(view)
-                self.refreshView = view
+        feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
+            if let err = error {
+                print(err.localizedDescription)
+            } else {
+                self.tableView.reloadData()
+                if self.refreshView == nil {
+                    let view = PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - self.tableView.bounds.size.height, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+                    view.delegate = self
+                    self.tableView.addSubview(view)
+                    self.refreshView = view
+                }
             }
         }
         
@@ -43,7 +47,7 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedModel.isLoading ? 1 : feedModel.modelData.count
+        return feedModel.isLoading ? 1 : feedModel.feeds.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,7 +61,7 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
-            let feed = feedModel.modelData[indexPath.row]
+            let feed = feedModel.feeds[indexPath.row]
             
             cell.feed = feed
 
@@ -78,7 +82,7 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
         refreshView?.isLoading = true
         print("did trigger")
         
-        feedModel.addElement("Cindy Kejin Li") {
+        feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
             print("Complete loading!")
             self.refreshView?.isLoading = false
             self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)

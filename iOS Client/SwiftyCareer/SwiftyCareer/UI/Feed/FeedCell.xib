@@ -207,6 +207,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="ThemeColor"/>
             <connections>
+                <outlet property="aspectRatio" destination="1ON-Wm-h3C" id="ymF-G7-Kh2"/>
                 <outlet property="bioLabel" destination="jlM-qC-FY3" id="cLS-cF-oyH"/>
                 <outlet property="commentLabel" destination="MeK-BU-iGC" id="mDh-3n-9sO"/>
                 <outlet property="commentView" destination="fig-Ia-WZ8" id="lkC-Oy-33D"/>

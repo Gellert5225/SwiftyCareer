@@ -79,9 +79,19 @@ class FeedCell: UITableViewCell {
         if images.count != 0 {
             imageScrollView.set(imageSet: images)
             imageScrollView.currentDotColor = .light_gray
+            imageScrollView.addConstraint(aspectRatio)
         } else {
-            imageScrollView.removeConstraint(aspectRatio)
+            if aspectRatio != nil {
+                imageScrollView.removeConstraint(aspectRatio)
+            }
         }
+//        imageScrollView.addConstraint(NSLayoutConstraint(item: imageScrollView!,
+//                                                  attribute: .height,
+//                                                  relatedBy: .equal,
+//                                                  toItem: imageScrollView,
+//                                                  attribute: .width,
+//                                                  multiplier: 3.0 / 4.0,
+//                                                  constant: 0))
 
         bioLabel.textColor = .light_gray
         

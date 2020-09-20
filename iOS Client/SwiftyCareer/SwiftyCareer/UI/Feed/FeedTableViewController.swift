@@ -80,7 +80,6 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
     
     func pullToRefreshDidTrigger(_ view: PZPullToRefreshView) -> () {
         refreshView?.isLoading = true
-        print("did trigger")
         
         feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
             print("Complete loading!")

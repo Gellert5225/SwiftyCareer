@@ -63,18 +63,6 @@ class FeedCell: UITableViewCell {
         usernameLabel.text = feed.user!["display_name"] as? String
         bioLabel.text = feed.user!["position"] as? String
         feedTextview.text = feed.text
-        //var images: [UIImage] = []
-//        if let imageArray = feed.images {
-//            for imageFile in imageArray {
-//                imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    } else if let imageData = imageData {
-//                        images.append(UIImage(data:imageData)!)
-//                    }
-//                }
-//            }
-//        }
         
         if feed.images?.count != 0 {
             imageScrollView.set(imageDataSet: feed.images!)

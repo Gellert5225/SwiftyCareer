@@ -8,11 +8,34 @@ Welcome to SwiftyCareer! This repository contains iOS client, server and a datab
 
 ## Prerequisite
 
-You need to have Node.js installed on your machine. 
+You need to have Node.js and MongoDB installed on your machine. 
 
 We use [Parse](http://parseplatform.org) as our backend service, and you can find their documentations [here](http://docs.parseplatform.org).
 
-## Usage
+## Install
+
+### Client
+
+We use CocoaPod for iOS client. To start, run `pod install` in the iOS Client directory.
+
+### Database
+
+After you have installed MongoDB Community version, run 
+
+`mongod --port 27017 --auth --dbpath your/db/path`
+
+then you can either download MongoDB Compass or run `mongo` in a shell window to browse the database. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
+
+> Note: you need to create a database user before you access it. 
+`
+db.createUser({
+    user: 'new_username',
+    pwd: 'new_password',
+    roles: [
+        { role: 'readWrite', db: 'your_new_database' }
+    ]
+})
+`
 
 Our server is deployed on Heroku, to run the server locally, clone the GitHub repo, and go to the folder "Server/Development". First, you need to install all node dependencies, simply run
 

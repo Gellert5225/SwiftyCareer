@@ -21,13 +21,18 @@ class FeedViewModel {
             } else if let feeds = objects as? [PFObject] {
                 self.feeds = []
                 for object in feeds {
+                    var imageDatas: [PFFileObject] = []
+                    for imageObject in object["images"] as! [PFObject] {
+                        imageDatas.append(imageObject["image"] as! PFFileObject)
+                    }
                     let likedUserIds = object["likedUserIds"] as! [String]
                     let feed = Feed(user: object["author"] as! PFUser,
                                     text: object["text"] as! String,
-                                    images: object["images"] as! [PFFileObject],
+                                    images: imageDatas,
                                     numberOfLikes: object["numberOfLikes"] as! Int,
                                     numberOfComments: object["numberOfComments"] as! Int,
                                     numberOfShares: object["numberOfShares"] as! Int,
+                                    numberOfImages: object["numberOfImages"] as! Int,
                                     isLikedByCurrentUser: likedUserIds.contains((PFUser.current()?.objectId)!))
                     self.feeds.append(feed)
                 }

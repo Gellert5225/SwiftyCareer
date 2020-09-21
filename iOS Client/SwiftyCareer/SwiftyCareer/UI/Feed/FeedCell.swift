@@ -60,25 +60,26 @@ class FeedCell: UITableViewCell {
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.light_gray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        usernameLabel.text = feed.user!.username
+        usernameLabel.text = feed.user!["display_name"] as? String
         bioLabel.text = feed.user!["position"] as? String
         feedTextview.text = feed.text
-        var images: [UIImage] = []
-        if let imageArray = feed.images {
-            for imageFile in imageArray {
-                imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else if let imageData = imageData {
-                        images.append(UIImage(data:imageData)!)
-                    }
-                }
-            }
-        }
+        //var images: [UIImage] = []
+//        if let imageArray = feed.images {
+//            for imageFile in imageArray {
+//                imageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    } else if let imageData = imageData {
+//                        images.append(UIImage(data:imageData)!)
+//                    }
+//                }
+//            }
+//        }
         
-        if images.count != 0 {
-            imageScrollView.set(imageSet: images)
-            imageScrollView.currentDotColor = .light_gray
+        if feed.images?.count != 0 {
+            imageScrollView.set(imageDataSet: feed.images!)
+            imageScrollView.currentDotColor = .white
+            imageScrollView.dotColor = .light_gray
             imageScrollView.addConstraint(aspectRatio)
         } else {
             if aspectRatio != nil {

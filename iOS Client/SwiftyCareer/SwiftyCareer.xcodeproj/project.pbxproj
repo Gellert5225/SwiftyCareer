@@ -56,6 +56,7 @@
 		D97166DD2511B196002DC5B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97166762511B003002DC5B0 /* Main.storyboard */; };
 		D97166E12511B19A002DC5B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D971667B2511B004002DC5B0 /* LaunchScreen.storyboard */; };
 		D97166FD2511B3C9002DC5B0 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97166FC2511B3C9002DC5B0 /* Globals.swift */; };
+		D988B09B25182A4000EF7BBA /* SCTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988B09A25182A4000EF7BBA /* SCTextView.swift */; };
 		D98C58C32511C93800D06554 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D98C58B72511C91E00D06554 /* SF-UI-Display-Black.otf */; };
 		D98C58C42511C93800D06554 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D98C58B82511C91E00D06554 /* SF-UI-Display-Bold.otf */; };
 		D98C58C52511C93800D06554 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = D98C58BB2511C91E00D06554 /* SF-UI-Display-Heavy.otf */; };
@@ -165,6 +166,7 @@
 		D97166922511B004002DC5B0 /* SwiftyCareerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyCareerUITests.swift; sourceTree = "<group>"; };
 		D97166942511B004002DC5B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D97166FC2511B3C9002DC5B0 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		D988B09A25182A4000EF7BBA /* SCTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTextView.swift; sourceTree = "<group>"; };
 		D98C58AE2511C91C00D06554 /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
 		D98C58AF2511C91C00D06554 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		D98C58B02511C91D00D06554 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				D9254C8D251358570050E936 /* PopupDialog */,
 				D96222272512F41C005A96EA /* ETCarouSwift */,
 				D96221E22512F367005A96EA /* DrawerMenu */,
+				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				D9254CBD251358DE0050E936 /* CGImage+Accelerate.swift in Sources */,
 				D9254CE72513A46E0050E936 /* FeedViewModel.swift in Sources */,
 				D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */,
+				D988B09B25182A4000EF7BBA /* SCTextView.swift in Sources */,
 				D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */,
 				D96222222512F3D7005A96EA /* Slide.swift in Sources */,
 				D962222D2512F427005A96EA /* CarouPageControl.swift in Sources */,

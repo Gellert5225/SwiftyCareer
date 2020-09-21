@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @objc public protocol CarouViewDelegate:NSObjectProtocol{
     
@@ -18,58 +19,65 @@ let CAROUCELL = "caroucell"
 
 public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    public weak var delegate:CarouViewDelegate?
+    public weak var delegate: CarouViewDelegate?
     
-    open var images:[UIImage]!
+    open var images: [UIImage]!
+    open var imageDatas: [PFFileObject]!
     
     private var pageControl: CarouPageControl!
-    private var collectionView:CarouCollectionView!
+    private var collectionView: CarouCollectionView!
     
-    private var currentImageIndex:Int!
-    private var timeInterval:Double = 2
+    private var currentImageIndex: Int!
+    private var timeInterval: Double = 2
     
-    open var width:CGFloat!
+    open var width: CGFloat!
     private var autoScrollEnabled = false
-    private var scrollDirection:CarouDirection = .rightToLeft
+    private var scrollDirection: CarouDirection = .rightToLeft
     
-    public var dotColor:UIColor{
+    public var dotColor: UIColor {
         get {
             return self.pageControl.pageIndicatorTintColor ?? UIColor.white
         }
         set {
-            self.pageControl.pageIndicatorTintColor = newValue
+            if self.pageControl != nil {
+                self.pageControl.pageIndicatorTintColor = newValue
+            }
         }
     }
     
-    public var currentDotColor:UIColor{
+    public var currentDotColor: UIColor {
         get {
             return self.pageControl.currentPageIndicatorTintColor ?? UIColor.black
         }
         set {
-            self.pageControl.currentPageIndicatorTintColor = newValue
+            if self.pageControl != nil {
+                self.pageControl.currentPageIndicatorTintColor = newValue
+            }
         }
     }
     
-    public var carouIndex:Int{
+    public var carouIndex: Int {
         get {
             return self.currentImageIndex
         }
     }
     
-    public var dotSize:CarouDotSize{
+    public var dotSize: CarouDotSize {
         get{
             return self.pageControl.dotSize
         }
         set{
-            self.pageControl.setDotSize(newValue)
+            if self.pageControl != nil {
+                self.pageControl.setDotSize(newValue)
+            }
         }
     }
     
-    public func set(imageSet: [UIImage], rideDirection:CarouDirection = .rightToLeft) {
-        self.images = imageSet
+    public func set(imageDataSet: [PFFileObject], rideDirection:CarouDirection = .rightToLeft) {
+        self.imageDatas = imageDataSet
         self.width = self.frame.width
         
-        guard self.images.count > 0 else {
+        guard self.imageDatas.count > 0 else {
             
             let image = UIImage(color: UIColor.systemBlue, size: self.frame.size)
             let imageView = UIImageView(image: image)
@@ -78,12 +86,13 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             return
         }
         
-        guard self.images.count > 1 else {
-            let imageView = UIImageView(image: self.images[0])
+        guard self.imageDatas.count > 1 else {
+            let imageView = PFImageView()//UIImageView(image: self.images[0])
             imageView.frame = self.bounds
+            imageView.file = self.imageDatas[0]
             self.addSubview(imageView)
+            imageView.loadInBackground()
             return
-            
         }
         
         self.scrollDirection = rideDirection
@@ -94,7 +103,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             
         }else{
             
-            self.images = self.images.reversed()
+            self.imageDatas = self.imageDatas.reversed()
             
             self.currentImageIndex = self.images.count
             
@@ -105,24 +114,24 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
         
         
-        self.collectionView = CarouCollectionView(frame: self.bounds, collectionViewLayout: layout, imagesCount: self.images!.count, contentOffsetX:0)
+        self.collectionView = CarouCollectionView(frame: self.bounds, collectionViewLayout: layout, imagesCount: self.imageDatas!.count, contentOffsetX:0)
         self.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
         
         let pageControlFrame = CGRect(x: self.width/2-self.width*0.375, y: frame.height*0.8, width: self.width*0.75, height:frame.height*0.25)
-        self.pageControl = CarouPageControl(frame: pageControlFrame, imagesCount: self.images.count, currentPage: self.currentImageIndex)
+        self.pageControl = CarouPageControl(frame: pageControlFrame, imagesCount: self.imageDatas.count, currentPage: self.currentImageIndex)
 //        self.pageControl.addTarget(self, action: #selector(self.pageControlTapped(sender:)), for: .touchDown)
 //        self.pageControl.addTarget(self, action: #selector(self.pageControlUntapped(sender:)), for: .touchUpInside)
         self.addSubview(self.pageControl)
         
     }
     
-    public init(frame: CGRect, imageSet:[UIImage], rideDirection:CarouDirection = .rightToLeft) {
+    public init(frame: CGRect, imageDataSet: [PFFileObject], rideDirection:CarouDirection = .rightToLeft) {
         super.init(frame: frame)
         
         
-        set(imageSet: imageSet)
+        set(imageDataSet: imageDataSet)
     }
      
     required init?(coder: NSCoder) {
@@ -137,17 +146,19 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.images.count
+        return self.imageDatas.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CAROUCELL, for: indexPath)
-        let imageView = UIImageView(image: self.images[indexPath.row])
+        let imageView = PFImageView()
+        imageView.file = self.imageDatas[indexPath.row]
         imageView.frame = CGRect(origin: CGPoint.zero, size: cell.frame.size)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         cell.addSubview(imageView)
+        imageView.loadInBackground()
         cell.backgroundColor = UIColor.purple
         return cell
     }

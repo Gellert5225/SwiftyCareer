@@ -17,8 +17,8 @@ class CarouPageControl: UIPageControl {
         super.init(frame: frame)
         self.numberOfPages = imagesCount
         self.currentPage = currentPage
-        self.currentPageIndicatorTintColor = UIColor.black
-        self.pageIndicatorTintColor = UIColor.white
+        self.currentPageIndicatorTintColor = UIColor.white
+        self.pageIndicatorTintColor = UIColor.black
         self.isUserInteractionEnabled = false
         //self.frame.size = sizeThatFits(CGSize(width: 300, height: 200))
     }

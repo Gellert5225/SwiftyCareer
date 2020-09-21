@@ -90,7 +90,6 @@ func showStandardDialog(animated: Bool = true, title: String, message: String, d
     popup.addButtons([buttonOne])
     
     return popup
-//    self.present(popup, animated: animated, completion: nil)
 }
 
 extension UIColor {

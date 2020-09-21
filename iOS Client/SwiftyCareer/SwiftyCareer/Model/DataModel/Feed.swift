@@ -15,6 +15,7 @@ class Feed {
     var numberOfLikes: Int?
     var numberOfComments: Int?
     var numberOfShares: Int?
+    var numberOfImages: Int?
     //var comments: [Comment]
     var isLikedByCurrentUser: Bool?
     
@@ -22,13 +23,14 @@ class Feed {
         
     }
     
-    init(user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, isLikedByCurrentUser: Bool) {
+    init(user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
         self.user = user
         self.text = text
         self.images = images
         self.numberOfLikes = numberOfLikes
         self.numberOfComments = numberOfComments
         self.numberOfShares = numberOfShares
+        self.numberOfImages = numberOfImages
         self.isLikedByCurrentUser = isLikedByCurrentUser
     }
 }

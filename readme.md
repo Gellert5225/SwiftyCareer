@@ -27,7 +27,7 @@ After you have installed MongoDB Community version, run
 then you can either download MongoDB Compass or run `mongo` in a shell window to browse the database. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
 
 > Note: you need to create a database user before you access it. 
-`
+```
 db.createUser({
     user: 'new_username',
     pwd: 'new_password',
@@ -35,7 +35,7 @@ db.createUser({
         { role: 'readWrite', db: 'your_new_database' }
     ]
 })
-`
+```
 
 Our server is deployed on Heroku, to run the server locally, clone the GitHub repo, and go to the folder "Server/Development". First, you need to install all node dependencies, simply run
 

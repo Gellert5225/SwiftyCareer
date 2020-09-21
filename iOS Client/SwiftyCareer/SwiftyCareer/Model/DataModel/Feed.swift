@@ -9,6 +9,8 @@ import Foundation
 import Parse
 
 class Feed {
+    var id: String?
+    var parseObject: PFObject?
     var user: PFUser?
     var text: String?
     var images: [PFFileObject]?
@@ -23,7 +25,9 @@ class Feed {
         
     }
     
-    init(user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
+    init(id: String, parseObject: PFObject, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
+        self.id = id
+        self.parseObject = parseObject
         self.user = user
         self.text = text
         self.images = images

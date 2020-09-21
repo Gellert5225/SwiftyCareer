@@ -15,7 +15,6 @@ class FeedViewModel {
     func fetchFeeds(onCompletion complete: @escaping ([Feed]?, Error?) -> Void) {
         PFCloud.callFunction(inBackground: "FetchFeeds", withParameters: nil) { (objects, error) in
             if let err = error {
-                print(err.localizedDescription)
                 self.isLoading = false
                 complete(nil, err)
             } else if let feeds = objects as? [PFObject] {
@@ -26,7 +25,9 @@ class FeedViewModel {
                         imageDatas.append(imageObject["image"] as! PFFileObject)
                     }
                     let likedUserIds = object["likedUserIds"] as! [String]
-                    let feed = Feed(user: object["author"] as! PFUser,
+                    let feed = Feed(id: object.objectId!,
+                                    parseObject: object,
+                                    user: object["author"] as! PFUser,
                                     text: object["text"] as! String,
                                     images: imageDatas,
                                     numberOfLikes: object["numberOfLikes"] as! Int,

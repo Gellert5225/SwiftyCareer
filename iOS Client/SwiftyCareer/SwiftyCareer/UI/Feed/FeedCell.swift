@@ -94,8 +94,11 @@ class FeedCell: UITableViewCell {
 //                                                  multiplier: 3.0 / 4.0,
 //                                                  constant: 0))
 
-        bioLabel.textColor = .light_gray
+        likeLabel.text = String(feed.numberOfLikes!)
+        commentLabel.text = String(feed.numberOfComments!)
+        shareLabel.text = String(feed.numberOfShares!)
         
+        bioLabel.textColor = .light_gray
         likeImage.image = feed.isLikedByCurrentUser! ? UIImage(named: "LikeSelected")! : UIImage(named: "Like")
         likeLabel.textColor = .light_gray
         commentLabel.textColor = .light_gray
@@ -117,12 +120,23 @@ class FeedCell: UITableViewCell {
     }
     
     @objc func handleLike(_ sender: UITapGestureRecognizer? = nil) {
+        var amount = 0
         if feed.isLikedByCurrentUser! {
             feed.isLikedByCurrentUser = false
             likeImage.image = UIImage(named: "Like")
+            feed.numberOfLikes! -= 1
+            amount = -1
         } else {
             feed.isLikedByCurrentUser = true
             likeImage.image = UIImage(named: "LikeSelected")
+            feed.numberOfLikes! += 1
+            amount = 1
+        }
+        likeLabel.text = String(feed.numberOfLikes!)
+        PFCloud.callFunction(inBackground: "IncrementLikes", withParameters: ["id": feed.id!, "amount": amount]) { (res, error) in
+            if let err = error {
+                print(err.localizedDescription)
+            }
         }
     }
     

@@ -82,10 +82,14 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
         refreshView?.isLoading = true
         
         feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
-            print("Complete loading!")
-            self.refreshView?.isLoading = false
-            self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
-            self.tableView.reloadData()
+            if let err = error {
+                print(err.localizedDescription)
+            } else {
+                print("Complete loading!")
+                self.refreshView?.isLoading = false
+                self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
+                self.tableView.reloadData()
+            }
         }
     }
     

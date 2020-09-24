@@ -20,22 +20,41 @@ We use CocoaPod for iOS client. To start, run `pod install` in the iOS Client di
 
 ### Database
 
-After you have installed MongoDB Community version, run 
+> Note: you need to create a database user before you access it.
 
-`mongod --port 27017 --auth --dbpath your/db/path`
+- Create a directory to your local database:
 
-then you can either download MongoDB Compass or run `mongo` in a shell window to browse the database. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
+`mkdir ~/your/db/path`
 
-> Note: you need to create a database user before you access it. 
-```
+- After you have installed MongoDB Community version, run 
+
+`mongod --port 27017 --dbpath your/db/path`
+
+- Then you can either run `mongo` in a shell window to browse the database or download MongoDB Compass. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
+
+- Then create a database admin to authenticate yourself: (refer to the code on the right)
+
+> To create a database user, in your Mongo shell, enter: 
+
+```shell
 db.createUser({
     user: 'new_username',
     pwd: 'new_password',
     roles: [
-        { role: 'readWrite', db: 'your_new_database' }
+        { role: 'userAdminAnyDatabase', db: 'admin' }
     ]
 })
 ```
+
+- Stop the mongo instance and restart with `--auth`:
+
+`mongod --port 27017 --auth --dbpath your/db/path`
+
+- Now authenticate yourself towards the `admin` database:
+
+`use admin`
+
+`db.auth("myDbOwner", "abc123")`
 
 ### Server
 
@@ -63,16 +82,15 @@ However you'll need an admin account to log into the database. Contact me if you
 
 > Note: the database in localhost only exists on the development machine and cannot be shared with other developers working on a different network. 
 
-## Documentation
-
-The documentation is inside the `Doc/source/index.html.md` file. 
-
-To contribute to the documentation, edit the `*.md` file inside the `source`  and `source/includes` folder.
-
-> To build the doc, plese see [this](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively) page.
-> You can refer to [this](https://github.com/lord/slate/wiki/Markdown-Syntax) article about Markdown syntax.
-
 # Development
+
+## Mobile
+
+### iOS
+
+Currently only support iPhone. iPad version will be implemented in the future. 
+
+SwiftUI is fairly new and buggy so we decide to use UIKit and Swift in our client code.
 
 ## Web
 
@@ -87,3 +105,13 @@ All ejs files should be placed insede `views` folder, for javascript, css and im
 We use Node.js and MongoDB as our server + database service. 
 
 All REST routes js files should be placed inside `routes` folder.
+
+## Documentation
+
+The documentation is inside the `Doc/source/index.html.md` file. 
+
+To contribute to the documentation, edit the `*.md` file inside the `source`  and `source/includes` folder.
+
+> To build the doc, plese see [this](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively) page.
+> You can refer to [this](https://github.com/lord/slate/wiki/Markdown-Syntax) article about Markdown syntax.
+

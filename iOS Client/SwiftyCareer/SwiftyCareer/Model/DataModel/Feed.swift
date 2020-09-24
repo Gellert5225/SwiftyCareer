@@ -25,7 +25,7 @@ class Feed {
         
     }
     
-    init(id: String, parseObject: PFObject, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
+    init(id: String, parseObject: PFObject? = nil, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
         self.id = id
         self.parseObject = parseObject
         self.user = user

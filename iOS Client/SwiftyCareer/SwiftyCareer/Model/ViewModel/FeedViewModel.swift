@@ -26,7 +26,6 @@ class FeedViewModel {
                     }
                     let likedUserIds = object["likedUserIds"] as! [String]
                     let feed = Feed(id: object.objectId!,
-                                    parseObject: object,
                                     user: object["author"] as! PFUser,
                                     text: object["text"] as! String,
                                     images: imageDatas,

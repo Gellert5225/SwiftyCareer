@@ -302,11 +302,11 @@
 			isa = PBXGroup;
 			children = (
 				D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */,
+				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
 				D9254CB1251358CA0050E936 /* DynamicBlurView */,
 				D9254C8D251358570050E936 /* PopupDialog */,
 				D96222272512F41C005A96EA /* ETCarouSwift */,
 				D96221E22512F367005A96EA /* DrawerMenu */,
-				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";

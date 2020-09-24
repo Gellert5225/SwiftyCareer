@@ -6,10 +6,14 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/Gellert5225/SwiftyCareer'>Github Repo</a>
+  - <a href='http://localhost:1337/dashboard'>Visit the dashboard</a>
 
 includes:
+  - model
+  - cloud
   - errors
+  - others
 
 search: true
 
@@ -73,7 +77,7 @@ db.createUser({
 
 `use admin`
 
-`db.auth("myDbOwner", "abc123")`
+`db.auth("new_username", "new_password")`
 
 ### Server
 
@@ -97,7 +101,7 @@ We also provide a visual tool for viewing our database. To run the dashboard, st
 
 `localhost:1337/dashboard`
 
-However you'll need an admin account to log into the database. Contact me if you need one.
+However you'll need an admin account to log into the database. Open `index.js` in `Server/Development` and add your username and password into the file.
 
 <aside class="notice">
 Note: the database in localhost only exists on the development machine and cannot be shared with other developers working on a different network. 
@@ -126,79 +130,3 @@ All ejs files should be placed insede `views` folder, for javascript, css and im
 We use Node.js and MongoDB as our server + database service. 
 
 All REST routes js files should be placed inside `routes` folder.
-
-
-# Model
-
-## Feed
-
-A Feed is a post that contains users' stories. Please note a Feed is different than a Career, it does not contain any job informations.
-
-### Attributes
-
-Name | Data Type | Description
---------- | ------- | -----------
-id | String | Unique identifier of a Feed object, copied from Parse Server.
-parseObject | PFObject(optional) | A reference to the original ParseObject retrieved from server.
-user | PFUser | The user who posted the Feed
-text | String | The Feed body
-images | [PFFileObject] | An array of images in PFFile format. (can be empty)
-numberOfLikes | Number | How many likes the Feed has recieved.
-numberOfComments | Number | How many comments the Feed has revieved.
-numberOfShares | Number | How many users have shared the Feed.
-numberOfImages | Number | How many images the Feed has.
-isLikedByCurrentUser | Boolean | Whether the current user has liked the Feed or not.
-
-### Fetch All Feeds
-
-Retrieves all Feed object in database. (Newest first)
-
-- Callback: 
-
-Param | Data Type | Description
---------- | ------- | -----------
-feeds | [Feed] | Array of Feed objects retrieved. (If fail, value is null)
-error | Error | The error message. (If success, value is null)
-
-```swift
-var feedModel = FeedViewModel()
-
-feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
-    if let err = error {
-        // something went wrong
-        print(err.localizedDescription)
-    } else {
-        // feeds contains array of Feed objects
-    }
-}
-```
-
-```javascript
-```
-
-# Cloud Code
-
-## FetchFeeds
-
-### Request
-
-This function does not take any requests.
-
-### Return
-
-Returns an array of Parse Objects and an error message. 
-
-```swift
-PFCloud.callFunction(inBackground: "FetchFeeds", withParameters: nil) { (objects, error) in
-    if let err = error {
-        // something went wrong
-        print(err.localizedDescription)
-    } else if let feeds = objects as? [PFObject] {
-        // feeds now contain an array of PFObjects, now convert them to Feeds
-        // see FeedViewModel.swift for detail implementation.
-    }
-}
-```
-
-```javascript
-```

@@ -20,14 +20,15 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
         feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
             if let err = error {
                 print(err.localizedDescription)
-            } else {
-                self.tableView.reloadData()
-                if self.refreshView == nil {
-                    let view = PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - self.tableView.bounds.size.height, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                    view.delegate = self
-                    self.tableView.addSubview(view)
-                    self.refreshView = view
-                }
+                self.feedModel.isLoading = false
+                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+            } else {}
+            self.tableView.reloadData()
+            if self.refreshView == nil {
+                let view = PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - self.tableView.bounds.size.height, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+                view.delegate = self
+                self.tableView.addSubview(view)
+                self.refreshView = view
             }
         }
         
@@ -84,12 +85,13 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
         feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
             if let err = error {
                 print(err.localizedDescription)
+                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
             } else {
                 print("Complete loading!")
                 self.refreshView?.isLoading = false
-                self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
                 self.tableView.reloadData()
             }
+            self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
         }
     }
     

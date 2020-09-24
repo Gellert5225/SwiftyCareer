@@ -37,6 +37,8 @@ db.createUser({
 })
 ```
 
+### Server
+
 Our server is deployed on Heroku, to run the server locally, clone the GitHub repo, and go to the folder "Server/Development". First, you need to install all node dependencies, simply run
 
 `npm install` 
@@ -63,7 +65,12 @@ However you'll need an admin account to log into the database. Contact me if you
 
 ## Documentation
 
-The documentation is inside the `Docs/source/index.html.md` file. You can refer to [this](https://github.com/lord/slate/wiki/Markdown-Syntax) article about Markdown syntax.
+The documentation is inside the `Doc/source/index.html.md` file. 
+
+To contribute to the documentation, edit the `*.md` file inside the `source`  and `source/includes` folder.
+
+> To build the doc, plese see [this](https://github.com/slatedocs/slate/wiki/Using-Slate-Natively) page.
+> You can refer to [this](https://github.com/lord/slate/wiki/Markdown-Syntax) article about Markdown syntax.
 
 # Development
 

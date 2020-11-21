@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9236DD625691E6700A51102 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DD425691E6700A51102 /* UserCell.swift */; };
+		D9236DD725691E6700A51102 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9236DD525691E6700A51102 /* UserCell.xib */; };
 		D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */; };
 		D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */; };
 		D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C902513586B0050E936 /* PopupDialogButton.swift */; };
@@ -84,6 +86,22 @@
 		D98C58FD2511FA4C00D06554 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C58FC2511FA4C00D06554 /* Env.swift */; };
 		D98C590E2512023700D06554 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C590D2512023700D06554 /* LeftMenuViewController.swift */; };
 		D98C59132512041600D06554 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98C59122512041600D06554 /* MessageViewController.swift */; };
+		D9CB4F5F2568F68F00A16CA0 /* Segmentio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F5D2568F68F00A16CA0 /* Segmentio.swift */; };
+		D9CB4F602568F68F00A16CA0 /* SegmentioOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F5E2568F68F00A16CA0 /* SegmentioOptions.swift */; };
+		D9CB4F662568F69500A16CA0 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F642568F69400A16CA0 /* RoundImageView.swift */; };
+		D9CB4F672568F69500A16CA0 /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F652568F69500A16CA0 /* UIView+Appearance.swift */; };
+		D9CB4F722568F69D00A16CA0 /* SegmentioCellWithImageAfterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F6B2568F69C00A16CA0 /* SegmentioCellWithImageAfterLabel.swift */; };
+		D9CB4F732568F69D00A16CA0 /* SegmentioCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F6C2568F69C00A16CA0 /* SegmentioCellWithImage.swift */; };
+		D9CB4F742568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F6D2568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift */; };
+		D9CB4F752568F69D00A16CA0 /* SegmentioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F6E2568F69D00A16CA0 /* SegmentioCell.swift */; };
+		D9CB4F762568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F6F2568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift */; };
+		D9CB4F772568F69D00A16CA0 /* SegmentioCellWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F702568F69D00A16CA0 /* SegmentioCellWithLabel.swift */; };
+		D9CB4F782568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F712568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift */; };
+		D9CB4F7D2568F6A200A16CA0 /* BadgeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F7C2568F6A200A16CA0 /* BadgeViewPresenter.swift */; };
+		D9CB4F842568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CB4F812568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib */; };
+		D9CB4F852568F6A800A16CA0 /* BadgeWithCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F822568F6A800A16CA0 /* BadgeWithCounterView.swift */; };
+		D9CB4F862568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CB4F832568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib */; };
+		D9CB4F942568FA8100A16CA0 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */; };
 		D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */; };
 		D9F0B8DC25132C4A009C7191 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F0B8DA25132C4A009C7191 /* LoadingCell.swift */; };
 		D9F0B8DD25132C4A009C7191 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F0B8DB25132C4A009C7191 /* LoadingCell.xib */; };
@@ -111,6 +129,8 @@
 		13D9381DBF9BF75C01CA6AFE /* Pods-SwiftyCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCareer.release.xcconfig"; path = "Target Support Files/Pods-SwiftyCareer/Pods-SwiftyCareer.release.xcconfig"; sourceTree = "<group>"; };
 		515AF4AD644D11F661CE89CA /* Pods_SwiftyCareer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCareer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F6F04CDAFBCCCEE5B4265D /* Pods-SwiftyCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCareer.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyCareer/Pods-SwiftyCareer.debug.xcconfig"; sourceTree = "<group>"; };
+		D9236DD425691E6700A51102 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		D9236DD525691E6700A51102 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogOverlayView.swift; sourceTree = "<group>"; };
 		D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
 		D9254C902513586B0050E936 /* PopupDialogButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogButton.swift; sourceTree = "<group>"; };
@@ -194,6 +214,22 @@
 		D98C58FC2511FA4C00D06554 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		D98C590D2512023700D06554 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		D98C59122512041600D06554 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		D9CB4F5D2568F68F00A16CA0 /* Segmentio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segmentio.swift; sourceTree = "<group>"; };
+		D9CB4F5E2568F68F00A16CA0 /* SegmentioOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioOptions.swift; sourceTree = "<group>"; };
+		D9CB4F642568F69400A16CA0 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		D9CB4F652568F69500A16CA0 /* UIView+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
+		D9CB4F6B2568F69C00A16CA0 /* SegmentioCellWithImageAfterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageAfterLabel.swift; sourceTree = "<group>"; };
+		D9CB4F6C2568F69C00A16CA0 /* SegmentioCellWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImage.swift; sourceTree = "<group>"; };
+		D9CB4F6D2568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageUnderLabel.swift; sourceTree = "<group>"; };
+		D9CB4F6E2568F69D00A16CA0 /* SegmentioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCell.swift; sourceTree = "<group>"; };
+		D9CB4F6F2568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageBeforeLabel.swift; sourceTree = "<group>"; };
+		D9CB4F702568F69D00A16CA0 /* SegmentioCellWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithLabel.swift; sourceTree = "<group>"; };
+		D9CB4F712568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioCellWithImageOverLabel.swift; sourceTree = "<group>"; };
+		D9CB4F7C2568F6A200A16CA0 /* BadgeViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeViewPresenter.swift; sourceTree = "<group>"; };
+		D9CB4F812568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewBigSized.xib; sourceTree = "<group>"; };
+		D9CB4F822568F6A800A16CA0 /* BadgeWithCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeWithCounterView.swift; sourceTree = "<group>"; };
+		D9CB4F832568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewStandardSized.xib; sourceTree = "<group>"; };
+		D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZPullToRefresh.swift; sourceTree = "<group>"; };
 		D9F0B8DA25132C4A009C7191 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		D9F0B8DB25132C4A009C7191 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
@@ -303,6 +339,7 @@
 			children = (
 				D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */,
 				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
+				D9CB4F5C2568F68200A16CA0 /* Segment */,
 				D9254CB1251358CA0050E936 /* DynamicBlurView */,
 				D9254C8D251358570050E936 /* PopupDialog */,
 				D96222272512F41C005A96EA /* ETCarouSwift */,
@@ -418,6 +455,7 @@
 				D98C593925120A3900D06554 /* Left Menu */,
 				D98C593825120A2500D06554 /* Landing */,
 				D98C58F62511F35400D06554 /* Feed */,
+				D9CB4F922568FA3800A16CA0 /* Discover */,
 				D98C58F12511EC0300D06554 /* RootViewController.swift */,
 			);
 			path = UI;
@@ -486,6 +524,38 @@
 				D98C59122512041600D06554 /* MessageViewController.swift */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		D9CB4F5C2568F68200A16CA0 /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				D9CB4F5D2568F68F00A16CA0 /* Segmentio.swift */,
+				D9CB4F5E2568F68F00A16CA0 /* SegmentioOptions.swift */,
+				D9CB4F642568F69400A16CA0 /* RoundImageView.swift */,
+				D9CB4F652568F69500A16CA0 /* UIView+Appearance.swift */,
+				D9CB4F6E2568F69D00A16CA0 /* SegmentioCell.swift */,
+				D9CB4F6C2568F69C00A16CA0 /* SegmentioCellWithImage.swift */,
+				D9CB4F6B2568F69C00A16CA0 /* SegmentioCellWithImageAfterLabel.swift */,
+				D9CB4F6F2568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift */,
+				D9CB4F712568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift */,
+				D9CB4F6D2568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift */,
+				D9CB4F702568F69D00A16CA0 /* SegmentioCellWithLabel.swift */,
+				D9CB4F7C2568F6A200A16CA0 /* BadgeViewPresenter.swift */,
+				D9CB4F822568F6A800A16CA0 /* BadgeWithCounterView.swift */,
+				D9CB4F812568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib */,
+				D9CB4F832568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib */,
+			);
+			path = Segment;
+			sourceTree = "<group>";
+		};
+		D9CB4F922568FA3800A16CA0 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */,
+				D9236DD425691E6700A51102 /* UserCell.swift */,
+				D9236DD525691E6700A51102 /* UserCell.xib */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -604,6 +674,8 @@
 				D98C58CA2511C93800D06554 /* SF-UI-Display-Thin.otf in Resources */,
 				D98C58CB2511C93800D06554 /* SF-UI-Display-Ultralight.otf in Resources */,
 				D98C58CC2511C93800D06554 /* SF-UI-Text-Bold.otf in Resources */,
+				D9236DD725691E6700A51102 /* UserCell.xib in Resources */,
+				D9CB4F842568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				D98C58CD2511C93800D06554 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				D98C58CE2511C93800D06554 /* SF-UI-Text-Heavy.otf in Resources */,
 				D98C58CF2511C93800D06554 /* SF-UI-Text-HeavyItalic.otf in Resources */,
@@ -612,6 +684,7 @@
 				D98C58D12511C93800D06554 /* SF-UI-Text-LightItalic.otf in Resources */,
 				D98C58D22511C93800D06554 /* SF-UI-Text-Medium.otf in Resources */,
 				D98C58D32511C93800D06554 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				D9CB4F862568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib in Resources */,
 				D98C58D42511C93800D06554 /* SF-UI-Text-Regular.otf in Resources */,
 				D98C58D52511C93800D06554 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				D98C58D62511C93800D06554 /* SF-UI-Text-Semibold.otf in Resources */,
@@ -695,8 +768,13 @@
 				D9254CAD2513586C0050E936 /* UIView+Animations.swift in Sources */,
 				D9254CA22513586C0050E936 /* TransitionAnimations.swift in Sources */,
 				D962221E2512F3D7005A96EA /* DrawerMenuStyle.swift in Sources */,
+				D9CB4F772568F69D00A16CA0 /* SegmentioCellWithLabel.swift in Sources */,
 				D98C58F22511EC0300D06554 /* RootViewController.swift in Sources */,
+				D9CB4F782568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				D98C58F82511F36500D06554 /* FeedTableViewController.swift in Sources */,
+				D9CB4F602568F68F00A16CA0 /* SegmentioOptions.swift in Sources */,
+				D9CB4F722568F69D00A16CA0 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
+				D9CB4F942568FA8100A16CA0 /* DiscoverTableViewController.swift in Sources */,
 				D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */,
 				D98C59132512041600D06554 /* MessageViewController.swift in Sources */,
 				D97166752511B003002DC5B0 /* LandingViewController.swift in Sources */,
@@ -704,7 +782,9 @@
 				D9254CAC2513586C0050E936 /* PopupDialogDefaultViewController.swift in Sources */,
 				D962221F2512F3D7005A96EA /* Floating.swift in Sources */,
 				D9254CA12513586C0050E936 /* PopupDialogContainerView.swift in Sources */,
+				D9CB4F752568F69D00A16CA0 /* SegmentioCell.swift in Sources */,
 				D9254CBC251358DE0050E936 /* CGContext+CGImage.swift in Sources */,
+				D9CB4F7D2568F6A200A16CA0 /* BadgeViewPresenter.swift in Sources */,
 				D96221B02512EA48005A96EA /* DummyFeeder.swift in Sources */,
 				D96222142512F3D0005A96EA /* DrawerMenu.swift in Sources */,
 				D9254CBE251358DE0050E936 /* CGRect+Conversion.swift in Sources */,
@@ -713,13 +793,19 @@
 				D9254CAA2513586C0050E936 /* PopupDialogDefaultView.swift in Sources */,
 				D97166712511B003002DC5B0 /* AppDelegate.swift in Sources */,
 				D962224525130390005A96EA /* FeedCell.swift in Sources */,
+				D9CB4F742568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
 				D9254CE02513A0400050E936 /* User.swift in Sources */,
 				D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */,
 				D9254CA62513586C0050E936 /* PopupDialog+Keyboard.swift in Sources */,
 				D96222202512F3D7005A96EA /* Parallax.swift in Sources */,
 				D962222E2512F427005A96EA /* CarouView.swift in Sources */,
+				D9CB4F732568F69D00A16CA0 /* SegmentioCellWithImage.swift in Sources */,
+				D9CB4F5F2568F68F00A16CA0 /* Segmentio.swift in Sources */,
+				D9CB4F662568F69500A16CA0 /* RoundImageView.swift in Sources */,
+				D9CB4F852568F6A800A16CA0 /* BadgeWithCounterView.swift in Sources */,
 				D9F0B8DC25132C4A009C7191 /* LoadingCell.swift in Sources */,
 				D9254CBD251358DE0050E936 /* CGImage+Accelerate.swift in Sources */,
+				D9CB4F762568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
 				D9254CE72513A46E0050E936 /* FeedViewModel.swift in Sources */,
 				D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */,
 				D988B09B25182A4000EF7BBA /* SCTextView.swift in Sources */,
@@ -729,6 +815,7 @@
 				D9254CDB25139ECB0050E936 /* Feed.swift in Sources */,
 				D9254CAB2513586C0050E936 /* InteractiveTransition.swift in Sources */,
 				D9254CA72513586C0050E936 /* TransitionAnimator.swift in Sources */,
+				D9236DD625691E6700A51102 /* UserCell.swift in Sources */,
 				D9254CA32513586C0050E936 /* PresentationManager.swift in Sources */,
 				D9254CBB251358DE0050E936 /* BlurLayer.swift in Sources */,
 				D9254CBF251358DE0050E936 /* CaptureQuality.swift in Sources */,
@@ -736,6 +823,7 @@
 				D9254CA42513586C0050E936 /* PresentationController.swift in Sources */,
 				D9254CC0251358DE0050E936 /* TrackingMode.swift in Sources */,
 				D9254CC3251358DE0050E936 /* UIImage+Blur.swift in Sources */,
+				D9CB4F672568F69500A16CA0 /* UIView+Appearance.swift in Sources */,
 				D9254CA92513586C0050E936 /* UIViewController+Visibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

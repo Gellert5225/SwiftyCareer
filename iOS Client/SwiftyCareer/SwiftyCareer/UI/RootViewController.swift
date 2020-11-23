@@ -38,12 +38,12 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
     
     func createTabBarController() {
         
-        let feedVC = FeedTableViewController()
+        let feedVC = FeedTableViewController(viewModel: FeedViewModel(), navigationTitle: "Feed")
         feedVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Home")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "HomeSelected")?.withRenderingMode(.alwaysOriginal))
         
-        let discoverVC = UIViewController()
+        let discoverVC = JobTableViewController()
         discoverVC.restorationIdentifier = "discover"
-        discoverVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Search")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "SearchSelected")?.withRenderingMode(.alwaysOriginal))
+        discoverVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Job")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "JobSelected")?.withRenderingMode(.alwaysOriginal))
         
         let composeVC = UIViewController()
         composeVC.restorationIdentifier = "compose"
@@ -65,12 +65,14 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
             present(vc, animated: true, completion: nil)
             return false
         }
-        if let identifier = viewController.restorationIdentifier, identifier == "discover" {
-            self.navigationItem.leftBarButtonItem = nil
-            self.navigationItem.rightBarButtonItem = nil
-        } else {
-             buildBarButtonItems()
-        }
+//        if let identifier = viewController.restorationIdentifier, identifier == "discover" {
+//            self.navigationItem.leftBarButtonItem = nil
+//            self.navigationItem.rightBarButtonItem = nil
+//        } else {
+//             buildBarButtonItems()
+//        }
+        
+        buildBarButtonItems()
 
         return true
     }

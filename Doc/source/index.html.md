@@ -93,7 +93,7 @@ to start the production server, use
 
 `npm start-prod`
 
-Donezo! Go visit the webpage at localhost:1337
+Donezo! Go visit the webpage at localhost:1337 or 
 
 ## Dashboard
 

@@ -1,26 +1,54 @@
 //
-//  FeedTableViewController.swift
+//  SCTableViewController.swift
 //  SwiftyCareer
 //
-//  Created by Gellert Li on 9/16/20.
+//  Created by Gellert Li on 11/23/20.
 //
 
 import UIKit
-import Parse
 
-class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
+class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
     
-    var feedModel = FeedViewModel()
+    var viewModel: SCViewModel
+    
+    var navigationTitle: String
     
     var refreshView: PZPullToRefreshView?
+    
+    init(viewModel: SCViewModel, navigationTitle: String) {
+        self.viewModel = viewModel
+        self.navigationTitle = navigationTitle
+        
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
+        fetchData()
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
+        tableView.backgroundColor = .tableview_background
+        tableView.separatorColor = .light_gray
+        
+        tableView.tableFooterView = UIView()
+    }
+    
+    func fetchData() {
+        viewModel.fetch { (feeds: [SCObject]?, error: Error?) in
             if let err = error {
                 print(err.localizedDescription)
-                self.feedModel.isLoading = false
+                self.viewModel.isLoading = false
                 self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
             } else {}
             self.tableView.reloadData()
@@ -31,41 +59,31 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
                 self.refreshView = view
             }
         }
-        
-        self.tabBarController?.title = "Feed"
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
-        self.tableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
-        tableView.backgroundColor = .tableview_background
-        tableView.separatorColor = .light_gray
-        
-        tableView.tableFooterView = UIView()
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.navigationItem.titleView = nil
+        self.tabBarController?.navigationItem.title = navigationTitle
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedModel.isLoading ? 1 : feedModel.feeds.count
+        return viewModel.isLoading ? 1 : viewModel.objects.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return feedModel.isLoading ? 44.0 : UITableView.automaticDimension
+        return viewModel.isLoading ? 44.0 : UITableView.automaticDimension
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if feedModel.isLoading {
+        if viewModel.isLoading {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
-            let feed = feedModel.feeds[indexPath.row]
-            
-            cell.feed = feed
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.textLabel?.text = ""
             return cell
         }
     }
@@ -82,7 +100,7 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
     func pullToRefreshDidTrigger(_ view: PZPullToRefreshView) -> () {
         refreshView?.isLoading = true
         
-        feedModel.fetchFeeds { (feeds: [Feed]?, error: Error?) in
+        viewModel.fetch { (feeds: [SCObject]?, error: Error?) in
             if let err = error {
                 print(err.localizedDescription)
                 self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
@@ -94,5 +112,5 @@ class FeedTableViewController: UITableViewController, PZPullToRefreshDelegate {
             self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
         }
     }
-    
+
 }

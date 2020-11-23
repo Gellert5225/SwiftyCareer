@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D9236DD625691E6700A51102 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DD425691E6700A51102 /* UserCell.swift */; };
 		D9236DD725691E6700A51102 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9236DD525691E6700A51102 /* UserCell.xib */; };
+		D9236DE5256C1D2B00A51102 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DE4256C1D2B00A51102 /* CustomSearchBar.swift */; };
+		D9236DED256C1FEE00A51102 /* SCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */; };
+		D9236DF2256C201500A51102 /* SCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DF1256C201500A51102 /* SCViewModel.swift */; };
+		D9236DF7256C204E00A51102 /* SCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DF6256C204E00A51102 /* SCObject.swift */; };
 		D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */; };
 		D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */; };
 		D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C902513586B0050E936 /* PopupDialogButton.swift */; };
@@ -101,7 +105,7 @@
 		D9CB4F842568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CB4F812568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib */; };
 		D9CB4F852568F6A800A16CA0 /* BadgeWithCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F822568F6A800A16CA0 /* BadgeWithCounterView.swift */; };
 		D9CB4F862568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CB4F832568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib */; };
-		D9CB4F942568FA8100A16CA0 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */; };
+		D9CB4F942568FA8100A16CA0 /* JobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB4F932568FA8100A16CA0 /* JobTableViewController.swift */; };
 		D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */; };
 		D9F0B8DC25132C4A009C7191 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F0B8DA25132C4A009C7191 /* LoadingCell.swift */; };
 		D9F0B8DD25132C4A009C7191 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F0B8DB25132C4A009C7191 /* LoadingCell.xib */; };
@@ -131,6 +135,10 @@
 		93F6F04CDAFBCCCEE5B4265D /* Pods-SwiftyCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCareer.debug.xcconfig"; path = "Target Support Files/Pods-SwiftyCareer/Pods-SwiftyCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D9236DD425691E6700A51102 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D9236DD525691E6700A51102 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		D9236DE4256C1D2B00A51102 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTableViewController.swift; sourceTree = "<group>"; };
+		D9236DF1256C201500A51102 /* SCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCViewModel.swift; sourceTree = "<group>"; };
+		D9236DF6256C204E00A51102 /* SCObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCObject.swift; sourceTree = "<group>"; };
 		D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogOverlayView.swift; sourceTree = "<group>"; };
 		D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
 		D9254C902513586B0050E936 /* PopupDialogButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogButton.swift; sourceTree = "<group>"; };
@@ -229,7 +237,7 @@
 		D9CB4F812568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewBigSized.xib; sourceTree = "<group>"; };
 		D9CB4F822568F6A800A16CA0 /* BadgeWithCounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeWithCounterView.swift; sourceTree = "<group>"; };
 		D9CB4F832568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeWithCounterViewStandardSized.xib; sourceTree = "<group>"; };
-		D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		D9CB4F932568FA8100A16CA0 /* JobTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewController.swift; sourceTree = "<group>"; };
 		D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PZPullToRefresh.swift; sourceTree = "<group>"; };
 		D9F0B8DA25132C4A009C7191 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		D9F0B8DB25132C4A009C7191 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
@@ -278,6 +286,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D9236DE1256C1CAF00A51102 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Connections;
+			sourceTree = "<group>";
+		};
+		D9236DE2256C1CB900A51102 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		D9236DE3256C1CCC00A51102 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				D9CB4F922568FA3800A16CA0 /* Job */,
+				D98C58F62511F35400D06554 /* Feed */,
+				D9236DE1256C1CAF00A51102 /* Connections */,
+				D9236DE2256C1CB900A51102 /* Notifications */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		D9254C8D251358570050E936 /* PopupDialog */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +353,7 @@
 		D9254CE42513A4560050E936 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				D9236DF6256C204E00A51102 /* SCObject.swift */,
 				D9254CDA25139ECB0050E936 /* Feed.swift */,
 				D9254CDF2513A0400050E936 /* User.swift */,
 			);
@@ -330,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				D9254CE62513A46E0050E936 /* FeedViewModel.swift */,
+				D9236DF1256C201500A51102 /* SCViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,6 +374,8 @@
 			children = (
 				D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */,
 				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
+				D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */,
+				D9236DE4256C1D2B00A51102 /* CustomSearchBar.swift */,
 				D9CB4F5C2568F68200A16CA0 /* Segment */,
 				D9254CB1251358CA0050E936 /* DynamicBlurView */,
 				D9254C8D251358570050E936 /* PopupDialog */,
@@ -451,11 +488,10 @@
 			isa = PBXGroup;
 			children = (
 				D96221E12512F33E005A96EA /* CustomViews */,
+				D9236DE3256C1CCC00A51102 /* Tabs */,
 				D98C593A25120A4100D06554 /* Message */,
 				D98C593925120A3900D06554 /* Left Menu */,
 				D98C593825120A2500D06554 /* Landing */,
-				D98C58F62511F35400D06554 /* Feed */,
-				D9CB4F922568FA3800A16CA0 /* Discover */,
 				D98C58F12511EC0300D06554 /* RootViewController.swift */,
 			);
 			path = UI;
@@ -548,14 +584,14 @@
 			path = Segment;
 			sourceTree = "<group>";
 		};
-		D9CB4F922568FA3800A16CA0 /* Discover */ = {
+		D9CB4F922568FA3800A16CA0 /* Job */ = {
 			isa = PBXGroup;
 			children = (
-				D9CB4F932568FA8100A16CA0 /* DiscoverTableViewController.swift */,
+				D9CB4F932568FA8100A16CA0 /* JobTableViewController.swift */,
 				D9236DD425691E6700A51102 /* UserCell.swift */,
 				D9236DD525691E6700A51102 /* UserCell.xib */,
 			);
-			path = Discover;
+			path = Job;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,12 +805,14 @@
 				D9254CA22513586C0050E936 /* TransitionAnimations.swift in Sources */,
 				D962221E2512F3D7005A96EA /* DrawerMenuStyle.swift in Sources */,
 				D9CB4F772568F69D00A16CA0 /* SegmentioCellWithLabel.swift in Sources */,
+				D9236DED256C1FEE00A51102 /* SCTableViewController.swift in Sources */,
+				D9236DF2256C201500A51102 /* SCViewModel.swift in Sources */,
 				D98C58F22511EC0300D06554 /* RootViewController.swift in Sources */,
 				D9CB4F782568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				D98C58F82511F36500D06554 /* FeedTableViewController.swift in Sources */,
 				D9CB4F602568F68F00A16CA0 /* SegmentioOptions.swift in Sources */,
 				D9CB4F722568F69D00A16CA0 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
-				D9CB4F942568FA8100A16CA0 /* DiscoverTableViewController.swift in Sources */,
+				D9CB4F942568FA8100A16CA0 /* JobTableViewController.swift in Sources */,
 				D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */,
 				D98C59132512041600D06554 /* MessageViewController.swift in Sources */,
 				D97166752511B003002DC5B0 /* LandingViewController.swift in Sources */,
@@ -791,6 +829,7 @@
 				D98C590E2512023700D06554 /* LeftMenuViewController.swift in Sources */,
 				D98C58FD2511FA4C00D06554 /* Env.swift in Sources */,
 				D9254CAA2513586C0050E936 /* PopupDialogDefaultView.swift in Sources */,
+				D9236DF7256C204E00A51102 /* SCObject.swift in Sources */,
 				D97166712511B003002DC5B0 /* AppDelegate.swift in Sources */,
 				D962224525130390005A96EA /* FeedCell.swift in Sources */,
 				D9CB4F742568F69D00A16CA0 /* SegmentioCellWithImageUnderLabel.swift in Sources */,
@@ -808,6 +847,7 @@
 				D9CB4F762568F69D00A16CA0 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
 				D9254CE72513A46E0050E936 /* FeedViewModel.swift in Sources */,
 				D9F0B8D6251329BE009C7191 /* PZPullToRefresh.swift in Sources */,
+				D9236DE5256C1D2B00A51102 /* CustomSearchBar.swift in Sources */,
 				D988B09B25182A4000EF7BBA /* SCTextView.swift in Sources */,
 				D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */,
 				D96222222512F3D7005A96EA /* Slide.swift in Sources */,

@@ -8,17 +8,15 @@
 import Foundation
 import Parse
 
-class FeedViewModel {
-    var feeds: [Feed] = []
-    var isLoading = true
+class FeedViewModel: SCViewModel {
     
-    func fetchFeeds(onCompletion complete: @escaping ([Feed]?, Error?) -> Void) {
+    override func fetch(onCompletion complete: @escaping ([SCObject]?, Error?) -> Void) {
         PFCloud.callFunction(inBackground: "FetchFeeds", withParameters: nil) { (objects, error) in
             if let err = error {
                 self.isLoading = false
                 complete(nil, err)
             } else if let feeds = objects as? [PFObject] {
-                self.feeds = []
+                self.objects = []
                 for object in feeds {
                     var imageDatas: [PFFileObject] = []
                     for imageObject in object["images"] as! [PFObject] {
@@ -34,10 +32,10 @@ class FeedViewModel {
                                     numberOfShares: object["numberOfShares"] as! Int,
                                     numberOfImages: object["numberOfImages"] as! Int,
                                     isLikedByCurrentUser: likedUserIds.contains((PFUser.current()?.objectId)!))
-                    self.feeds.append(feed)
+                    self.objects.append(feed)
                 }
                 self.isLoading = false
-                complete(self.feeds, nil)
+                complete(self.objects, nil)
             }
         }
     }

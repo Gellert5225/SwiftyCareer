@@ -8,9 +8,7 @@
 import Foundation
 import Parse
 
-class Feed {
-    var id: String?
-    var parseObject: PFObject?
+class Feed: SCObject {
     var user: PFUser?
     var text: String?
     var images: [PFFileObject]?
@@ -21,11 +19,13 @@ class Feed {
     //var comments: [Comment]
     var isLikedByCurrentUser: Bool?
     
-    init() {
+    override init() {
         
     }
     
     init(id: String, parseObject: PFObject? = nil, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
+        super.init()
+        
         self.id = id
         self.parseObject = parseObject
         self.user = user

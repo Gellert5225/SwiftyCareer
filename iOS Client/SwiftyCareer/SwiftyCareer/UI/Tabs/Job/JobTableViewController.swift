@@ -8,17 +8,19 @@
 import UIKit
 import Parse
 
-class JobTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
     var leftBarButtonItem: UIBarButtonItem?
     var rightBarButtonItem: UIBarButtonItem?
+    
+    var isSearching: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        leftBarButtonItem = self.tabBarController?.navigationItem.leftBarButtonItem
-        rightBarButtonItem = self.tabBarController?.navigationItem.rightBarButtonItem
+
+        leftBarButtonItem = self.navigationItem.leftBarButtonItem
+        rightBarButtonItem = self.navigationItem.rightBarButtonItem
         
         searchController.searchResultsUpdater = self
         self.definesPresentationContext = true
@@ -32,13 +34,10 @@ class JobTableViewController: UITableViewController, UISearchResultsUpdating, UI
         tableView.separatorColor = .light_gray
         
         tableView.tableFooterView = UIView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         let searchBarContainer = SearchBarContainerView(customSearchBar: searchController.searchBar, placeholderText: "Search Jobs")
         searchBarContainer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)
-        self.tabBarController?.navigationItem.titleView = searchBarContainer
+        self.navigationItem.titleView = searchBarContainer
     }
 
     // MARK: - Table view data source
@@ -64,6 +63,7 @@ class JobTableViewController: UITableViewController, UISearchResultsUpdating, UI
     */
     
     func updateSearchResults(for searchController: UISearchController) {
+        drawer()?.panGestureType = .none
         if let searchText = searchController.searchBar.text {
             if searchText != "" {
                 let query = PFQuery(className: "_User")
@@ -86,19 +86,20 @@ class JobTableViewController: UITableViewController, UISearchResultsUpdating, UI
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-            self.tabBarController?.navigationItem.leftBarButtonItem = nil
-            self.tabBarController?.navigationItem.rightBarButtonItem = nil
-            self.tabBarController?.navigationController?.view.setNeedsLayout() // force update layout
-            self.tabBarController?.navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationController?.view.setNeedsLayout() // force update layout
+            self.navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
         } completion: {finished in}
 
         return true
     }
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        drawer()?.panGestureType = .pan
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-            self.tabBarController?.navigationItem.leftBarButtonItem = self.leftBarButtonItem!
-            self.tabBarController?.navigationItem.rightBarButtonItem = self.rightBarButtonItem!
+            self.navigationItem.leftBarButtonItem = self.leftBarButtonItem!
+            self.navigationItem.rightBarButtonItem = self.rightBarButtonItem!
 //            self.tabBarController?.navigationController?.view.setNeedsLayout() // force update layout
 //            self.tabBarController?.navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
         } completion: {finished in}

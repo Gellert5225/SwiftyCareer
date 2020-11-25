@@ -13,37 +13,16 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         createTabBarController()
-        buildBarButtonItems()
-    }
-    
-    @objc func presentLeftMenu() {
-        print("present left menu")
-        drawer()?.open(to: .left)
-    }
-    
-    @objc func presentChat() {
-        print("present chat")
-        drawer()?.open(to: .right)
-    }
-    
-    func buildBarButtonItems() {
-        var profileImage = UIImage(named: "Gellert")?.roundedImageWithBorder(width: 1, color: .light_gray)
-        profileImage = profileImage?.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: profileImage, style: .plain, target: self, action: #selector(presentLeftMenu))
-        
-        var rightBarImage = UIImage(named: "ChatRed")
-        rightBarImage = rightBarImage?.withRenderingMode(.alwaysOriginal)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightBarImage, style: .plain, target: self, action: #selector(presentChat))
     }
     
     func createTabBarController() {
         
-        let feedVC = FeedTableViewController(viewModel: FeedViewModel(), navigationTitle: "Feed")
+        let feedVC = FeedTableViewController(viewModel: FeedViewModel())
         feedVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Home")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "HomeSelected")?.withRenderingMode(.alwaysOriginal))
         
-        let discoverVC = JobTableViewController()
-        discoverVC.restorationIdentifier = "discover"
-        discoverVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Job")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "JobSelected")?.withRenderingMode(.alwaysOriginal))
+        let jobVC = JobTableViewController(viewModel: SCViewModel())
+        jobVC.restorationIdentifier = "discover"
+        jobVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Job")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "JobSelected")?.withRenderingMode(.alwaysOriginal))
         
         let composeVC = UIViewController()
         composeVC.restorationIdentifier = "compose"
@@ -55,7 +34,11 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
         let notificationVC = UIViewController()
         notificationVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "Alert")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "AlertSelected")?.withRenderingMode(.alwaysOriginal))
         
-        viewControllers = [feedVC, discoverVC, composeVC, connectionVC, notificationVC]
+        viewControllers = [UINavigationController(rootViewController:feedVC),
+                           UINavigationController(rootViewController:jobVC),
+                           composeVC,
+                           UINavigationController(rootViewController:connectionVC),
+                           UINavigationController(rootViewController:notificationVC)]
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
@@ -65,14 +48,6 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
             present(vc, animated: true, completion: nil)
             return false
         }
-//        if let identifier = viewController.restorationIdentifier, identifier == "discover" {
-//            self.navigationItem.leftBarButtonItem = nil
-//            self.navigationItem.rightBarButtonItem = nil
-//        } else {
-//             buildBarButtonItems()
-//        }
-        
-        buildBarButtonItems()
 
         return true
     }

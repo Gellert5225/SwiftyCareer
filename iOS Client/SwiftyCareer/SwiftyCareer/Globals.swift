@@ -15,9 +15,9 @@ func prepareDrawerMenu() -> DrawerMenu {
     let messageVC = MessageViewController()
     let menu = LeftMenuViewController()
     let rootVC = RootViewController()
-    let rootNavController = UINavigationController(rootViewController: rootVC)
+    //let rootNavController = UINavigationController(rootViewController: rootVC)
     let messageNavController = UINavigationController(rootViewController: messageVC)
-    let drawerMenu = DrawerMenu(center: rootNavController, left: menu, right: messageNavController)
+    let drawerMenu = DrawerMenu(center: rootVC, left: menu, right: messageNavController)
     drawerMenu.modalPresentationStyle = .fullScreen
     drawerMenu.style = SlideIn()
     drawerMenu.rightMenuWidth = UIScreen.main.bounds.width

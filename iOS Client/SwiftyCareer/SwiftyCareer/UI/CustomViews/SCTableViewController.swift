@@ -7,17 +7,17 @@
 
 import UIKit
 
-class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
+class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCNavigationBarButtonDelegate {
     
     var viewModel: SCViewModel
-    
-    var navigationTitle: String
-    
+        
     var refreshView: PZPullToRefreshView?
     
-    init(viewModel: SCViewModel, navigationTitle: String) {
+    var leftButton: SCNavigationBarButton?
+    var rightButton: SCNavigationBarButton?
+    
+    init(viewModel: SCViewModel) {
         self.viewModel = viewModel
-        self.navigationTitle = navigationTitle
         
         super.init(style: .plain)
     }
@@ -42,6 +42,13 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
         tableView.separatorColor = .light_gray
         
         tableView.tableFooterView = UIView()
+        
+        leftButton = SCNavigationBarButton(on: .left)
+        rightButton = SCNavigationBarButton(on: .right)
+        leftButton?.delegate = self
+        rightButton?.delegate = self
+        self.navigationItem.leftBarButtonItem = leftButton
+        self.navigationItem.rightBarButtonItem = rightButton
     }
     
     func fetchData() {
@@ -59,13 +66,6 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
                 self.refreshView = view
             }
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tabBarController?.navigationItem.titleView = nil
-        self.tabBarController?.navigationItem.title = navigationTitle
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,7 +87,6 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
             return cell
         }
     }
-    
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         refreshView?.refreshScrollViewDidScroll(scrollView)
@@ -111,6 +110,10 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate {
             }
             self.refreshView?.refreshScrollViewDataSourceDidFinishedLoading(self.tableView, .zero)
         }
+    }
+    
+    func barButtonTappedOn(_ side: DrawerMenu.Side) {
+        drawer()?.open(to: side)
     }
 
 }

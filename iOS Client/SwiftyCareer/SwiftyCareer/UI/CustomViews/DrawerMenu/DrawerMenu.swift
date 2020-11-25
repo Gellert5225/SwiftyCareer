@@ -281,15 +281,16 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     private func addPanGesture(type: PanGestureType) {
-
         switch type {
         case .pan:
             if panGestureRecognizer == nil {
+                print("pan is nil")
                 panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureCallback(gestureRecognizer:)))
                 panGestureRecognizer?.minimumNumberOfTouches = 1
                 panGestureRecognizer?.maximumNumberOfTouches = 1
                 panGestureRecognizer?.delegate = self
                 view.addGestureRecognizer(panGestureRecognizer!)
+                print("added")
             }
         case .screenEdge:
 
@@ -330,6 +331,38 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
             view.removeGestureRecognizer(panGestureRecognizer!)
             panGestureRecognizer = nil
         }
+    }
+    
+    func disableGestures() {
+        if leftEdgePanGestureRecognizer != nil {
+            leftEdgePanGestureRecognizer!.isEnabled = false
+        }
+        if rightEdgePanGestureRecognizer != nil {
+            rightEdgePanGestureRecognizer!.isEnabled = false
+        }
+        if panGestureRecognizer != nil {
+            panGestureRecognizer!.isEnabled = false
+        }
+    }
+    
+    func enableGestures() {
+        print("inside")
+        print(panGestureRecognizer!.isEnabled)
+        print(panGestureType)
+        if leftEdgePanGestureRecognizer != nil {
+            leftEdgePanGestureRecognizer!.isEnabled = true
+        }
+        if rightEdgePanGestureRecognizer != nil {
+            rightEdgePanGestureRecognizer!.isEnabled = true
+        }
+        if panGestureRecognizer != nil {
+            print("enabling")
+            panGestureRecognizer!.isEnabled = true
+            panGestureRecognizer!.addTarget(self, action: #selector(panGestureCallback(gestureRecognizer:)))
+            panGestureRecognizer!.delegate = self
+            view.addGestureRecognizer(panGestureRecognizer!)
+        }
+        print(panGestureRecognizer!.isEnabled)
     }
 
     private func updateLeftProgress(status: MenuStatus, animated: Bool, completion: (() -> Void)? = nil) {
@@ -492,7 +525,7 @@ public class DrawerMenu: UIViewController, UIGestureRecognizerDelegate {
     }
 
     @objc private func panGestureCallback(gestureRecognizer: UIPanGestureRecognizer) {
-
+        print("pangesture callback")
         setupGestureBegan(gestureRecognizer: gestureRecognizer)
 
         let location = gestureRecognizer.location(in: view)

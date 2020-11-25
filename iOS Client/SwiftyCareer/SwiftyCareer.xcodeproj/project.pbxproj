@@ -13,6 +13,8 @@
 		D9236DED256C1FEE00A51102 /* SCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */; };
 		D9236DF2256C201500A51102 /* SCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DF1256C201500A51102 /* SCViewModel.swift */; };
 		D9236DF7256C204E00A51102 /* SCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DF6256C204E00A51102 /* SCObject.swift */; };
+		D9236E02256C320300A51102 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236E01256C320300A51102 /* TestView.swift */; };
+		D9236E07256DDACB00A51102 /* SCNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236E06256DDACB00A51102 /* SCNavigationBar.swift */; };
 		D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */; };
 		D9254C9F2513586C0050E936 /* PopupDialogDefaultButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */; };
 		D9254CA02513586C0050E936 /* PopupDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9254C902513586B0050E936 /* PopupDialogButton.swift */; };
@@ -139,6 +141,8 @@
 		D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCTableViewController.swift; sourceTree = "<group>"; };
 		D9236DF1256C201500A51102 /* SCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCViewModel.swift; sourceTree = "<group>"; };
 		D9236DF6256C204E00A51102 /* SCObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCObject.swift; sourceTree = "<group>"; };
+		D9236E01256C320300A51102 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		D9236E06256DDACB00A51102 /* SCNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNavigationBar.swift; sourceTree = "<group>"; };
 		D9254C8E2513586B0050E936 /* PopupDialogOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogOverlayView.swift; sourceTree = "<group>"; };
 		D9254C8F2513586B0050E936 /* PopupDialogDefaultButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogDefaultButtons.swift; sourceTree = "<group>"; };
 		D9254C902513586B0050E936 /* PopupDialogButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupDialogButton.swift; sourceTree = "<group>"; };
@@ -375,7 +379,9 @@
 				D9F0B8D5251329BE009C7191 /* PZPullToRefresh.swift */,
 				D988B09A25182A4000EF7BBA /* SCTextView.swift */,
 				D9236DEC256C1FEE00A51102 /* SCTableViewController.swift */,
+				D9236E06256DDACB00A51102 /* SCNavigationBar.swift */,
 				D9236DE4256C1D2B00A51102 /* CustomSearchBar.swift */,
+				D9236E01256C320300A51102 /* TestView.swift */,
 				D9CB4F5C2568F68200A16CA0 /* Segment */,
 				D9254CB1251358CA0050E936 /* DynamicBlurView */,
 				D9254C8D251358570050E936 /* PopupDialog */,
@@ -809,6 +815,7 @@
 				D9236DF2256C201500A51102 /* SCViewModel.swift in Sources */,
 				D98C58F22511EC0300D06554 /* RootViewController.swift in Sources */,
 				D9CB4F782568F69D00A16CA0 /* SegmentioCellWithImageOverLabel.swift in Sources */,
+				D9236E07256DDACB00A51102 /* SCNavigationBar.swift in Sources */,
 				D98C58F82511F36500D06554 /* FeedTableViewController.swift in Sources */,
 				D9CB4F602568F68F00A16CA0 /* SegmentioOptions.swift in Sources */,
 				D9CB4F722568F69D00A16CA0 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
@@ -854,6 +861,7 @@
 				D962222D2512F427005A96EA /* CarouPageControl.swift in Sources */,
 				D9254CDB25139ECB0050E936 /* Feed.swift in Sources */,
 				D9254CAB2513586C0050E936 /* InteractiveTransition.swift in Sources */,
+				D9236E02256C320300A51102 /* TestView.swift in Sources */,
 				D9254CA72513586C0050E936 /* TransitionAnimator.swift in Sources */,
 				D9236DD625691E6700A51102 /* UserCell.swift in Sources */,
 				D9254CA32513586C0050E936 /* PresentationManager.swift in Sources */,

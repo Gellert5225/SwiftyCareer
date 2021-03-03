@@ -11,7 +11,7 @@ import Foundation
 
 class ENV {
 #if DEBUG
-    static let SERVER_URL = "http://23.242.49.226:8080/parse"
+    static let SERVER_URL = "http://23.242.50.55:8080/parse"
     static let APP_ID = "myAppId"
 #elseif RELEASE
     static let SERVER_URL = "https://uniplusdev.herokuapp.com/parse"

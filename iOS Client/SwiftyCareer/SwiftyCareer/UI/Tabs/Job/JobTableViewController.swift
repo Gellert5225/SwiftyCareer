@@ -63,7 +63,7 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
     */
     
     func updateSearchResults(for searchController: UISearchController) {
-        drawer()?.panGestureType = .none
+        //drawer()?.panGestureType = .none
         if let searchText = searchController.searchBar.text {
             if searchText != "" {
                 let query = PFQuery(className: "_User")
@@ -96,7 +96,7 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
     }
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        drawer()?.panGestureType = .pan
+        //drawer()?.panGestureType = .pan
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
             self.navigationItem.leftBarButtonItem = self.leftBarButtonItem!
             self.navigationItem.rightBarButtonItem = self.rightBarButtonItem!

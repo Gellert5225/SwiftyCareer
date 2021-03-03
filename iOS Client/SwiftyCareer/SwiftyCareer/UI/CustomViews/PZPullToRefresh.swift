@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol PZPullToRefreshDelegate: class {
+@objc public protocol PZPullToRefreshDelegate: AnyObject {
 
     func pullToRefreshDidTrigger(_ view: PZPullToRefreshView) -> ()
     @objc optional func pullToRefreshLastUpdated(_ view: PZPullToRefreshView) -> Date

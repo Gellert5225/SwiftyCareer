@@ -48,7 +48,7 @@ class FeedCell: UITableViewCell {
     }
     
     func setup() {
-        let userImageFile = feed.user!["profilePicture"] as! PFFileObject
+        let userImageFile = feed.author!["profilePicture"] as! PFFileObject
         userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
@@ -60,8 +60,8 @@ class FeedCell: UITableViewCell {
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.light_gray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        usernameLabel.text = feed.user!["display_name"] as? String
-        bioLabel.text = feed.user!["position"] as? String
+        usernameLabel.text = feed.author!["display_name"] as? String
+        bioLabel.text = feed.author!["position"] as? String
         feedTextview.text = feed.text
         
         if feed.images?.count != 0 {
@@ -121,7 +121,7 @@ class FeedCell: UITableViewCell {
             amount = 1
         }
         likeLabel.text = String(feed.numberOfLikes!)
-        PFCloud.callFunction(inBackground: "IncrementLikes", withParameters: ["id": feed.id!, "amount": amount]) { (res, error) in
+        PFCloud.callFunction(inBackground: "IncrementLikes", withParameters: ["id": feed.objectId!, "amount": amount]) { (res, error) in
             if let err = error {
                 print(err.localizedDescription)
             }

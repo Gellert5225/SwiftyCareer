@@ -72,6 +72,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
+//        let query = PFQuery(className:"Feed")
+//        query.getObjectInBackground(withId: "JQqwabXf9K") { (feed, error) in
+//            if error == nil {
+//                print("success!");
+//                if let feed = feed {
+//                    feed["numberOfLikes"] = 2
+//                    feed.saveInBackground { (succeeded, error)  in
+//                        if (succeeded) {
+//                            print("saved");
+//                        } else {
+//                            // There was a problem, check error.description
+//                            print("error when saving: \(error?.localizedDescription)")
+//                        }
+//                    }
+//                }
+//            } else {
+//                print("error: \(error?.localizedDescription)")
+//                // Fail!
+//            }
+//        }
+        
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)

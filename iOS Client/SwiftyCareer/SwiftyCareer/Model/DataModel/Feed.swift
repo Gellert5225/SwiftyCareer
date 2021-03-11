@@ -9,7 +9,7 @@ import Foundation
 import Parse
 
 class Feed: SCObject {
-    var user: PFUser?
+    var author: PFUser?
     var text: String?
     var images: [PFFileObject]?
     var numberOfLikes: Int?
@@ -26,9 +26,9 @@ class Feed: SCObject {
     init(id: String, parseObject: PFObject? = nil, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
         super.init()
         
-        self.id = id
+        self.objectId = id
         self.parseObject = parseObject
-        self.user = user
+        self.author = user
         self.text = text
         self.images = images
         self.numberOfLikes = numberOfLikes

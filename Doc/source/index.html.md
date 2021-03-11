@@ -7,7 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://github.com/Gellert5225/SwiftyCareer'>Github Repo</a>
-  - <a href='http://localhost:1337/dashboard'>Visit the dashboard</a>
+  - <a href='http://23.242.50.55:8080/dashboard'>Visit the dashboard</a>
 
 includes:
   - model
@@ -33,13 +33,21 @@ You need to have Node.js and MongoDB installed on your machine.
 
 We use [Parse](http://parseplatform.org) as our backend service, and you can find their documentations [here](http://docs.parseplatform.org).
 
-## Install
-
-### Client
+## Client
 
 We use CocoaPod for iOS client. To start, run `pod install` in the iOS Client directory.
 
-### Database
+## Database
+
+### Development Database
+
+By default, we use our own MongoDB Community Edition hosted in-house. 
+
+This is the recommended method as you cannot push any database changes to the git repository.
+
+### Local Database
+
+You can also start your own local database to experiment new ideas.
 
 <aside class="notice">
 Note: you need to create a database user before you access it.
@@ -79,19 +87,23 @@ db.createUser({
 
 `db.auth("new_username", "new_password")`
 
-### Server
+<aside class="warning">
+Warning: you need to manually update the development database if you want your local changes to work on the development branch.
+</aside>
+
+## Server
 
 Our server is deployed on Heroku, to run the server locally, clone the GitHub repo, and go to the folder "Server/Development". First, you need to install all node dependencies, simply run
 
-`npm install` 
+`yarn install` 
 
 and then to start the development server, use
 
-`npm start` 
+`npm run start` 
 
 to start the production server, use
 
-`npm start-prod`
+`npm run start-prod`
 
 Donezo! Go visit the webpage at localhost:1337
 
@@ -102,10 +114,6 @@ We also provide a visual tool for viewing our database. To run the dashboard, st
 `localhost:1337/dashboard`
 
 However you'll need an admin account to log into the database. Open `index.js` in `Server/Development` and add your username and password into the file.
-
-<aside class="notice">
-Note: the database in localhost only exists on the development machine and cannot be shared with other developers working on a different network. 
-</aside>
 
 # Development
 

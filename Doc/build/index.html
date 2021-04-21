@@ -1,0 +1,845 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e9bde216.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;swift&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-670eafbe.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="swift">swift</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#installation" class="toc-h1 toc-link" data-title="Installation">Installation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisite" class="toc-h2 toc-link" data-title="Prerequisite">Prerequisite</a>
+                  </li>
+                  <li>
+                    <a href="#client" class="toc-h2 toc-link" data-title="Client">Client</a>
+                  </li>
+                  <li>
+                    <a href="#database" class="toc-h2 toc-link" data-title="Database">Database</a>
+                  </li>
+                  <li>
+                    <a href="#server" class="toc-h2 toc-link" data-title="Server">Server</a>
+                  </li>
+                  <li>
+                    <a href="#dashboard" class="toc-h2 toc-link" data-title="Dashboard">Dashboard</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#development" class="toc-h1 toc-link" data-title="Development">Development</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#mobile" class="toc-h2 toc-link" data-title="Mobile">Mobile</a>
+                  </li>
+                  <li>
+                    <a href="#web" class="toc-h2 toc-link" data-title="Web">Web</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#model" class="toc-h1 toc-link" data-title="Model">Model</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#feed" class="toc-h2 toc-link" data-title="Feed">Feed</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cloud-code" class="toc-h1 toc-link" data-title="Cloud Code">Cloud Code</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#fetchcommentsforfeed" class="toc-h2 toc-link" data-title="FetchCommentsForFeed">FetchCommentsForFeed</a>
+                  </li>
+                  <li>
+                    <a href="#fetchfeeds" class="toc-h2 toc-link" data-title="FetchFeeds">FetchFeeds</a>
+                  </li>
+                  <li>
+                    <a href="#fetchfeedwithcomments" class="toc-h2 toc-link" data-title="FetchFeedWithComments">FetchFeedWithComments</a>
+                  </li>
+                  <li>
+                    <a href="#incrementlikes" class="toc-h2 toc-link" data-title="IncrementLikes">IncrementLikes</a>
+                  </li>
+                  <li>
+                    <a href="#postcomment" class="toc-h2 toc-link" data-title="PostComment">PostComment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#everything-else" class="toc-h1 toc-link" data-title="Everything Else">Everything Else</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#color-scheme" class="toc-h2 toc-link" data-title="Color Scheme">Color Scheme</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/Gellert5225/SwiftyCareer'>Github Repo</a></li>
+            <li><a href='http://23.242.50.55:8080/dashboard'>Visit the dashboard</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to SwiftyCareer documentation, in which you will find the installation guide, model API, cloud function API and REST API.</p>
+<h1 id='installation'>Installation</h1><h2 id='prerequisite'>Prerequisite</h2>
+<p>You need to have Node.js and MongoDB installed on your machine. </p>
+
+<p>We use <a href="http://parseplatform.org">Parse</a> as our backend service, and you can find their documentations <a href="http://docs.parseplatform.org">here</a>.</p>
+<h2 id='client'>Client</h2>
+<p>We use CocoaPod for iOS client. To start, run <code>pod install</code> in the iOS Client directory.</p>
+<h2 id='database'>Database</h2><h3 id='development-database'>Development Database</h3>
+<p>By default, we use our own MongoDB Community Edition hosted in-house. </p>
+
+<p>This is the recommended method as you cannot push any database changes to the git repository.</p>
+<h3 id='local-database'>Local Database</h3>
+<p>You can also start your own local database to experiment new ideas.</p>
+
+<aside class="notice">
+Note: you need to create a database user before you access it.
+</aside>
+
+<ul>
+<li>Create a directory to your local database:</li>
+</ul>
+
+<p><code>mkdir ~/your/db/path</code></p>
+
+<ul>
+<li>After you have installed MongoDB Community version, run </li>
+</ul>
+
+<p><code>mongod --port 27017 --dbpath your/db/path</code></p>
+
+<ul>
+<li><p>Then you can either run <code>mongo</code> in a shell window to browse the database or download MongoDB Compass. More detail can be found <a href="https://docs.mongodb.com/manual/administration/install-community/">here</a></p></li>
+<li><p>Then create a database admin to authenticate yourself: (refer to the code on the right)</p></li>
+</ul>
+
+<blockquote>
+<p>To create a database user, in your Mongo shell, enter: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>db.createUser<span class="o">({</span>
+    user: <span class="s1">'new_username'</span>,
+    <span class="nb">pwd</span>: <span class="s1">'new_password'</span>,
+    roles: <span class="o">[</span>
+        <span class="o">{</span> role: <span class="s1">'userAdminAnyDatabase'</span>, db: <span class="s1">'admin'</span> <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">})</span>
+</code></pre></div>
+<ul>
+<li>Stop the mongo instance and restart with <code>--auth</code>:</li>
+</ul>
+
+<p><code>mongod --port 27017 --auth --dbpath your/db/path</code></p>
+
+<ul>
+<li>Now authenticate yourself towards the <code>admin</code> database:</li>
+</ul>
+
+<p><code>use admin</code></p>
+
+<p><code>db.auth(&quot;new_username&quot;, &quot;new_password&quot;)</code></p>
+
+<aside class="warning">
+Warning: you need to manually update the development database if you want your local changes to work on the development branch.
+</aside>
+<h2 id='server'>Server</h2>
+<p>Our server is deployed on Heroku, to run the server locally, clone the GitHub repo, and go to the folder &quot;Server/Development&quot;. First, you need to install all node dependencies, simply run</p>
+
+<p><code>yarn install</code> </p>
+
+<p>and then to start the development server, use</p>
+
+<p><code>npm run start</code> </p>
+
+<p>to start the production server, use</p>
+
+<p><code>npm run start-prod</code></p>
+
+<p>Donezo! Go visit the webpage at localhost:1337</p>
+<h2 id='dashboard'>Dashboard</h2>
+<p>We also provide a visual tool for viewing our database. To run the dashboard, startup the server and go to </p>
+
+<p><code>localhost:1337/dashboard</code></p>
+
+<p>However you&#39;ll need an admin account to log into the database. Open <code>index.js</code> in <code>Server/Development</code> and add your username and password into the file.</p>
+<h1 id='development'>Development</h1><h2 id='mobile'>Mobile</h2><h3 id='ios'>iOS</h3>
+<p>Currently only support iPhone. iPad version will be implemented in the future. </p>
+
+<p>SwiftUI is fairly new and buggy so we decide to use UIKit and Swift in our client code.</p>
+<h2 id='web'>Web</h2><h3 id='front-end'>Front-end</h3>
+<p>We use EJS as our view engine, you can find more about EJS <a href="http://ejs.co">here</a>. </p>
+
+<p>All ejs files should be placed insede <code>views</code> folder, for javascript, css and images please put them in <code>public/asset</code> folder.</p>
+<h3 id='back-end'>Back-end</h3>
+<p>We use Node.js and MongoDB as our server + database service. </p>
+
+<p>All REST routes js files should be placed inside <code>routes</code> folder.</p>
+<h1 id='model'>Model</h1><h2 id='feed'>Feed</h2>
+<p>A Feed is a post that contains users&#39; stories. Please note a Feed is different than a Career, it does not contain any job informations.</p>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Platform</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>objectId</td>
+<td>String</td>
+<td>Unique identifier of a Feed object</td>
+<td>All</td>
+</tr>
+<tr>
+<td>user</td>
+<td>User</td>
+<td>The user who posted the Feed</td>
+<td>All</td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>The Feed body</td>
+<td>All</td>
+</tr>
+<tr>
+<td>images</td>
+<td>[File]</td>
+<td>An array of images in File format. (can be empty)</td>
+<td>All</td>
+</tr>
+<tr>
+<td>numberOfLikes</td>
+<td>Number</td>
+<td>How many likes the Feed has recieved</td>
+<td>All</td>
+</tr>
+<tr>
+<td>numberOfComments</td>
+<td>Number</td>
+<td>How many comments the Feed has revieved</td>
+<td>All</td>
+</tr>
+<tr>
+<td>numberOfShares</td>
+<td>Number</td>
+<td>How many users have shared the Feed</td>
+<td>All</td>
+</tr>
+<tr>
+<td>numberOfImages</td>
+<td>Number</td>
+<td>How many images the Feed has</td>
+<td>All</td>
+</tr>
+<tr>
+<td>parseObject</td>
+<td>PFObject(optional)</td>
+<td>A reference to the original ParseObject retrieved from server</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>isLikedByCurrentUser</td>
+<td>Boolean</td>
+<td>Whether the current user has liked the Feed or not</td>
+<td>iOS</td>
+</tr>
+</tbody></table>
+<h3 id='fetch-all-feeds'>Fetch All Feeds</h3>
+<p>Retrieves all Feed object in database. (Newest first)</p>
+
+<ul>
+<li>Callback: </li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feeds</td>
+<td>[Feed]</td>
+<td>Array of Feed objects retrieved. (If fail, value is null)</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Error</td>
+<td>The error message. (If success, value is null)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Note: The `feeds` retrieved will be empty instead of null if there is no Feed to retrieve. A null will be returned only if there is an error occured.
+</aside>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="k">var</span> <span class="nv">feedModel</span> <span class="o">=</span> <span class="kt">FeedViewModel</span><span class="p">()</span>
+
+<span class="n">feedModel</span><span class="o">.</span><span class="n">fetch</span> <span class="p">{</span> <span class="p">(</span><span class="nv">feeds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feed</span><span class="p">]?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+        <span class="c1">// something went wrong</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// feeds contains array of Feed objects</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div><h1 id='cloud-code'>Cloud Code</h1><h2 id='fetchcommentsforfeed'>FetchCommentsForFeed</h2>
+<p>Fetch the list of comments for a specific feed.</p>
+<h3 id='request'>Request</h3>
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feedId</td>
+<td>String</td>
+<td>The object id for Feed.</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>Return an array of comments in Parse Object type.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchCommentsForFeed</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">comments</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h2 id='fetchfeeds'>FetchFeeds</h2>
+<p>Fetch a list of feeds descending creation date.</p>
+<h3 id='request-2'>Request</h3>
+<p>This function does not take any requests.</p>
+<h3 id='response-2'>Response</h3>
+<p>Returns an array of Parse Objects and an error message. </p>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunction</span><span class="p">(</span><span class="nv">inBackground</span><span class="p">:</span> <span class="s">"FetchFeeds"</span><span class="p">,</span> 
+                    <span class="nv">withParameters</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+        <span class="c1">// something went wrong</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">feeds</span> <span class="o">=</span> <span class="n">objects</span> <span class="k">as?</span> <span class="p">[</span><span class="kt">PFObject</span><span class="p">]</span> <span class="p">{</span>
+        <span class="c1">// feeds now contain an array of PFObjects, now convert them to Feeds</span>
+        <span class="c1">// see FeedViewModel.swift for detail implementation.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">"</span><span class="s2">FetchFeeds</span><span class="dl">"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">feeds</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h2 id='fetchfeedwithcomments'>FetchFeedWithComments</h2>
+<p>Fetch a feed together with its comments.</p>
+<h3 id='request-3'>Request</h3>
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feedId</td>
+<td>String</td>
+<td>The object id for Feed</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<p>Return a JSON object that contains the feed and its comments.
+<code>{
+  feedObject: feed,
+  comments: comments
+}</code></p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> 
+<span class="p">};</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchFeedWithComments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">feed</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h2 id='incrementlikes'>IncrementLikes</h2>
+<p>Increment the number of likes of a Feed.</p>
+<h3 id='request-4'>Request</h3>
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The object id for Feed</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Number</td>
+<td>The incrementation amount, 1 or -1</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<p>This function does not return any value.</p>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunction</span><span class="p">(</span><span class="nv">inBackground</span><span class="p">:</span> <span class="s">"IncrementLikes"</span><span class="p">,</span>
+                    <span class="nv">withParameters</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">feed</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="s">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">amount</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">amount</span>
+<span class="p">};</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">IncrementLikes</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h2 id='postcomment'>PostComment</h2>
+<p>Post a comment under a feed.</p>
+<h3 id='request-5'>Request</h3>
+<table><thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feedId</td>
+<td>String</td>
+<td>The object id for Feed</td>
+</tr>
+<tr>
+<td>commenter</td>
+<td>String</td>
+<td>The object id for the commenter</td>
+</tr>
+<tr>
+<td>commentText</td>
+<td>String</td>
+<td>The comment itself in text form</td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3>
+<p>This function does not return any value.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">commenter</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commenter</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">commentText</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commentText</span>
+<span class="p">};</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">PostComment</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+<h1 id='everything-else'>Everything Else</h1><h2 id='color-scheme'>Color Scheme</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>RGB</th>
+<th>HEX</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Main Dark Blue</td>
+<td>(42, 47, 63)</td>
+<td>#2A2F3F</td>
+</tr>
+<tr>
+<td>Main Dark Blue(darker)</td>
+<td>(32, 37, 53)</td>
+<td>#202535</td>
+</tr>
+<tr>
+<td>Main Tint Blue</td>
+<td>(53, 111, 177)</td>
+<td>#356FB1</td>
+</tr>
+<tr>
+<td>Light Gray</td>
+<td>(145, 154, 172)</td>
+<td>#919AAC</td>
+</tr>
+<tr>
+<td>Menu Background</td>
+<td>(62, 67, 83)</td>
+<td>#3E4353</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="swift">swift</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

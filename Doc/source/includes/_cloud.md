@@ -1,6 +1,29 @@
 # Cloud Code
 
+## FetchCommentsForFeed
+
+Fetch the list of comments for a specific feed.
+
+### Request
+
+Param | Type | Description
+--------- | ------- | -----------
+feedId | String | The object id for Feed.
+
+### Response
+
+Return an array of comments in Parse Object type.
+
+```javascript
+Parse.Cloud.run('FetchCommentsForFeed', params).then(
+    function(comments) {},
+    function (error) {}
+);
+```
+
 ## FetchFeeds
+
+Fetch a list of feeds descending creation date.
 
 ### Request
 
@@ -24,11 +47,43 @@ PFCloud.callFunction(inBackground: "FetchFeeds",
 ```
 
 ```javascript
+Parse.Cloud.run("FetchFeeds").then(
+    function(feeds) {},
+    function(error) {}
+);
+```
+
+## FetchFeedWithComments
+
+Fetch a feed together with its comments.
+
+### Request
+
+Param | Type | Description
+--------- | ------- | -----------
+feedId | String | The object id for Feed
+
+### Response
+
+Return a JSON object that contains the feed and its comments.
+`{
+  feedObject: feed,
+  comments: comments
+}`
+
+```javascript
+const params = { 
+    'feedId': req.params.id 
+};
+Parse.Cloud.run('FetchFeedWithComments', params).then(
+    function(feed) {},
+    function (error) {}
+);
 ```
 
 ## IncrementLikes
 
-Increment the number of likes of a Feed
+Increment the number of likes of a Feed.
 
 ### Request
 
@@ -48,4 +103,43 @@ PFCloud.callFunction(inBackground: "IncrementLikes",
         print(err.localizedDescription)
     }
 }
+```
+
+```javascript
+const params = { 
+    'id': req.params.id, 
+    'amount': req.body.amount
+};
+Parse.Cloud.run('IncrementLikes', params).then(
+    function(success) {},
+    function(error) {}
+);
+```
+
+## PostComment 
+
+Post a comment under a feed.
+
+### Request
+
+Param | Type | Description
+--------- | ------- | -----------
+feedId | String | The object id for Feed
+commenter | String | The object id for the commenter
+commentText | String | The comment itself in text form
+
+### Response
+
+This function does not return any value.
+
+```javascript
+const params = { 
+    'feedId': req.params.id, 
+    'commenter': req.body.commenter, 
+    'commentText': req.body.commentText
+};
+Parse.Cloud.run('PostComment', params).then(
+    function(success) {},
+    function(error) {}
+);
 ```

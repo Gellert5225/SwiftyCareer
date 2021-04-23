@@ -4,6 +4,13 @@
 
 Fetch the list of comments for a specific feed.
 
+```javascript
+Parse.Cloud.run('FetchCommentsForFeed', params).then(
+    function(comments) {},
+    function(error) {}
+);
+```
+
 ### Request
 
 Param | Type | Description
@@ -14,24 +21,9 @@ feedId | String | The object id for Feed.
 
 Return an array of comments in Parse Object type.
 
-```javascript
-Parse.Cloud.run('FetchCommentsForFeed', params).then(
-    function(comments) {},
-    function (error) {}
-);
-```
-
 ## FetchFeeds
 
 Fetch a list of feeds descending creation date.
-
-### Request
-
-This function does not take any requests.
-
-### Response
-
-Returns an array of Parse Objects and an error message. 
 
 ```swift
 PFCloud.callFunction(inBackground: "FetchFeeds", 
@@ -53,9 +45,27 @@ Parse.Cloud.run("FetchFeeds").then(
 );
 ```
 
+### Request
+
+This function does not take any requests.
+
+### Response
+
+Returns an array of Parse Objects and an error message. 
+
 ## FetchFeedWithComments
 
 Fetch a feed together with its comments.
+
+```javascript
+const params = { 
+    'feedId': req.params.id 
+};
+Parse.Cloud.run('FetchFeedWithComments', params).then(
+    function(feed) {},
+    function(error) {}
+);
+```
 
 ### Request
 
@@ -71,30 +81,9 @@ Return a JSON object that contains the feed and its comments.
   comments: comments
 }`
 
-```javascript
-const params = { 
-    'feedId': req.params.id 
-};
-Parse.Cloud.run('FetchFeedWithComments', params).then(
-    function(feed) {},
-    function (error) {}
-);
-```
-
 ## IncrementLikes
 
 Increment the number of likes of a Feed.
-
-### Request
-
-Param | Type | Description
---------- | ------- | -----------
-id | String | The object id for Feed
-amount | Number | The incrementation amount, 1 or -1
-
-### Response
-
-This function does not return any value.
 
 ```swift
 PFCloud.callFunction(inBackground: "IncrementLikes",
@@ -116,21 +105,20 @@ Parse.Cloud.run('IncrementLikes', params).then(
 );
 ```
 
-## PostComment 
-
-Post a comment under a feed.
-
 ### Request
 
 Param | Type | Description
 --------- | ------- | -----------
-feedId | String | The object id for Feed
-commenter | String | The object id for the commenter
-commentText | String | The comment itself in text form
+id | String | The object id for Feed
+amount | Number | The incrementation amount, 1 or -1
 
 ### Response
 
 This function does not return any value.
+
+## PostComment 
+
+Post a comment under a feed.
 
 ```javascript
 const params = { 
@@ -143,3 +131,15 @@ Parse.Cloud.run('PostComment', params).then(
     function(error) {}
 );
 ```
+
+### Request
+
+Param | Type | Description
+--------- | ------- | -----------
+feedId | String | The object id for Feed
+commenter | String | The object id for the commenter
+commentText | String | The comment itself in text form
+
+### Response
+
+This function does not return any value.

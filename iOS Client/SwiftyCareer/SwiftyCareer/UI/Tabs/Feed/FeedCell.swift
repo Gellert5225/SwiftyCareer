@@ -68,19 +68,19 @@ class FeedCell: UITableViewCell {
             imageScrollView.set(imageDataSet: feed.images!)
             imageScrollView.currentDotColor = .white
             imageScrollView.dotColor = .light_gray
-            imageScrollView.addConstraint(aspectRatio)
+            print("feed \(feed.text!)")
+            imageScrollView.addConstraint(NSLayoutConstraint(item: imageScrollView!,
+                                                      attribute: .height,
+                                                      relatedBy: .equal,
+                                                      toItem: imageScrollView,
+                                                      attribute: .width,
+                                                      multiplier: 3.0 / 4.0,
+                                                      constant: 0))
         } else {
             if aspectRatio != nil {
                 imageScrollView.removeConstraint(aspectRatio)
             }
         }
-//        imageScrollView.addConstraint(NSLayoutConstraint(item: imageScrollView!,
-//                                                  attribute: .height,
-//                                                  relatedBy: .equal,
-//                                                  toItem: imageScrollView,
-//                                                  attribute: .width,
-//                                                  multiplier: 3.0 / 4.0,
-//                                                  constant: 0))
 
         likeLabel.text = String(feed.numberOfLikes!)
         commentLabel.text = String(feed.numberOfComments!)

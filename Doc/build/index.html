@@ -288,7 +288,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;swift&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;swift&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -298,8 +298,8 @@
     <div class="toc-wrapper">
       <img src="images/logo-670eafbe.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="swift">swift</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="swift">swift</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -344,7 +344,16 @@
             <a href="#model" class="toc-h1 toc-link" data-title="Model">Model</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#scobject" class="toc-h2 toc-link" data-title="SCObject">SCObject</a>
+                  </li>
+                  <li>
                     <a href="#feed" class="toc-h2 toc-link" data-title="Feed">Feed</a>
+                  </li>
+                  <li>
+                    <a href="#scviewmodel" class="toc-h2 toc-link" data-title="SCViewModel">SCViewModel</a>
+                  </li>
+                  <li>
+                    <a href="#feedviewmodel" class="toc-h2 toc-link" data-title="FeedViewModel">FeedViewModel</a>
                   </li>
               </ul>
           </li>
@@ -365,6 +374,20 @@
                   </li>
                   <li>
                     <a href="#postcomment" class="toc-h2 toc-link" data-title="PostComment">PostComment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rest-routes" class="toc-h1 toc-link" data-title="REST Routes">REST Routes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-feeds" class="toc-h2 toc-link" data-title="Get All Feeds">Get All Feeds</a>
+                  </li>
+                  <li>
+                    <a href="#get-comments-for-a-feed" class="toc-h2 toc-link" data-title="Get Comments For A Feed">Get Comments For A Feed</a>
                   </li>
               </ul>
           </li>
@@ -407,6 +430,17 @@
 Note: you need to create a database user before you access it.
 </aside>
 
+<blockquote>
+<p>To create a database user, in your Mongo shell, enter: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>db.createUser<span class="o">({</span>
+    user: <span class="s1">'new_username'</span>,
+    <span class="nb">pwd</span>: <span class="s1">'new_password'</span>,
+    roles: <span class="o">[</span>
+        <span class="o">{</span> role: <span class="s1">'userAdminAnyDatabase'</span>, db: <span class="s1">'admin'</span> <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">})</span>
+</code></pre></div>
 <ul>
 <li>Create a directory to your local database:</li>
 </ul>
@@ -422,21 +456,7 @@ Note: you need to create a database user before you access it.
 <ul>
 <li><p>Then you can either run <code>mongo</code> in a shell window to browse the database or download MongoDB Compass. More detail can be found <a href="https://docs.mongodb.com/manual/administration/install-community/">here</a></p></li>
 <li><p>Then create a database admin to authenticate yourself: (refer to the code on the right)</p></li>
-</ul>
-
-<blockquote>
-<p>To create a database user, in your Mongo shell, enter: </p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>db.createUser<span class="o">({</span>
-    user: <span class="s1">'new_username'</span>,
-    <span class="nb">pwd</span>: <span class="s1">'new_password'</span>,
-    roles: <span class="o">[</span>
-        <span class="o">{</span> role: <span class="s1">'userAdminAnyDatabase'</span>, db: <span class="s1">'admin'</span> <span class="o">}</span>
-    <span class="o">]</span>
-<span class="o">})</span>
-</code></pre></div>
-<ul>
-<li>Stop the mongo instance and restart with <code>--auth</code>:</li>
+<li><p>Stop the mongo instance and restart with <code>--auth</code>:</p></li>
 </ul>
 
 <p><code>mongod --port 27017 --auth --dbpath your/db/path</code></p>
@@ -484,9 +504,41 @@ Warning: you need to manually update the development database if you want your l
 <p>We use Node.js and MongoDB as our server + database service. </p>
 
 <p>All REST routes js files should be placed inside <code>routes</code> folder.</p>
-<h1 id='model'>Model</h1><h2 id='feed'>Feed</h2>
-<p>A Feed is a post that contains users&#39; stories. Please note a Feed is different than a Career, it does not contain any job informations.</p>
+<h1 id='model'>Model</h1>
+<p>Data models and functions.</p>
+
+<aside class="notice">
+Note: Attributes marked as 'All' in Platform are also entries in database.
+</aside>
+<h2 id='scobject'>SCObject</h2>
+<p>Native representation of a generic object.</p>
 <h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Platform</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>objectId</td>
+<td>String</td>
+<td>Unique identifier of an object</td>
+<td>All</td>
+</tr>
+<tr>
+<td>parseObjeect</td>
+<td>PFObject?</td>
+<td>A reference to the original ParseObject retrieved from server</td>
+<td>iOS</td>
+</tr>
+</tbody></table>
+<h2 id='feed'>Feed</h2>
+<p>Sub-class of <a href="#scobject"><code>SCObject</code></a>.</p>
+
+<p>A Feed is a post that contains users&#39; stories. Please note a Feed is different than a Career, it does not contain any job informations.</p>
+<h3 id='attributes-2'>Attributes</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -511,6 +563,12 @@ Warning: you need to manually update the development database if you want your l
 <td>text</td>
 <td>String</td>
 <td>The Feed body</td>
+<td>All</td>
+</tr>
+<tr>
+<td>text_JSON</td>
+<td>String</td>
+<td>The Feed body in JSON format</td>
 <td>All</td>
 </tr>
 <tr>
@@ -545,7 +603,7 @@ Warning: you need to manually update the development database if you want your l
 </tr>
 <tr>
 <td>parseObject</td>
-<td>PFObject(optional)</td>
+<td>PFObject?</td>
 <td>A reference to the original ParseObject retrieved from server</td>
 <td>iOS</td>
 </tr>
@@ -556,12 +614,54 @@ Warning: you need to manually update the development database if you want your l
 <td>iOS</td>
 </tr>
 </tbody></table>
-<h3 id='fetch-all-feeds'>Fetch All Feeds</h3>
-<p>Retrieves all Feed object in database. (Newest first)</p>
+<h2 id='scviewmodel'>SCViewModel</h2>
+<p>An intermediate class binding the data and the view.</p>
 
+<aside class="warning">
+Warning: This is a virtual/abstract class, you should not create an instance of this class directly.
+</aside>
+<h3 id='attributes-3'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Platform</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>objects</td>
+<td>[SCObject]</td>
+<td>Array of objects need to be displayed.</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>isLoading</td>
+<td>Boolean</td>
+<td>Whether the view model is doing background work. Default: <code>true</code></td>
+<td>iOS</td>
+</tr>
+</tbody></table>
+<h3 id='functions'>Functions</h3>
 <ul>
-<li>Callback: </li>
+<li><code>func fetch(onCompletion complete: @escaping ([SCObject]?, Error?) -&gt; Void)</code></li>
 </ul>
+
+<p>Fetching the objects that need to be displayed.</p>
+<h2 id='feedviewmodel'>FeedViewModel</h2>
+<p>Sub-class of <a href="#scviewmodel"><code>SCViewModel</code></a>.</p>
+
+<p>Fetching and processing feeds.</p>
+
+<aside class="notice">
+Note: Only available on iOS
+</aside>
+<h3 id='functions-2'>Functions</h3>
+<ul>
+<li><code>override func fetch(onCompletion complete: @escaping ([SCObject]?, Error?) -&gt; Void)</code></li>
+</ul>
+
+<p>Retrieves all Feed object in database. (Newest first)</p>
 
 <table><thead>
 <tr>
@@ -571,14 +671,9 @@ Warning: you need to manually update the development database if you want your l
 </tr>
 </thead><tbody>
 <tr>
-<td>feeds</td>
-<td>[Feed]</td>
-<td>Array of Feed objects retrieved. (If fail, value is null)</td>
-</tr>
-<tr>
-<td>error</td>
-<td>Error</td>
-<td>The error message. (If success, value is null)</td>
+<td>complete</td>
+<td>callback</td>
+<td>Returns an array of Feed objects and an Error.</td>
 </tr>
 </tbody></table>
 
@@ -595,9 +690,13 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
         <span class="c1">// feeds contains array of Feed objects</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code></code></pre></div><h1 id='cloud-code'>Cloud Code</h1><h2 id='fetchcommentsforfeed'>FetchCommentsForFeed</h2>
+</code></pre></div><h1 id='cloud-code'>Cloud Code</h1><h2 id='fetchcommentsforfeed'>FetchCommentsForFeed</h2>
 <p>Fetch the list of comments for a specific feed.</p>
-<h3 id='request'>Request</h3>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchCommentsForFeed</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">comments</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h3 id='request'>Request</h3>
 <table><thead>
 <tr>
 <th>Param</th>
@@ -613,16 +712,8 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
 </tbody></table>
 <h3 id='response'>Response</h3>
 <p>Return an array of comments in Parse Object type.</p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchCommentsForFeed</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">comments</span><span class="p">)</span> <span class="p">{},</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">);</span>
-</code></pre></div><h2 id='fetchfeeds'>FetchFeeds</h2>
+<h2 id='fetchfeeds'>FetchFeeds</h2>
 <p>Fetch a list of feeds descending creation date.</p>
-<h3 id='request-2'>Request</h3>
-<p>This function does not take any requests.</p>
-<h3 id='response-2'>Response</h3>
-<p>Returns an array of Parse Objects and an error message. </p>
 <div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunction</span><span class="p">(</span><span class="nv">inBackground</span><span class="p">:</span> <span class="s">"FetchFeeds"</span><span class="p">,</span> 
                     <span class="nv">withParameters</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">objects</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
     <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
@@ -637,9 +728,20 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
     <span class="kd">function</span><span class="p">(</span><span class="nx">feeds</span><span class="p">)</span> <span class="p">{},</span>
     <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
 <span class="p">);</span>
-</code></pre></div><h2 id='fetchfeedwithcomments'>FetchFeedWithComments</h2>
+</code></pre></div><h3 id='request-2'>Request</h3>
+<p>This function does not take any requests.</p>
+<h3 id='response-2'>Response</h3>
+<p>Returns an array of Parse Objects and an error message. </p>
+<h2 id='fetchfeedwithcomments'>FetchFeedWithComments</h2>
 <p>Fetch a feed together with its comments.</p>
-<h3 id='request-3'>Request</h3>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> 
+<span class="p">};</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchFeedWithComments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">feed</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h3 id='request-3'>Request</h3>
 <table><thead>
 <tr>
 <th>Param</th>
@@ -659,16 +761,23 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
   feedObject: feed,
   comments: comments
 }</code></p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
-    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> 
-<span class="p">};</span>
-<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">FetchFeedWithComments</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">feed</span><span class="p">)</span> <span class="p">{},</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">);</span>
-</code></pre></div><h2 id='incrementlikes'>IncrementLikes</h2>
+<h2 id='incrementlikes'>IncrementLikes</h2>
 <p>Increment the number of likes of a Feed.</p>
-<h3 id='request-4'>Request</h3>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunction</span><span class="p">(</span><span class="nv">inBackground</span><span class="p">:</span> <span class="s">"IncrementLikes"</span><span class="p">,</span>
+                    <span class="nv">withParameters</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">feed</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="s">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">amount</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">amount</span>
+<span class="p">};</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">IncrementLikes</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{},</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">);</span>
+</code></pre></div><h3 id='request-4'>Request</h3>
 <table><thead>
 <tr>
 <th>Param</th>
@@ -689,23 +798,18 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
 </tbody></table>
 <h3 id='response-4'>Response</h3>
 <p>This function does not return any value.</p>
-<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">PFCloud</span><span class="o">.</span><span class="nf">callFunction</span><span class="p">(</span><span class="nv">inBackground</span><span class="p">:</span> <span class="s">"IncrementLikes"</span><span class="p">,</span>
-                    <span class="nv">withParameters</span><span class="p">:</span> <span class="p">[</span><span class="s">"id"</span><span class="p">:</span> <span class="n">feed</span><span class="o">.</span><span class="n">id</span><span class="o">!</span><span class="p">,</span> <span class="s">"amount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
-    <span class="k">if</span> <span class="k">let</span> <span class="nv">err</span> <span class="o">=</span> <span class="n">error</span> <span class="p">{</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">localizedDescription</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
-    <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
-    <span class="dl">'</span><span class="s1">amount</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">amount</span>
+<h2 id='postcomment'>PostComment</h2>
+<p>Post a comment under a feed.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">commenter</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commenter</span><span class="p">,</span> 
+    <span class="dl">'</span><span class="s1">commentText</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commentText</span>
 <span class="p">};</span>
-<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">IncrementLikes</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">PostComment</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
     <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{},</span>
     <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
 <span class="p">);</span>
-</code></pre></div><h2 id='postcomment'>PostComment</h2>
-<p>Post a comment under a feed.</p>
-<h3 id='request-5'>Request</h3>
+</code></pre></div><h3 id='request-5'>Request</h3>
 <table><thead>
 <tr>
 <th>Param</th>
@@ -731,16 +835,125 @@ Note: The `feeds` retrieved will be empty instead of null if there is no Feed to
 </tbody></table>
 <h3 id='response-5'>Response</h3>
 <p>This function does not return any value.</p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> 
-    <span class="dl">'</span><span class="s1">feedId</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> 
-    <span class="dl">'</span><span class="s1">commenter</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commenter</span><span class="p">,</span> 
-    <span class="dl">'</span><span class="s1">commentText</span><span class="dl">'</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">commentText</span>
-<span class="p">};</span>
-<span class="nx">Parse</span><span class="p">.</span><span class="nx">Cloud</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="dl">'</span><span class="s1">PostComment</span><span class="dl">'</span><span class="p">,</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">success</span><span class="p">)</span> <span class="p">{},</span>
-    <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{}</span>
-<span class="p">);</span>
-</code></pre></div><h1 id='errors'>Errors</h1>
+<h1 id='rest-routes'>REST Routes</h1><h2 id='authentication'>Authentication</h2>
+<p>Authenticate a user.</p>
+
+<table><thead>
+<tr>
+<th>Route</th>
+<th>XHR</th>
+<th>Description</th>
+<th>req.params</th>
+<th>req.body</th>
+<th>req.query</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/register</td>
+<td><code>POST</code></td>
+<td>Register a new user</td>
+<td>N/A</td>
+<td>{username, password, email}</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>/login</td>
+<td><code>POST</code></td>
+<td>Log in a user</td>
+<td>N/A</td>
+<td>{username, password}</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>/logout</td>
+<td><code>POST</code></td>
+<td>Logout a user</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-feeds'>Get All Feeds</h2>
+<p>Get all feeds (newest first)</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/feeds</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">dataType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ERROR! </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">feeds</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorThrown</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">textStatus</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorThrown</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /feeds</code></p>
+<h3 id='http-response'>HTTP Response</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>feeds</td>
+<td>[Feed]?</td>
+<td>Array of Feed objects retrieved. (If fail, value is null)</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Error?</td>
+<td>The error message. (If success, value is null)</td>
+</tr>
+</tbody></table>
+<h2 id='get-comments-for-a-feed'>Get Comments For A Feed</h2>
+<p>Get all comments under a Feed.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/feeds/:id/comments</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// replace :id with the actual objectId of the Feed</span>
+    <span class="na">dataType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">json</span><span class="dl">'</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ERROR! </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">comments</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorThrown</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">textStatus</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">errorThrown</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /feeds/:id/comments</code></p>
+<h3 id='http-response-2'>HTTP Response</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>comments</td>
+<td>[Comment]?</td>
+<td>Array of Comment objects retrieved. (If fail, value is null)</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Error?</td>
+<td>The error message. (If success, value is null)</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
@@ -836,8 +1049,8 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="swift">swift</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="swift">swift</a>
           </div>
       </div>
     </div>

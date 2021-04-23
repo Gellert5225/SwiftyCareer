@@ -22,6 +22,7 @@ class FeedViewModel: SCViewModel {
                     for imageObject in object["images"] as! [PFObject] {
                         imageDatas.append(imageObject["image"] as! PFFileObject)
                     }
+                    print(imageDatas.count)
                     let likedUserIds = object["likedUserIds"] as! [String]
                     let feed = Feed(id: object.objectId!,
                                     user: object["author"] as! PFUser,
@@ -30,7 +31,7 @@ class FeedViewModel: SCViewModel {
                                     numberOfLikes: object["numberOfLikes"] as! Int,
                                     numberOfComments: object["numberOfComments"] as! Int,
                                     numberOfShares: object["numberOfShares"] as! Int,
-                                    numberOfImages: object["numberOfImages"] as! Int,
+                                    numberOfImages: imageDatas.count,
                                     isLikedByCurrentUser: likedUserIds.contains((PFUser.current()?.objectId)!))
                     self.objects.append(feed)
                 }

@@ -2,9 +2,9 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - swift
   - javascript
-
+  - swift
+  
 toc_footers:
   - <a href='https://github.com/Gellert5225/SwiftyCareer'>Github Repo</a>
   - <a href='http://23.242.50.55:8080/dashboard'>Visit the dashboard</a>
@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - model
   - cloud
+  - routes
   - errors
   - others
 
@@ -53,18 +54,6 @@ You can also start your own local database to experiment new ideas.
 Note: you need to create a database user before you access it.
 </aside>
 
-- Create a directory to your local database:
-
-`mkdir ~/your/db/path`
-
-- After you have installed MongoDB Community version, run 
-
-`mongod --port 27017 --dbpath your/db/path`
-
-- Then you can either run `mongo` in a shell window to browse the database or download MongoDB Compass. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
-
-- Then create a database admin to authenticate yourself: (refer to the code on the right)
-
 > To create a database user, in your Mongo shell, enter: 
 
 ```shell
@@ -76,6 +65,18 @@ db.createUser({
     ]
 })
 ```
+
+- Create a directory to your local database:
+
+`mkdir ~/your/db/path`
+
+- After you have installed MongoDB Community version, run 
+
+`mongod --port 27017 --dbpath your/db/path`
+
+- Then you can either run `mongo` in a shell window to browse the database or download MongoDB Compass. More detail can be found [here](https://docs.mongodb.com/manual/administration/install-community/)
+
+- Then create a database admin to authenticate yourself: (refer to the code on the right)
 
 - Stop the mongo instance and restart with `--auth`:
 

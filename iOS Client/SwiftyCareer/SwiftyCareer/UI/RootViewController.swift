@@ -13,6 +13,12 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         createTabBarController()
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
+//        self.navigationController?.navigationBar.standardAppearance = appearance;
+//        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
+        
     }
     
     func createTabBarController() {

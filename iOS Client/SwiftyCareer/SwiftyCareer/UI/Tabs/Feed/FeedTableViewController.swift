@@ -15,6 +15,7 @@ class FeedTableViewController: SCTableViewController {
         
         self.navigationItem.title = "Feed"
         self.tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "FeedCell")
+        self.tableView.register(UINib(nibName: "FeedCellNoImage", bundle: nil), forCellReuseIdentifier: "FeedCellNoImage")
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -23,12 +24,20 @@ class FeedTableViewController: SCTableViewController {
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
-            let feed = viewModel.objects[indexPath.row]
-            
-            cell.feed = feed as! Feed
+            let feed = viewModel.objects[indexPath.row] as! Feed
+            if feed.images!.count > 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
+                
+                cell.feed = feed
 
-            return cell
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCellNoImage", for: indexPath) as! FeedCellNoImage
+                
+                cell.feed = feed
+
+                return cell
+            }
         }
     }
     

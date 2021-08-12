@@ -49,6 +49,11 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
         rightButton?.delegate = self
         self.navigationItem.leftBarButtonItem = leftButton
         self.navigationItem.rightBarButtonItem = rightButton
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
+        self.navigationController?.navigationBar.standardAppearance = appearance;
+        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
     }
     
     func fetchData() {
@@ -60,7 +65,7 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
             } else {}
             self.tableView.reloadData()
             if self.refreshView == nil {
-                let view = PZPullToRefreshView(frame: CGRect(x: 0, y: 0 - self.tableView.bounds.size.height, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+                let view = PZPullToRefreshView(frame: CGRect(x: 0, y: -40, width: self.tableView.bounds.size.width, height: 40))
                 view.delegate = self
                 self.tableView.addSubview(view)
                 self.refreshView = view

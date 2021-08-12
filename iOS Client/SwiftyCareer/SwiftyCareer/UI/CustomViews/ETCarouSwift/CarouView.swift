@@ -90,6 +90,8 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             let imageView = PFImageView()//UIImageView(image: self.images[0])
             imageView.frame = self.bounds
             imageView.file = self.imageDatas[0]
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
             self.addSubview(imageView)
             imageView.loadInBackground()
             return
@@ -156,7 +158,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         imageView.file = self.imageDatas[indexPath.row]
         imageView.frame = CGRect(origin: CGPoint.zero, size: cell.frame.size)
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
         cell.addSubview(imageView)
         imageView.loadInBackground()
         cell.backgroundColor = UIColor.purple

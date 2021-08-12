@@ -38,7 +38,7 @@ open class PZPullToRefreshView: UIView {
 
     open var flipAnimatioDutation: CFTimeInterval = 0.18
 
-    @objc open var thresholdValue: CGFloat = 40.0
+    @objc open var thresholdValue: CGFloat = 131
     
     open var lastUpdatedKey = "RefreshLastUpdated"
 
@@ -180,15 +180,14 @@ open class PZPullToRefreshView: UIView {
             UIView.animate(withDuration: 0.2, animations: {
                 var offset = max(scrollView.contentOffset.y * -1, 0)
                 offset = min(offset, self.thresholdValue)
-                //scrollView.setContentOffset(CGPoint(x:0.0, y:-offset), animated: true)
-                scrollView.contentInset = UIEdgeInsets(top: offset, left: 0.0, bottom: 0.0, right: 0.0)
+                scrollView.contentInset = UIEdgeInsets(top: 40, left: 0.0, bottom: 0.0, right: 0.0)
             })
         } else if scrollView.isDragging {
             let loading = false
-            if state == .pulling && scrollView.contentOffset.y > -thresholdValue && scrollView.contentOffset.y <= 0.0 && !loading {
+            if state == .pulling && scrollView.contentOffset.y + thresholdValue > 0 && scrollView.contentOffset.y <= 0.0 && !loading {
                 state = .normal
 
-            } else if state == .normal && scrollView.contentOffset.y < -thresholdValue && !loading {
+            } else if state == .normal && scrollView.contentOffset.y + thresholdValue < 0 && !loading {
                 state = .pulling
             }
         }
@@ -196,33 +195,17 @@ open class PZPullToRefreshView: UIView {
     
     @objc open func refreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
         let loading = false
-        if scrollView.contentOffset.y <= -thresholdValue && !loading {
+        if scrollView.contentOffset.y + thresholdValue <= 0 && !loading {
             state = .loading
             delegate?.pullToRefreshDidTrigger(self)
         }
     }
     
     @objc open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView, _ inset: UIEdgeInsets) {
+        arrowImage?.isHidden = false
+        state = .normal
         UIView.animate(withDuration: 0.3, animations: {
             scrollView.contentInset = inset
-        })
-        arrowImage?.isHidden = false
-        state = .normal
-    }
-    
-    @objc open func refreshScrollViewDataSourceDidFinishedLoading() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.scrollView!.contentInset = UIEdgeInsets.zero
-        })
-        arrowImage?.isHidden = false
-        state = .normal
-    }
-    
-    func beginRefresh (_ scrollView: UIScrollView){
-        UIView.animate(withDuration: 0.2, animations: {
-            var offset = max(scrollView.contentOffset.y * -1, 0)
-            offset = min(offset, self.thresholdValue)
-            scrollView.contentInset = UIEdgeInsets(top: self.thresholdValue, left: 0.0, bottom: 0.0, right: 0.0)
         })
     }
     

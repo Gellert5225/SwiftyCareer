@@ -2093,7 +2093,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -2429,107 +2429,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04A34CEAB422E36C6D59DD4E81D9DA33 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
-				IBSC_MODULE = Parse;
-				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-Parse-Parse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = Parse;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		1475FC02FC3EA53145CFFC7553BF821A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Parse/Parse-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Parse/Parse-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Parse/Parse.modulemap";
-				PRODUCT_MODULE_NAME = Parse;
-				PRODUCT_NAME = Parse;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		1652AB336DC31B9933722282D83CD2B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
-				IBSC_MODULE = Parse;
-				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-ParseUI-Parse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PRODUCT_NAME = ParseUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		17863BB86135863B32EFE926FBE9A553 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Parse/Parse-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Parse/Parse-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Parse/Parse.modulemap";
-				PRODUCT_MODULE_NAME = Parse;
-				PRODUCT_NAME = Parse;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2596,6 +2495,73 @@
 			};
 			name = Debug;
 		};
+		2F15CD1DD73EEA817D5FCCF2D604F4E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
+				IBSC_MODULE = Parse;
+				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-ParseUI-Parse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = ParseUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		3E1C7D4BA578D24C837C63F85E2459F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Parse/Parse-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Parse/Parse-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Parse/Parse.modulemap";
+				PRODUCT_MODULE_NAME = Parse;
+				PRODUCT_NAME = Parse;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		488D601EA0205BD1FFECE2CE7DEEB382 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
+				IBSC_MODULE = Parse;
+				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-Parse-Parse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = Parse;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		54B8F3A29F24D03E2D9C01B0D18EF51E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41DE882140ED1E06123DEF0051A825BF /* Bolts.release.xcconfig */;
@@ -2611,7 +2577,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Bolts/Bolts-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Bolts/Bolts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2646,7 +2612,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Bolts/Bolts-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Bolts/Bolts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2765,21 +2731,37 @@
 			};
 			name = Release;
 		};
-		C96B049406F5D9BB50D6F7BFA6711321 /* Release */ = {
+		9FF79E0C19E5E9A850B20696219F27C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
+			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
+				IBSC_MODULE = Parse;
+				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-Parse-Parse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = Parse;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		B2EBA3F20161726D3082AD8700F2CA07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
 				IBSC_MODULE = Parse;
 				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-ParseUI-Parse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = ParseUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 		D75DA321A0FAB632B40533ACE968B402 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2818,21 +2800,39 @@
 			};
 			name = Debug;
 		};
-		E38E39133BEC8C6A7F0D02138D5EDA6E /* Release */ = {
+		E243F31559895CA16730E8AEBF7E9F2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D435F9FD62DA781C9588D2E2E2997814 /* Parse.release.xcconfig */;
+			baseConfigurationReference = 0D9F21C9F9747F986D5B1C44CECDEEDB /* Parse.debug.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Parse";
-				IBSC_MODULE = Parse;
-				INFOPLIST_FILE = "Target Support Files/Parse/ResourceBundle-Parse-Parse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Parse/Parse-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Parse/Parse-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Parse/Parse.modulemap";
+				PRODUCT_MODULE_NAME = Parse;
 				PRODUCT_NAME = Parse;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2840,8 +2840,8 @@
 		09D3ABF73FE9F7C359D6456DA24C75CB /* Build configuration list for PBXNativeTarget "Parse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1475FC02FC3EA53145CFFC7553BF821A /* Debug */,
-				17863BB86135863B32EFE926FBE9A553 /* Release */,
+				E243F31559895CA16730E8AEBF7E9F2F /* Debug */,
+				3E1C7D4BA578D24C837C63F85E2459F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2867,8 +2867,8 @@
 		559D069FD8E4020BD0F0EA272B38BA95 /* Build configuration list for PBXNativeTarget "Parse-ParseUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1652AB336DC31B9933722282D83CD2B2 /* Debug */,
-				C96B049406F5D9BB50D6F7BFA6711321 /* Release */,
+				B2EBA3F20161726D3082AD8700F2CA07 /* Debug */,
+				2F15CD1DD73EEA817D5FCCF2D604F4E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2885,8 +2885,8 @@
 		D0C34FB0D83EC2F3A2418A7E208910F2 /* Build configuration list for PBXNativeTarget "Parse-Parse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04A34CEAB422E36C6D59DD4E81D9DA33 /* Debug */,
-				E38E39133BEC8C6A7F0D02138D5EDA6E /* Release */,
+				9FF79E0C19E5E9A850B20696219F27C0 /* Debug */,
+				488D601EA0205BD1FFECE2CE7DEEB382 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

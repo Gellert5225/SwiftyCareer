@@ -62,25 +62,13 @@ class FeedCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         usernameLabel.text = feed.author!["display_name"] as? String
         bioLabel.text = feed.author!["position"] as? String
-        feedTextview.text = feed.text
-        
-        if feed.images?.count != 0 {
-            imageScrollView.set(imageDataSet: feed.images!)
-            imageScrollView.currentDotColor = .white
-            imageScrollView.dotColor = .light_gray
-            print("feed \(feed.text!)")
-            imageScrollView.addConstraint(NSLayoutConstraint(item: imageScrollView!,
-                                                      attribute: .height,
-                                                      relatedBy: .equal,
-                                                      toItem: imageScrollView,
-                                                      attribute: .width,
-                                                      multiplier: 3.0 / 4.0,
-                                                      constant: 0))
-        } else {
-            if aspectRatio != nil {
-                imageScrollView.removeConstraint(aspectRatio)
-            }
-        }
+    
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "SFUIText-Regular", size: 15)!,
+            .foregroundColor: UIColor.white,
+        ]
+        let attributedQuote = NSAttributedString(string: feed.text!.htmlToString.trimmingCharacters(in: .whitespacesAndNewlines), attributes: attributes)
+        feedTextview.attributedText = attributedQuote
 
         likeLabel.text = String(feed.numberOfLikes!)
         commentLabel.text = String(feed.numberOfComments!)
@@ -94,6 +82,16 @@ class FeedCell: UITableViewCell {
         
         feedTextview.sizeToFit()
         feedTextview.isScrollEnabled = false
+        
+        if feed.images!.count > 0 {
+            setUpImages()
+        }
+    }
+    
+    fileprivate func setUpImages() {
+        imageScrollView.set(imageDataSet: feed.images!)
+        imageScrollView.currentDotColor = .white
+        imageScrollView.dotColor = .light_gray
     }
     
     func setupGestures() {

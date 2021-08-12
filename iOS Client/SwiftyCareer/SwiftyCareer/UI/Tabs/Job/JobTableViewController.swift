@@ -66,10 +66,12 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
         //drawer()?.panGestureType = .none
         if let searchText = searchController.searchBar.text {
             if searchText != "" {
-                let query = PFQuery(className: "_User")
-                query.whereKey("username", matchesRegex: searchText, modifiers: "i")
-//                query.order(byAscending: "$score")
-//                query.selectKeys(["$score"])
+                let query = PFQuery(className: "Feed")
+                //query.whereKey("username", matchesRegex: searchText, modifiers: "i")
+                query.whereKey("text", matchesText: searchText)
+                //query.whereKey("display_name", hasPrefix: searchText)
+                query.order(byAscending: "$score")
+                query.selectKeys(["$score"])
                 query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)

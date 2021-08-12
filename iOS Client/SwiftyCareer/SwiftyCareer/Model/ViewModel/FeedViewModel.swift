@@ -22,7 +22,6 @@ class FeedViewModel: SCViewModel {
                     for imageObject in object["images"] as! [PFObject] {
                         imageDatas.append(imageObject["image"] as! PFFileObject)
                     }
-                    print(imageDatas.count)
                     let likedUserIds = object["likedUserIds"] as! [String]
                     let feed = Feed(id: object.objectId!,
                                     user: object["author"] as! PFUser,

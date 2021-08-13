@@ -63,7 +63,7 @@ open class SCXHR {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(SCResponse(response: SCXHRResponse, error: .other, cookie: cookies))
+                    completion(SCResponse(response: SCXHRResponse, error: .custom(["status": response.statusCode, "error": json!["error"]!]), cookie: cookies))
                 }
             }
         }

@@ -9,6 +9,5 @@ import Foundation
 import Parse
 
 class SCObject {
-    var objectId: String?
-    var parseObject: PFObject?
+    var _id: String?
 }

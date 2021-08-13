@@ -6,36 +6,33 @@
 //
 
 import Foundation
-import Parse
+import SCWebAPI
 
 class Feed: SCObject {
-    var author: PFUser?
+    var author: User?
+    var created_at: Double?
     var text: String?
-    var images: [PFFileObject]?
-    var numberOfLikes: Int?
-    var numberOfComments: Int?
-    var numberOfShares: Int?
-    var numberOfImages: Int?
-    //var comments: [Comment]
-    var isLikedByCurrentUser: Bool?
+    var text_JSON: String?
+    var images: [String]?
+    var like_count: Int?
+    var comment_count: Int?
+    var share_count: Int?
+    var liked_user_ids: [String]?
     
-    override init() {
+    init(from feedJSON: JSON) {
+        self.author = User(from: feedJSON["author"] as! JSON)
+        self.created_at = feedJSON["created_at"] as? Double
+        self.text = feedJSON["text"] as? String
+        self.text_JSON = feedJSON["text_JSON"] as? String
+        self.images = feedJSON["images"] as? [String]
+        self.like_count = feedJSON["like_count"] as? Int
+        self.comment_count = feedJSON["comment_count"] as? Int
+        self.share_count = feedJSON["share_count"] as? Int
+        self.liked_user_ids = feedJSON["liked_use_ids"] as? [String]
         
-    }
-    
-    init(id: String, parseObject: PFObject? = nil, user: PFUser, text: String = "", images: [PFFileObject], numberOfLikes: Int, numberOfComments: Int, numberOfShares: Int, numberOfImages: Int, isLikedByCurrentUser: Bool) {
         super.init()
-        
-        self.objectId = id
-        self.parseObject = parseObject
-        self.author = user
-        self.text = text
-        self.images = images
-        self.numberOfLikes = numberOfLikes
-        self.numberOfComments = numberOfComments
-        self.numberOfShares = numberOfShares
-        self.numberOfImages = numberOfImages
-        self.isLikedByCurrentUser = isLikedByCurrentUser
+        self._id = feedJSON["_id"] as? String
     }
+    
 }
 

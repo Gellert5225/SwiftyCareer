@@ -59,15 +59,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
         let xhr = SCXHR()
         
         let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "d_schrute", "password": "5917738ljh"])
-        let jwt = SCResource(path: "/testCookieJwt")
+//        let jwt = SCResource(path: "/testCookieJwt")
+//        let feeds = SCResource(path: "/feeds")
+//        let image = SCResource(path: "/api/files/3d7fc74f01f7162fef98a1c145f15dfc.jpg")
         
-        xhr.request(resource: jwt) {response in
+        xhr.request(resource: signin) {response in
             if let error = response.err {
                 print("OOPS")
                 print(error)
             }
-            
-            print(response)
+            if let _ = response.res {
+                //print(user)
+            }
         }
         
         
@@ -124,59 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
 //            }
 //        }
 //
-//        let parameters = ["username": "jli542", "password": "5917738ljh"] as [String : Any]
-//
-//        //create the url with URL
-//        let url = URL(string: "http://192.168.1.16:1336/testCookieJwt")! //change the url
-//        //let url = URL(string: "http://192.168.1.16:1336/api/rest/auth/signin")!
-//        //create the session object
-//        let session = URLSession.shared
-//
-//        let jar = HTTPCookieStorage.shared
-//        let cookieHeaderField = ["Set-Cookie": "user_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGYyMzZlMWI1MTE5ZjlkYWU1OTUzNSIsImlhdCI6MTYyODM5NDUyNywiZXhwIjoxNjI4Mzk0NTU3fQ.5ZAyf8ilCP-d6CXcsidYiKELNWED4C28YGZoIdw4PEM"] // Or ["Set-Cookie": "key=value, key2=value2"] for multiple cookies
-//        let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: url)
-//        //jar.setCookies(cookies, for: url, mainDocumentURL: url)
-//
-//        //now create the URLRequest object using the url object
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET" //set http method as POST
-//
-//        do {
-//            //request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//
-//        //create dataTask using the session object to send data to the server
-//        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-//
-//            guard error == nil else {
-//                return
-//            }
-//
-//            guard let data = data else {
-//                return
-//            }
-//            print(response)
-//
-//            do {
-//                //create json object from data
-//                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-//                    print(json)
-//                    let cookieStorage = HTTPCookieStorage.shared
-//                    let cookies = cookieStorage.cookies(for: url) ?? []
-//                    print(cookies)
-//                    // handle json...
-//                }
-//            } catch let error {
-//                print(error.localizedDescription)
-//            }
-//        })
-//        task.resume()
-        
+
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)

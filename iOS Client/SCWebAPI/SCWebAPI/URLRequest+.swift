@@ -40,7 +40,7 @@ internal extension URLRequest {
         }
         switch resource.method {
             case .POST, .PUT:
-                httpBody = try! JSONSerialization.data(withJSONObject: resource.params, options: [])
+            httpBody = try! JSONSerialization.data(withJSONObject: resource.params, options: .prettyPrinted)
             default:
                 break
         }

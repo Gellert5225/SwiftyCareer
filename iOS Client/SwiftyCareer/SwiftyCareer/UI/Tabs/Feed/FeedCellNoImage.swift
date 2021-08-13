@@ -9,7 +9,7 @@ import UIKit
 
 class FeedCellNoImage: FeedCell {
 
-    override var feed: Feed {
+    override var feed: Feed? {
         didSet {
             setup()
         }

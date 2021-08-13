@@ -28,7 +28,7 @@ final public class NetworkReachability {
     
     /// The current status of the network
     ///
-    /// It returns the ``NWPath.Status`` enum
+    /// It returns the `NWPath.Status` enum
     public var currentStatus: NWPath.Status {
         get {
             return monitor.currentPath.status

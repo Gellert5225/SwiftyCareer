@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import SCWebAPI
 
 @objc public protocol CarouViewDelegate:NSObjectProtocol{
     
@@ -22,7 +22,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     public weak var delegate: CarouViewDelegate?
     
     open var images: [UIImage]!
-    open var imageDatas: [PFFileObject]!
+    open var imageDatas: [String]!
     
     private var pageControl: CarouPageControl!
     private var collectionView: CarouCollectionView!
@@ -73,7 +73,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
-    public func set(imageDataSet: [PFFileObject], rideDirection:CarouDirection = .rightToLeft) {
+    public func set(imageDataSet: [String], rideDirection:CarouDirection = .rightToLeft) {
         self.imageDatas = imageDataSet
         self.width = self.frame.width
         
@@ -83,17 +83,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             let imageView = UIImageView(image: image)
             imageView.frame = self.bounds
             self.addSubview(imageView)
-            return
-        }
-        
-        guard self.imageDatas.count > 1 else {
-            let imageView = PFImageView()//UIImageView(image: self.images[0])
-            imageView.frame = self.bounds
-            imageView.file = self.imageDatas[0]
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.masksToBounds = true
-            self.addSubview(imageView)
-            imageView.loadInBackground()
             return
         }
         
@@ -107,7 +96,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             
             self.imageDatas = self.imageDatas.reversed()
             
-            self.currentImageIndex = self.images.count
+            self.currentImageIndex = self.imageDatas.count
             
         }
 
@@ -115,7 +104,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
         
-        
+        print(imageDataSet.count)
         self.collectionView = CarouCollectionView(frame: self.bounds, collectionViewLayout: layout, imagesCount: self.imageDatas!.count, contentOffsetX:0)
         self.addSubview(collectionView)
         collectionView.dataSource = self
@@ -123,13 +112,13 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         
         let pageControlFrame = CGRect(x: self.width/2-self.width*0.375, y: frame.height*0.8, width: self.width*0.75, height:frame.height*0.25)
         self.pageControl = CarouPageControl(frame: pageControlFrame, imagesCount: self.imageDatas.count, currentPage: self.currentImageIndex)
-//        self.pageControl.addTarget(self, action: #selector(self.pageControlTapped(sender:)), for: .touchDown)
-//        self.pageControl.addTarget(self, action: #selector(self.pageControlUntapped(sender:)), for: .touchUpInside)
-        self.addSubview(self.pageControl)
+        if self.imageDatas.count > 1 {
+            self.addSubview(self.pageControl)
+        }
         
     }
     
-    public init(frame: CGRect, imageDataSet: [PFFileObject], rideDirection:CarouDirection = .rightToLeft) {
+    public init(frame: CGRect, imageDataSet: [String], rideDirection:CarouDirection = .rightToLeft) {
         super.init(frame: frame)
         
         
@@ -152,16 +141,19 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CAROUCELL, for: indexPath)
-        let imageView = PFImageView()
-        imageView.file = self.imageDatas[indexPath.row]
+        let imageView = UIImageView()
         imageView.frame = CGRect(origin: CGPoint.zero, size: cell.frame.size)
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         cell.addSubview(imageView)
-        imageView.loadInBackground()
-        cell.backgroundColor = UIColor.purple
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: URL(string: "http://192.168.1.16:1336/api/files/" + self.imageDatas[indexPath.row])!)
+            DispatchQueue.main.async {
+                imageView.image = UIImage(data: data ?? Data())
+            }
+        }
+        cell.backgroundColor = UIColor.tableview_background
         return cell
     }
     

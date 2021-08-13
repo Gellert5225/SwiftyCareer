@@ -25,14 +25,13 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var shareLabel: UILabel!
     
     @IBOutlet weak var aspectRatio: NSLayoutConstraint!
-    var feed: Feed {
+    var feed: Feed? {
         didSet {
             setup()
         }
     }
     
     required init?(coder: NSCoder) {
-        feed = Feed()
         super.init(coder: coder)
     }
     
@@ -48,34 +47,34 @@ class FeedCell: UITableViewCell {
     }
     
     func setup() {
-        let userImageFile = feed.author!["profilePicture"] as! PFFileObject
-        userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let imageData = imageData {
-                self.profileImageView.image = UIImage(data:imageData)
-            }
-        }
+//        let userImageFile = feed.author!["profilePicture"] as! PFFileObject
+//        userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let imageData = imageData {
+//                self.profileImageView.image = UIImage(data:imageData)
+//            }
+//        }
 
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.light_gray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        usernameLabel.text = feed.author!["display_name"] as? String
-        bioLabel.text = feed.author!["position"] as? String
+        usernameLabel.text = feed?.author?.display_name
+        bioLabel.text = feed?.author?.position
     
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "SFUIText-Regular", size: 15)!,
             .foregroundColor: UIColor.white,
         ]
-        let attributedQuote = NSAttributedString(string: feed.text!.htmlToString.trimmingCharacters(in: .whitespacesAndNewlines), attributes: attributes)
+        let attributedQuote = NSAttributedString(string: feed!.text!.htmlToString.trimmingCharacters(in: .whitespacesAndNewlines), attributes: attributes)
         feedTextview.attributedText = attributedQuote
 
-        likeLabel.text = String(feed.numberOfLikes!)
-        commentLabel.text = String(feed.numberOfComments!)
-        shareLabel.text = String(feed.numberOfShares!)
+        likeLabel.text = String(feed!.like_count!)
+        commentLabel.text = String(feed!.comment_count!)
+        shareLabel.text = String(feed!.share_count!)
         
         bioLabel.textColor = .light_gray
-        likeImage.image = feed.isLikedByCurrentUser! ? UIImage(named: "LikeSelected")! : UIImage(named: "Like")
+        likeImage.image = UIImage(named: "LikeSelected")!
         likeLabel.textColor = .light_gray
         commentLabel.textColor = .light_gray
         shareLabel.textColor = .light_gray
@@ -83,13 +82,13 @@ class FeedCell: UITableViewCell {
         feedTextview.sizeToFit()
         feedTextview.isScrollEnabled = false
         
-        if feed.images!.count > 0 {
+        if feed!.images!.count > 0 {
             setUpImages()
         }
     }
     
     fileprivate func setUpImages() {
-        imageScrollView.set(imageDataSet: feed.images!)
+        imageScrollView.set(imageDataSet: feed!.images!)
         imageScrollView.currentDotColor = .white
         imageScrollView.dotColor = .light_gray
     }
@@ -107,23 +106,23 @@ class FeedCell: UITableViewCell {
     
     @objc func handleLike(_ sender: UITapGestureRecognizer? = nil) {
         var amount = 0
-        if feed.isLikedByCurrentUser! {
-            feed.isLikedByCurrentUser = false
-            likeImage.image = UIImage(named: "Like")
-            feed.numberOfLikes! -= 1
-            amount = -1
-        } else {
-            feed.isLikedByCurrentUser = true
-            likeImage.image = UIImage(named: "LikeSelected")
-            feed.numberOfLikes! += 1
-            amount = 1
-        }
-        likeLabel.text = String(feed.numberOfLikes!)
-        PFCloud.callFunction(inBackground: "IncrementLikes", withParameters: ["id": feed.objectId!, "amount": amount]) { (res, error) in
-            if let err = error {
-                print(err.localizedDescription)
-            }
-        }
+//        if feed.isLikedByCurrentUser! {
+//            feed.isLikedByCurrentUser = false
+//            likeImage.image = UIImage(named: "Like")
+//            feed.numberOfLikes! -= 1
+//            amount = -1
+//        } else {
+//            feed.isLikedByCurrentUser = true
+//            likeImage.image = UIImage(named: "LikeSelected")
+//            feed.numberOfLikes! += 1
+//            amount = 1
+//        }
+//        likeLabel.text = String(feed.numberOfLikes!)
+//        PFCloud.callFunction(inBackground: "IncrementLikes", withParameters: ["id": feed.objectId!, "amount": amount]) { (res, error) in
+//            if let err = error {
+//                print(err.localizedDescription)
+//            }
+//        }
     }
     
     @objc func handleComment(_ sender: UITapGestureRecognizer? = nil) {

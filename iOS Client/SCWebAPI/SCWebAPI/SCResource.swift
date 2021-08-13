@@ -34,6 +34,6 @@ public struct SCResource {
         self.path = Path(path)
         self.method = method
         self.params = params
-        self.headers = headers
+        self.headers = newHeaders
     }
 }

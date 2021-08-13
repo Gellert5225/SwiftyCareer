@@ -10,7 +10,7 @@ import Foundation
 /// XHR Errors
 public enum SCServiceError: Error {
     case noInternetConnection
-    case custom(Any, Any)
+    case custom(Any)
     case unauthorized
     case other
 }

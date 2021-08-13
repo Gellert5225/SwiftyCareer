@@ -6,10 +6,19 @@
 //
 
 import Foundation
-import Parse
+import SCWebAPI
 
-class User: PFUser {
-    @NSManaged var displayName: String
-    @NSManaged var bio: String
-    @NSManaged var position: String
+class User: SCObject {
+    var display_name: String
+    var bio: String
+    var position: String
+        
+    init(from userJSON: JSON) {
+        self.display_name = userJSON["display_name"] as! String
+        self.bio = userJSON["bio"] as! String
+        self.position = userJSON["position"] as! String
+        
+        super.init()
+        self._id = userJSON["_id"] as? String
+    }
 }

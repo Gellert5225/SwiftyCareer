@@ -46,8 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
             self.window?.makeKeyAndVisible()
         }
         
-        let config = SCWebAPIConfiguration(serverURL: "http://192.168.1.16:1336")
-        SCWebAPI.Initialize(with: config)
+        let config = SCWebClientConfiguration(serverURL: "http://192.168.1.16:1336")
+        SCWebClient.Initialize(with: config)
         
 //        let xhr = SCXHR()
 //        

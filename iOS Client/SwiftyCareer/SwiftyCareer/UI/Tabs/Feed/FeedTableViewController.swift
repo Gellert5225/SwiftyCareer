@@ -24,7 +24,7 @@ class FeedTableViewController: SCTableViewController {
             return cell
         } else {
             let feed = viewModel.objects[indexPath.row] as! Feed
-            if feed.images!.count > 0 {
+            if feed.images.count > 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedCell
                 
                 cell.feed = feed

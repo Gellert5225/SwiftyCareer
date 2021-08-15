@@ -11,7 +11,6 @@ toc_footers:
 
 includes:
   - model
-  - cloud
   - routes
   - errors
   - others

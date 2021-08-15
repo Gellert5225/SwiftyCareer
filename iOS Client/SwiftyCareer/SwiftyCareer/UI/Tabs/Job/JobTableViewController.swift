@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Parse
 
 class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -64,26 +63,26 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
     
     func updateSearchResults(for searchController: UISearchController) {
         //drawer()?.panGestureType = .none
-        if let searchText = searchController.searchBar.text {
-            if searchText != "" {
-                let query = PFQuery(className: "Feed")
-                //query.whereKey("username", matchesRegex: searchText, modifiers: "i")
-                query.whereKey("text", matchesText: searchText)
-                //query.whereKey("display_name", hasPrefix: searchText)
-                query.order(byAscending: "$score")
-                query.selectKeys(["$score"])
-                query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else if let objects = objects {
-                        print("found \(objects.count) users")
-                        objects.forEach { (object) in
-                            print("User \(object.objectId!) has \(object["score"] ?? "unknown") weight");
-                        }
-                    }
-                }
-            }
-        }
+//        if let searchText = searchController.searchBar.text {
+//            if searchText != "" {
+//                let query = PFQuery(className: "Feed")
+//                //query.whereKey("username", matchesRegex: searchText, modifiers: "i")
+//                query.whereKey("text", matchesText: searchText)
+//                //query.whereKey("display_name", hasPrefix: searchText)
+//                query.order(byAscending: "$score")
+//                query.selectKeys(["$score"])
+//                query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    } else if let objects = objects {
+//                        print("found \(objects.count) users")
+//                        objects.forEach { (object) in
+//                            print("User \(object.objectId!) has \(object["score"] ?? "unknown") weight");
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {

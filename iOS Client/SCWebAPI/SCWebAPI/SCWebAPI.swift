@@ -8,7 +8,7 @@
 import Foundation
 
 /// Configuration for the SwiftyCareer server
-public struct SCWebAPIConfiguration {
+public struct SCWebClientConfiguration {
     
     /// The server URL to connect to SwiftyCareer server
     internal var serverURL: String
@@ -24,9 +24,9 @@ public struct SCWebAPIConfiguration {
 
 
 /// Provides a static function to handle the global configuration
-public struct SCWebAPI {
+public struct SCWebClient {
     /// Configuration for the SwiftyCareer server
-    static var config: SCWebAPIConfiguration!
+    static var config: SCWebClientConfiguration!
     
     /// Configure and initialize the SCWebAPI Client.
     ///
@@ -39,7 +39,7 @@ public struct SCWebAPI {
     /// ```
     ///
     /// - Parameter config: Configuration for the SwiftyCareer server
-    static public func Initialize(with config: SCWebAPIConfiguration) {
+    static public func Initialize(with config: SCWebClientConfiguration) {
         Self.config = config
     }
 }

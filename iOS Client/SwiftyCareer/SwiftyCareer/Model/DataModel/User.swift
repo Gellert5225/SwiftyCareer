@@ -9,10 +9,12 @@ import Foundation
 import SCWebAPI
 
 class User: SCObject {
-    static var current: JSON? {
+    static var current: User? {
         get {
             if let currentUserStr = UserDefaults.standard.string(forKey: "currentUser") {
-                return stringToJSON(string: currentUserStr)
+                if let currentUserJSON = stringToJSON(string: currentUserStr) {
+                    return User(from: currentUserJSON)
+                }
             }
             return nil
         }

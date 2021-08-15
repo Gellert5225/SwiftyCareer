@@ -1,8 +1,0 @@
-platform :ios, '12.0'
-use_frameworks!
-inhibit_all_warnings!
-
-target 'SwiftyCareer' do
-  pod 'Parse'
-  pod 'Parse/UI'
-end

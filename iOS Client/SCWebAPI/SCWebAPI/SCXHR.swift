@@ -9,7 +9,7 @@ import Foundation
 
 /// Handles all HTTP requests
 open class SCXHR {
-    private var serverURL = SCWebAPI.config.serverURL
+    private var serverURL = SCWebClient.config.serverURL
     
     /// Common query params or bodies for all requests
     public var commonParams: JSON = [:]

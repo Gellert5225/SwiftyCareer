@@ -104,7 +104,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: self.frame.width, height: self.frame.height)
         
-        print(imageDataSet.count)
         self.collectionView = CarouCollectionView(frame: self.bounds, collectionViewLayout: layout, imagesCount: self.imageDatas!.count, contentOffsetX:0)
         self.addSubview(collectionView)
         collectionView.dataSource = self
@@ -200,7 +199,6 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     @objc private func pageControlUntapped(sender:UIPageControl){
-        //print("CURRENT PAGE \(sender.currentPage)")
         self.currentImageIndex = sender.currentPage+1
         let offsetX = CGFloat(sender.currentPage+1)*self.frame.size.width
         self.collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)

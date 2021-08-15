@@ -34,5 +34,9 @@ class Feed: SCObject {
         self._id = feedJSON["_id"] as? String
     }
     
+    func like() {
+        
+    }
+    
 }
 

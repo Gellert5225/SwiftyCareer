@@ -47,14 +47,12 @@ class FeedCell: UITableViewCell {
     }
     
     func setup() {
-//        let userImageFile = feed.author!["profilePicture"] as! PFFileObject
-//        userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else if let imageData = imageData {
-//                self.profileImageView.image = UIImage(data:imageData)
-//            }
-//        }
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: URL(string: "http://192.168.1.16:1336/api/files/" + self.feed!.author!.profile_picture)!)
+            DispatchQueue.main.async {
+                self.profileImageView.image = UIImage(data: data ?? Data())
+            }
+        }
 
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.light_gray.cgColor

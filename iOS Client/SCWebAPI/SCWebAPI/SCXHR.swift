@@ -31,16 +31,22 @@ open class SCXHR {
         newResouce.params = newResouce.params.merging(commonParams) { spec, common in
             return spec
         }
-//        let jar = HTTPCookieStorage.shared
-//        let cookieHeaderField = ["Set-Cookie": "user_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMGZiMTA0MmU5OWUwNjY3MjgyNWU0ZSIsImlhdCI6MTYyODc2MjM0MywiZXhwIjoxNjI4NzYyMzczfQ.pTiZ-7S9Su3pqOJ0W_kVAC3JH9Pvzwpa2c4Edx7WXoY"]
-//        let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: URL(string: serverURL + resource.path.absolutePath)!)
-//        jar.setCookies(cookies, for: URL(string: serverURL + resource.path.absolutePath), mainDocumentURL: URL(string: serverURL + resource.path.absolutePath))
+        print("absolute path: \(resource.path.absolutePath)")
+        let jar = HTTPCookieStorage.shared
+        let cookieHeaderField = ["Set-Cookie": "user_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMThlOWIzYTE1ODBiNDAyNGY0M2M1ZSIsImlhdCI6MTYyOTAyMjY0MywiZXhwIjoxNjI5MDIyNzAzfQ.qhqGq-jD7iheaF3lF0FfXgvYMSegkPHgLqiG-SVyILU"]
+        let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: URL(string: serverURL + resource.path.absolutePath)!)
+        jar.setCookies(cookies, for: URL(string: serverURL + resource.path.absolutePath), mainDocumentURL: URL(string: serverURL + resource.path.absolutePath))
         let request = URLRequest(baseUrl: serverURL, resource: newResouce)
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, _ in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             // let base64String = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             //print(base64String)
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(SCResponse(response: nil, error: .custom(["status": 500, "error": error.localizedDescription]), cookie: nil))
+                }
+            }
             guard let response = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
                     completion(SCResponse(response: nil, error: .custom(["status": 500, "error": "Internal Server Error"]), cookie: nil))

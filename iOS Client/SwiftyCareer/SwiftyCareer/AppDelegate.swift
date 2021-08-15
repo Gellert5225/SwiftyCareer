@@ -58,18 +58,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
         
         let xhr = SCXHR()
         
-        let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "d_schrute", "password": "5917738ljh"])
-//        let jwt = SCResource(path: "/testCookieJwt")
+        let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "jli542", "password": "5917738ljh"])
+        let jwt = SCResource(path: "/testCookieJwt")
 //        let feeds = SCResource(path: "/feeds")
 //        let image = SCResource(path: "/api/files/3d7fc74f01f7162fef98a1c145f15dfc.jpg")
+        let signup = SCResource(path: "/api/rest/auth/signup", method: .POST, params: ["username": "testios", "password": "12345", "email": "test@gmail.com"])
         
-        xhr.request(resource: signin) {response in
+        xhr.request(resource: signup) {response in
             if let error = response.err {
                 print("OOPS")
                 print(error)
             }
-            if let _ = response.res {
-                //print(user)
+            if let res = response.res {
+                print(res)
+                print(response.cookie)
             }
         }
         

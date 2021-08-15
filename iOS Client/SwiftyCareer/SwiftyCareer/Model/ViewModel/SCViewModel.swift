@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Parse
 
 class SCViewModel {
     var objects: [SCObject] = []

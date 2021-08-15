@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Parse
 
 class FeedCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!

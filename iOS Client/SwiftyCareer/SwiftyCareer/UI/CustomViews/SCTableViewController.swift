@@ -31,6 +31,8 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
         
         fetchData()
         
+        //print(User.current)
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")

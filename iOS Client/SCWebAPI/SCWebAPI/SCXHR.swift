@@ -31,11 +31,11 @@ open class SCXHR {
         newResouce.params = newResouce.params.merging(commonParams) { spec, common in
             return spec
         }
-        print("absolute path: \(resource.path.absolutePath)")
-        let jar = HTTPCookieStorage.shared
-        let cookieHeaderField = ["Set-Cookie": "user_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMThlOWIzYTE1ODBiNDAyNGY0M2M1ZSIsImlhdCI6MTYyOTAyMjY0MywiZXhwIjoxNjI5MDIyNzAzfQ.qhqGq-jD7iheaF3lF0FfXgvYMSegkPHgLqiG-SVyILU"]
-        let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: URL(string: serverURL + resource.path.absolutePath)!)
-        jar.setCookies(cookies, for: URL(string: serverURL + resource.path.absolutePath), mainDocumentURL: URL(string: serverURL + resource.path.absolutePath))
+//        print("absolute path: \(resource.path.absolutePath)")
+//        let jar = HTTPCookieStorage.shared
+//        let cookieHeaderField = ["Set-Cookie": "user_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMThlOWIzYTE1ODBiNDAyNGY0M2M1ZSIsImlhdCI6MTYyOTAyMjY0MywiZXhwIjoxNjI5MDIyNzAzfQ.qhqGq-jD7iheaF3lF0FfXgvYMSegkPHgLqiG-SVyILU"]
+//        let cookies = HTTPCookie.cookies(withResponseHeaderFields: cookieHeaderField, for: URL(string: serverURL + resource.path.absolutePath)!)
+//        jar.setCookies(cookies, for: URL(string: serverURL + resource.path.absolutePath), mainDocumentURL: URL(string: serverURL + resource.path.absolutePath))
         let request = URLRequest(baseUrl: serverURL, resource: newResouce)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in

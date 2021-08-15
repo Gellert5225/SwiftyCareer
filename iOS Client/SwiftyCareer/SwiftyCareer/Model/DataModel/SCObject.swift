@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Parse
 
 class SCObject {
     var _id: String?

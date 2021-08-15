@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SCWebAPI
 
 /*
  Main view of the app. DrawerMenu is a custom side menu which accepts swipe gesture
@@ -73,6 +74,8 @@ func setupPopupDialogUI() {
     cb.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
 }
 
+
+
 func showStandardDialog(animated: Bool = true, title: String, message: String, defaultButton: String) -> PopupDialog {
     setupPopupDialogUI()
     let popup = PopupDialog(title: title,
@@ -90,6 +93,29 @@ func showStandardDialog(animated: Bool = true, title: String, message: String, d
     popup.addButtons([buttonOne])
     
     return popup
+}
+
+func jsonToString(json: JSON) -> String? {
+    do {
+        let data1 = try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted) // first of all convert json to the data
+        let convertedString = String(data: data1, encoding: String.Encoding.utf8) // the data will be converted to the string
+        return convertedString
+    } catch let myJSONError {
+        print(myJSONError)
+    }
+    
+    return ""
+}
+
+func stringToJSON(string: String) -> JSON? {
+    let data = string.data(using: .utf8)!
+    do {
+        let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as! JSON
+        return jsonArray
+    } catch let error as NSError {
+        print(error)
+    }
+    return [:]
 }
 
 extension UIColor {

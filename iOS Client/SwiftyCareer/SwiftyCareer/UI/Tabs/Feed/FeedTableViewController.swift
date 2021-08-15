@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Parse
 
 class FeedTableViewController: SCTableViewController {
     

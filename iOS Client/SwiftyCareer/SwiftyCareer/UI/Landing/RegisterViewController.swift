@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Parse
+import SCWebAPI
 
 enum RegisterType {
     case register
@@ -77,6 +77,7 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
         field!.autocorrectionType = .no
         field!.font = UIFont(name: "SF UI Text Regular", size: 18)
         field!.attributedPlaceholder = NSAttributedString(string: placeholders[indexPath.row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.light_gray])
+        field!.autocapitalizationType = .none
         
         if ((registerType == .register && indexPath.row == 3) ||
             (registerType == .login && indexPath.row == 1)) {
@@ -114,15 +115,25 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                 let pwField = textField.superview?.superview?.viewWithTag(2) as! UITextField
                 let password = pwField.text!
                 
-                PFUser.logInWithUsername(inBackground: username, password: password) {
-                  (user: PFUser?, error: Error?) -> Void in
-                  if user != nil {
-                    self.present(prepareDrawerMenu(), animated:true, completion: nil)
-                  } else {
-                    print(error?.localizedDescription ?? "Unkown Error")
-                    self.present(showStandardDialog(title: "Error", message: error?.localizedDescription ?? "Unknown Error", defaultButton: "OK"), animated: true, completion: nil)
-                  }
+                let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": username, "password": password])
+                SCXHR().request(resource: signin) { response in
+                    if let error = response.err {
+                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                    }
+                    if let res = response.res {
+                        if let error = response.err {
+                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                        } else {
+                            UserDefaults.standard.set(response.cookie![0].value, forKey: response.cookie![0].name)
+                            if let userJSON = res["info"] as? JSON {
+                                UserDefaults.standard.set(jsonToString(json: userJSON), forKey: "currentUser")
+                            }
+                            
+                            self.present(prepareDrawerMenu(), animated:true, completion: nil)
+                        }
+                    }
                 }
+
             } else {
                 let emailField = textField.superview?.superview?.viewWithTag(2) as! UITextField
                 
@@ -130,17 +141,23 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 //let confirmField = textField.superview?.superview?.viewWithTag(3) as! UITextView
                 
-                let user = PFUser()
-                user.username = username
-                user.password = pwField.text!
-                user.email = emailField.text!
+                let signup = SCResource(path: "/api/rest/auth/signup", method: .POST, params: ["username": username, "password": pwField.text!, "email": emailField.text!])
                 
-                user.signUpInBackground { (succeeded: Bool, error: Error?) -> Void in
-                    if let error = error {
-                        print(error.localizedDescription)
+                SCXHR().request(resource: signup) { response in
+                    if let error = response.err {
                         self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
-                    } else {
-                        self.present(prepareDrawerMenu(), animated:true, completion: nil)
+                    }
+                    if let res = response.res {
+                        if let error = response.err {
+                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                        } else {
+                            UserDefaults.standard.set(response.cookie![0].value, forKey: response.cookie![0].name)
+                            if let userJSON = res["info"] as? JSON {
+                                print(userJSON)
+                                UserDefaults.standard.set(jsonToString(json: userJSON), forKey: "currentUser")
+                            }
+                            self.present(prepareDrawerMenu(), animated:true, completion: nil)
+                        }
                     }
                 }
             }

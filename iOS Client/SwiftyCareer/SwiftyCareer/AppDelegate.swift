@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Parse
 import SCWebAPI
 import Network
 
@@ -39,13 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
         
-        let parseConfig = ParseClientConfiguration {
-            $0.applicationId = ENV.APP_ID
-            $0.server = ENV.SERVER_URL
-        }
-        Parse.initialize(with: parseConfig)
-        
-        if (PFUser.current() != nil) {
+        if (User.current != nil) {
             self.window?.rootViewController = prepareDrawerMenu()
             self.window?.makeKeyAndVisible()
         } else {
@@ -56,24 +49,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
         let config = SCWebAPIConfiguration(serverURL: "http://192.168.1.16:1336")
         SCWebAPI.Initialize(with: config)
         
-        let xhr = SCXHR()
-        
-        let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "jli542", "password": "5917738ljh"])
-        let jwt = SCResource(path: "/testCookieJwt")
-//        let feeds = SCResource(path: "/feeds")
-//        let image = SCResource(path: "/api/files/3d7fc74f01f7162fef98a1c145f15dfc.jpg")
-        let signup = SCResource(path: "/api/rest/auth/signup", method: .POST, params: ["username": "testios", "password": "12345", "email": "test@gmail.com"])
-        
-        xhr.request(resource: signup) {response in
-            if let error = response.err {
-                print("OOPS")
-                print(error)
-            }
-            if let res = response.res {
-                print(res)
-                print(response.cookie)
-            }
-        }
+//        let xhr = SCXHR()
+//        
+//        let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "jli542", "password": "5917738ljh"])
+//        let jwt = SCResource(path: "/testCookieJwt")
+////        let feeds = SCResource(path: "/feeds")
+////        let image = SCResource(path: "/api/files/3d7fc74f01f7162fef98a1c145f15dfc.jpg")
+//        let signup = SCResource(path: "/api/rest/auth/signup", method: .POST, params: ["username": "testios", "password": "12345", "email": "test@gmail.com"])
+//        
+//        xhr.request(resource: signup) { response in
+//            if let error = response.err {
+//                print("OOPS")
+//                print(error)
+//            }
+//            if let res = response.res {
+//                print(res)
+//                print(response.cookie)
+//            }
+//        }
         
         
 //        PFCloud.callFunction(inBackground: "SendTestEmail", withParameters: nil) { (response, error) in

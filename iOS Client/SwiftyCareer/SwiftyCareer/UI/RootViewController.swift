@@ -6,11 +6,25 @@
 //
 
 import UIKit
+import SCWebAPI
+import Network
 
-class RootViewController: UITabBarController, UITabBarControllerDelegate {
+class RootViewController: UITabBarController, UITabBarControllerDelegate, NetworkReachabilityObserver {
+    
+    var networkCheck = NetworkReachability.sharedInstance()
+    func statusDidChange(status: NWPath.Status) {
+        if status == .satisfied {
+            print("internet resumed")
+        }else if status == .unsatisfied {
+            self.present(showStandardDialog(title: "Error", message: "No Internet Connection", defaultButton: "OK"), animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        
+        networkCheck.addObserver(observer: self)
         
         createTabBarController()
 //        let appearance = UINavigationBarAppearance()

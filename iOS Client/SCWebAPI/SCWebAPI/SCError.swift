@@ -20,7 +20,7 @@ extension SCServiceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .noInternetConnection:
-            return NSLocalizedString("Can't connect to internet", comment: "ha")
+            return NSLocalizedString("No Internet Connection", comment: "ha")
         case .custom(let err):
             if let error = err as? JSON {
                 return NSLocalizedString("\(error["error"]!)", comment: "ha")

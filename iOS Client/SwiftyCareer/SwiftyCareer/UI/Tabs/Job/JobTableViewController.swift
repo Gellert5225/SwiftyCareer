@@ -91,7 +91,7 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
             self.navigationItem.rightBarButtonItem = nil
             self.navigationController?.view.setNeedsLayout() // force update layout
             self.navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
-        } completion: {finished in}
+        } completion: {finished in self.drawer()?.panGestureType = .none }
 
         return true
     }
@@ -103,7 +103,7 @@ class JobTableViewController: SCTableViewController, UISearchResultsUpdating, UI
             self.navigationItem.rightBarButtonItem = self.rightBarButtonItem!
 //            self.tabBarController?.navigationController?.view.setNeedsLayout() // force update layout
 //            self.tabBarController?.navigationController?.view.layoutIfNeeded() // to fix height of the navigation bar
-        } completion: {finished in}
+        } completion: {finished in self.drawer()?.panGestureType = .pan }
     }
 
     /*

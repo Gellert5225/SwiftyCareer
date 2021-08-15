@@ -7,19 +7,9 @@
 
 import UIKit
 import SCWebAPI
-import Network
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserver {
-    var networkCheck = NetworkReachability.sharedInstance()
-    func statusDidChange(status: NWPath.Status) {
-        if status == .satisfied {
-            print("internet resumed")
-        }else if status == .unsatisfied {
-            print("internet interrupted")
-        }
-    }
-    
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
@@ -33,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        networkCheck.addObserver(observer: self)
-        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
         
@@ -46,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NetworkReachabilityObserv
             self.window?.makeKeyAndVisible()
         }
         
-        let config = SCWebClientConfiguration(serverURL: "http://192.168.1.16:1336")
+        let config = SCWebClientConfiguration(serverURL: ENV.SERVER_URL)
         SCWebClient.Initialize(with: config)
         
 //        let xhr = SCXHR()

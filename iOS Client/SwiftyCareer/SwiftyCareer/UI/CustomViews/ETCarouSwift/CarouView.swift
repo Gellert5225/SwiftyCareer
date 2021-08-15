@@ -147,7 +147,7 @@ public class CarouView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         imageView.layer.masksToBounds = true
         cell.addSubview(imageView)
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: URL(string: "http://192.168.1.16:1336/api/files/" + self.imageDatas[indexPath.row])!)
+            let data = try? Data(contentsOf: URL(string: "\(ENV.SERVER_URL)/api/files/" + self.imageDatas[indexPath.row])!)
             DispatchQueue.main.async {
                 imageView.image = UIImage(data: data ?? Data())
             }

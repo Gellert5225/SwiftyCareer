@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCWebAPI
 
 class FeedCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -47,7 +48,7 @@ class FeedCell: UITableViewCell {
     
     func setup() {
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: URL(string: "http://192.168.1.16:1336/api/files/" + self.feed!.author.profile_picture)!)
+            let data = try? Data(contentsOf: URL(string: "\(ENV.SERVER_URL)/api/files/" + self.feed!.author.profile_picture)!)
             DispatchQueue.main.async {
                 self.profileImageView.image = UIImage(data: data ?? Data())
             }

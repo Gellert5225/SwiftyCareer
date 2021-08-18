@@ -76,7 +76,7 @@ func setupPopupDialogUI() {
 
 
 
-func showStandardDialog(animated: Bool = true, title: String, message: String, defaultButton: String) -> PopupDialog {
+func showStandardDialog(animated: Bool = true, title: String, message: String, defaultButton: String, defaultButtonAction: @escaping () -> Void) -> PopupDialog {
     setupPopupDialogUI()
     let popup = PopupDialog(title: title,
                             message: message,
@@ -84,11 +84,12 @@ func showStandardDialog(animated: Bool = true, title: String, message: String, d
                             transitionStyle: .zoomIn,
                             tapGestureDismissal: true,
                             panGestureDismissal: true,
-                            hideStatusBar: true) {
-        print("Completed")
+                            hideStatusBar: true
+    ) {
+        defaultButtonAction()
     }
 
-    let buttonOne = DefaultButton(title: defaultButton) {}
+    let buttonOne = DefaultButton(title: defaultButton) { defaultButtonAction() }
 
     popup.addButtons([buttonOne])
     

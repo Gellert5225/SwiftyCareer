@@ -16,7 +16,7 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Networ
         if status == .satisfied {
             print("internet resumed")
         }else if status == .unsatisfied {
-            self.present(showStandardDialog(title: "Error", message: "No Internet Connection", defaultButton: "OK"), animated: true, completion: nil)
+            self.present(showStandardDialog(title: "Error", message: "No Internet Connection", defaultButton: "OK", defaultButtonAction: {}), animated: true, completion: nil)
         }
     }
     

@@ -118,11 +118,11 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                 let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": username, "password": password])
                 SCXHR().request(resource: signin) { response in
                     if let error = response.err {
-                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK", defaultButtonAction: {}), animated: true, completion: nil)
                     }
                     if let res = response.res {
                         if let error = response.err {
-                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK", defaultButtonAction: {}), animated: true, completion: nil)
                         } else {
                             UserDefaults.standard.set(response.cookie![0].value, forKey: response.cookie![0].name)
                             if let userJSON = res["info"] as? JSON {
@@ -145,11 +145,11 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 SCXHR().request(resource: signup) { response in
                     if let error = response.err {
-                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                        self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK", defaultButtonAction: {}), animated: true, completion: nil)
                     }
                     if let res = response.res {
                         if let error = response.err {
-                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                            self.present(showStandardDialog(title: "Error", message: error.localizedDescription, defaultButton: "OK", defaultButtonAction: {}), animated: true, completion: nil)
                         } else {
                             UserDefaults.standard.set(response.cookie![0].value, forKey: response.cookie![0].name)
                             if let userJSON = res["info"] as? JSON {

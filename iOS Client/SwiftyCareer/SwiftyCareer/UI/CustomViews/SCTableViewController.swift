@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCWebAPI
 
 class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCNavigationBarButtonDelegate {
     
@@ -60,11 +61,18 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
     
     func fetchData() {
         viewModel.fetch { (feeds: [SCObject]?, error: Error?) in
-            if let err = error {
+            if let err = error as? SCServiceError {
                 print(err.localizedDescription)
                 self.viewModel.isLoading = false
-                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
-            } else {}
+                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK", defaultButtonAction: {
+                    if (400..<500) ~= err.errorCode! {
+                        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                        let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
+                        landingView.modalPresentationStyle = .fullScreen
+                        self.present(landingView, animated: true, completion:nil)
+                    }
+                }), animated: true, completion: nil)
+            }
             self.tableView.reloadData()
             if self.refreshView == nil {
                 let view = PZPullToRefreshView(frame: CGRect(x: 0, y: -40, width: self.tableView.bounds.size.width, height: 40))
@@ -107,9 +115,16 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
         refreshView?.isLoading = true
         
         viewModel.fetch { (feeds: [SCObject]?, error: Error?) in
-            if let err = error {
+            if let err = error as? SCServiceError {
                 print(err.localizedDescription)
-                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK"), animated: true, completion: nil)
+                self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK", defaultButtonAction: {
+                    if (400..<500) ~= err.errorCode! {
+                        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                        let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
+                        landingView.modalPresentationStyle = .fullScreen
+                        self.present(landingView, animated:true, completion:nil)
+                    }
+                }), animated: true, completion: nil)
             } else {
                 print("Complete loading!")
                 self.refreshView?.isLoading = false

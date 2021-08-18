@@ -17,6 +17,22 @@ public enum SCServiceError: Error {
 
 
 extension SCServiceError: LocalizedError {
+    public var errorCode: Int? {
+        switch self {
+        case .noInternetConnection:
+            return 001
+        case .custom(let err):
+            if let error = err as? JSON {
+                return error["status"] as? Int
+            }
+            return 002
+        case .unauthorized:
+            return 002
+        case .other:
+            return 003
+        }
+    }
+    
     public var errorDescription: String? {
         switch self {
         case .noInternetConnection:

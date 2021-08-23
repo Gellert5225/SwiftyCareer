@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		8929993B263A026900DA1681 /* FeedCellNoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89299939263A026900DA1681 /* FeedCellNoImage.swift */; };
 		8929993C263A026900DA1681 /* FeedCellNoImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8929993A263A026900DA1681 /* FeedCellNoImage.xib */; };
+		892A4E8026D429A900AB5343 /* ComposeAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892A4E7F26D429A900AB5343 /* ComposeAccessoryView.swift */; };
+		892A4E8426D429B900AB5343 /* ComposeAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892A4E8326D429B900AB5343 /* ComposeAccessoryView.xib */; };
 		89900EA426C0873500521B20 /* SCWebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89900E9F26C0812300521B20 /* SCWebAPI.framework */; };
 		89900EA526C0873500521B20 /* SCWebAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89900E9F26C0812300521B20 /* SCWebAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89A276EF26D2D4920049FF82 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A276EE26D2D4920049FF82 /* ComposeViewController.swift */; };
+		89A276F226D3625C0049FF82 /* compose.html in Resources */ = {isa = PBXBuildFile; fileRef = 89A276F126D3625B0049FF82 /* compose.html */; };
+		89A276F426D3626D0049FF82 /* compose.css in Resources */ = {isa = PBXBuildFile; fileRef = 89A276F326D3626D0049FF82 /* compose.css */; };
+		89A276F626D362790049FF82 /* compose.js in Resources */ = {isa = PBXBuildFile; fileRef = 89A276F526D362790049FF82 /* compose.js */; };
 		89D1B9A026C682B4002A0F83 /* SCImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D1B99F26C682B4002A0F83 /* SCImageView.swift */; };
 		D9236DD625691E6700A51102 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236DD425691E6700A51102 /* UserCell.swift */; };
 		D9236DD725691E6700A51102 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9236DD525691E6700A51102 /* UserCell.xib */; };
@@ -165,7 +171,13 @@
 /* Begin PBXFileReference section */
 		89299939263A026900DA1681 /* FeedCellNoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellNoImage.swift; sourceTree = "<group>"; };
 		8929993A263A026900DA1681 /* FeedCellNoImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCellNoImage.xib; sourceTree = "<group>"; };
+		892A4E7F26D429A900AB5343 /* ComposeAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeAccessoryView.swift; sourceTree = "<group>"; };
+		892A4E8326D429B900AB5343 /* ComposeAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeAccessoryView.xib; sourceTree = "<group>"; };
 		89900E9926C0812300521B20 /* SCWebAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCWebAPI.xcodeproj; path = ../SCWebAPI/SCWebAPI.xcodeproj; sourceTree = "<group>"; };
+		89A276EE26D2D4920049FF82 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		89A276F126D3625B0049FF82 /* compose.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = compose.html; sourceTree = "<group>"; };
+		89A276F326D3626D0049FF82 /* compose.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = compose.css; sourceTree = "<group>"; };
+		89A276F526D362790049FF82 /* compose.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = compose.js; sourceTree = "<group>"; };
 		89D1B99F26C682B4002A0F83 /* SCImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCImageView.swift; sourceTree = "<group>"; };
 		D9236DD425691E6700A51102 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D9236DD525691E6700A51102 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -313,6 +325,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		89A276E926D2D1530049FF82 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				89A276F026D362390049FF82 /* WebContent */,
+				89A276EE26D2D4920049FF82 /* ComposeViewController.swift */,
+				892A4E7F26D429A900AB5343 /* ComposeAccessoryView.swift */,
+				892A4E8326D429B900AB5343 /* ComposeAccessoryView.xib */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		89A276F026D362390049FF82 /* WebContent */ = {
+			isa = PBXGroup;
+			children = (
+				89A276F126D3625B0049FF82 /* compose.html */,
+				89A276F326D3626D0049FF82 /* compose.css */,
+				89A276F526D362790049FF82 /* compose.js */,
+			);
+			path = WebContent;
+			sourceTree = "<group>";
+		};
 		D9236DE1256C1CAF00A51102 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +363,7 @@
 		D9236DE3256C1CCC00A51102 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				89A276E926D2D1530049FF82 /* Compose */,
 				D9CB4F922568FA3800A16CA0 /* Job */,
 				D98C58F62511F35400D06554 /* Feed */,
 				D9236DE1256C1CAF00A51102 /* Connections */,
@@ -753,6 +787,7 @@
 			files = (
 				8929993C263A026900DA1681 /* FeedCellNoImage.xib in Resources */,
 				D98C58C32511C93800D06554 /* SF-UI-Display-Black.otf in Resources */,
+				89A276F226D3625C0049FF82 /* compose.html in Resources */,
 				D98C58C42511C93800D06554 /* SF-UI-Display-Bold.otf in Resources */,
 				D98C58C52511C93800D06554 /* SF-UI-Display-Heavy.otf in Resources */,
 				D98C58C62511C93800D06554 /* SF-UI-Display-Light.otf in Resources */,
@@ -764,6 +799,7 @@
 				D98C58CB2511C93800D06554 /* SF-UI-Display-Ultralight.otf in Resources */,
 				D98C58CC2511C93800D06554 /* SF-UI-Text-Bold.otf in Resources */,
 				D9236DD725691E6700A51102 /* UserCell.xib in Resources */,
+				892A4E8426D429B900AB5343 /* ComposeAccessoryView.xib in Resources */,
 				D9CB4F842568F6A800A16CA0 /* BadgeWithCounterViewBigSized.xib in Resources */,
 				D98C58CD2511C93800D06554 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				D98C58CE2511C93800D06554 /* SF-UI-Text-Heavy.otf in Resources */,
@@ -774,7 +810,9 @@
 				D98C58D22511C93800D06554 /* SF-UI-Text-Medium.otf in Resources */,
 				D98C58D32511C93800D06554 /* SF-UI-Text-MediumItalic.otf in Resources */,
 				D9CB4F862568F6A800A16CA0 /* BadgeWithCounterViewStandardSized.xib in Resources */,
+				89A276F426D3626D0049FF82 /* compose.css in Resources */,
 				D98C58D42511C93800D06554 /* SF-UI-Text-Regular.otf in Resources */,
+				89A276F626D362790049FF82 /* compose.js in Resources */,
 				D98C58D52511C93800D06554 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				D98C58D62511C93800D06554 /* SF-UI-Text-Semibold.otf in Resources */,
 				D98C58D72511C93800D06554 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
@@ -850,6 +888,7 @@
 				D9254CE02513A0400050E936 /* User.swift in Sources */,
 				D9254C9E2513586C0050E936 /* PopupDialogOverlayView.swift in Sources */,
 				D9254CA62513586C0050E936 /* PopupDialog+Keyboard.swift in Sources */,
+				89A276EF26D2D4920049FF82 /* ComposeViewController.swift in Sources */,
 				D96222202512F3D7005A96EA /* Parallax.swift in Sources */,
 				D962222E2512F427005A96EA /* CarouView.swift in Sources */,
 				D9CB4F732568F69D00A16CA0 /* SegmentioCellWithImage.swift in Sources */,
@@ -878,6 +917,7 @@
 				D9254CC0251358DE0050E936 /* TrackingMode.swift in Sources */,
 				D9254CC3251358DE0050E936 /* UIImage+Blur.swift in Sources */,
 				D9CB4F672568F69500A16CA0 /* UIView+Appearance.swift in Sources */,
+				892A4E8026D429A900AB5343 /* ComposeAccessoryView.swift in Sources */,
 				D9254CA92513586C0050E936 /* UIViewController+Visibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,7 +1026,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SwiftyCareer/Supporting Files/Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1044,7 +1084,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "SwiftyCareer/Supporting Files/Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

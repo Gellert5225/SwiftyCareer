@@ -33,6 +33,13 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
         setUpView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let theTextField = self.view.viewWithTag(1) as? UITextField {
+            theTextField.becomeFirstResponder()
+        }
+    }
+    
     func setUpView() {
         if registerType == .register {
             titleLabel.text = "Create Your Account"
@@ -62,7 +69,7 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return UIScreen.main.bounds.height < 812 ? 50 : 70
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,12 +79,13 @@ class RegisterViewController: UIViewController, UITableViewDelegate, UITableView
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-        field = UITextField(frame: CGRect(x: 0, y: 4, width: fieldTableView.frame.width, height: 65))
+        field = UITextField(frame: CGRect(x: 0, y: 4, width: fieldTableView.frame.width, height: UIScreen.main.bounds.height < 812 ? 45 : 65))
         field!.delegate = self
         field!.autocorrectionType = .no
         field!.font = UIFont(name: "SF UI Text Regular", size: 18)
         field!.attributedPlaceholder = NSAttributedString(string: placeholders[indexPath.row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.light_gray])
         field!.autocapitalizationType = .none
+        field!.textColor = UIColor.white
         
         if ((registerType == .register && indexPath.row == 3) ||
             (registerType == .login && indexPath.row == 1)) {

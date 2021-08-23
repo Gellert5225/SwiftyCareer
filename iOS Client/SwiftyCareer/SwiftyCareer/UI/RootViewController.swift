@@ -27,12 +27,6 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Networ
         networkCheck.addObserver(observer: self)
         
         createTabBarController()
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
-//        self.navigationController?.navigationBar.standardAppearance = appearance;
-//        self.navigationController?.navigationBar.scrollEdgeAppearance = self.navigationController?.navigationBar.standardAppearance
-        
     }
     
     func createTabBarController() {
@@ -63,9 +57,11 @@ class RootViewController: UITabBarController, UITabBarControllerDelegate, Networ
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if let identifier = viewController.restorationIdentifier, identifier == "compose" {
-            let vc = UIViewController()
-            vc.view.backgroundColor = .blue
-            present(vc, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ComposeViewController")
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: true, completion: nil)
             return false
         }
 

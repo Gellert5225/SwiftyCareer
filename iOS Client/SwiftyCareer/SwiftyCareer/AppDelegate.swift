@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let config = SCWebClientConfiguration(serverURL: ENV.SERVER_URL)
         SCWebClient.Initialize(with: config)
-        
+        window?.overrideUserInterfaceStyle = .dark  
 //        let xhr = SCXHR()
 //        
 //        let signin = SCResource(path: "/api/rest/auth/signin", method: .POST, params: ["username": "jli542", "password": "5917738ljh"])

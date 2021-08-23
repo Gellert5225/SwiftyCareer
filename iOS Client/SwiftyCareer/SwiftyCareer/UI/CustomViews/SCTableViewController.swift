@@ -66,6 +66,7 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
                 self.viewModel.isLoading = false
                 self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK", defaultButtonAction: {
                     if (400..<500) ~= err.errorCode! {
+                        UserDefaults.standard.removeObject(forKey: "currentUser")
                         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                         let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
                         landingView.modalPresentationStyle = .fullScreen
@@ -119,6 +120,7 @@ class SCTableViewController: UITableViewController, PZPullToRefreshDelegate, SCN
                 print(err.localizedDescription)
                 self.present(showStandardDialog(title: "Error", message: err.localizedDescription, defaultButton: "OK", defaultButtonAction: {
                     if (400..<500) ~= err.errorCode! {
+                        UserDefaults.standard.removeObject(forKey: "currentUser")
                         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                         let landingView = storyboard.instantiateViewController(withIdentifier: "landingVC") as! LandingViewController
                         landingView.modalPresentationStyle = .fullScreen

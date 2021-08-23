@@ -1,0 +1,30 @@
+body {
+    //background-color: rgb(42, 47, 63)
+}
+
+#postFeedEditor {
+    min-height: 200px;
+    height: auto;
+    border: none !important;
+    scrollbar-width: auto;
+    scrollbar-color: rgb(145, 154, 172) rgba(0,0,0,0);
+    overflow: auto;
+    max-height: 600px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.6px;
+}
+
+.ql-toolbar {
+    display: none !important;
+}
+
+.ql-editor.ql-blank::before {
+    color: black !important;
+/*    font-family: 'Open Sans', sans-serif;*/
+/*    font-weight: 400;*/
+/*    font-size: 16px;*/
+    letter-spacing: 0.6px;
+}

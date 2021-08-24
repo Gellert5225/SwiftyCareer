@@ -8,28 +8,79 @@
 import UIKit
 import WebKit
 
-class CustomWebView: WKWebView {
-    var accessoryView: UIView?
+class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHandler {
+    
+    var accessoryView: ComposeAccessoryView?
+    
+    let selectionHandler = "selectionHandler"
+    
     override var inputAccessoryView: UIView? {
-        let bar = UIToolbar()
-        let reset = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
-        bar.items = [reset]
-        bar.sizeToFit()
-        return bar
+        if (accessoryView == nil) {
+            print("called")
+            accessoryView = Bundle.main.loadNibNamed("ComposeAccessoryView", owner: self, options: nil)?.first as? ComposeAccessoryView
+            accessoryView!.frame = CGRect(x: 0, y: 0, width: 400, height: 50)
+            accessoryView!.delegate = self
+            return accessoryView
+        }
+        
+        return accessoryView
     }
     
-    @objc func resetTapped() {
-        print("tapped")
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let config = WKWebViewConfiguration()
+        config.userContentController.add(self, name: selectionHandler)
+        self.configuration.userContentController.add(self, name: selectionHandler)
+    }
+    
+    func bold() {
+        self.evaluateJavaScript("getBoldStatus()", completionHandler: { (result, error) in
+            DispatchQueue.main.async {
+                if let bold = result as? Int {
+                    print(bold)
+                    self.accessoryView!.label.text = "HA"
+                    self.accessoryView!.boldView.image = (bold == 0) ? UIImage(named: "BoldSelected") : UIImage(named: "Bold")
+                    self.accessoryView!.boldView.setNeedsDisplay()
+
+                } else { // selected text is not bold
+                    self.accessoryView!.boldView.image = UIImage(named: "Bold")
+                }
+                self.accessoryView!.boldView.setNeedsDisplay()
+                self.evaluateJavaScript("formatBold()")
+            }
+        })
+    }
+    
+    func italic() {
+        
+    }
+    
+    func orderedList() {
+        
+    }
+    
+    func bulletList() {
+        
+    }
+    
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == selectionHandler {
+//            if let  {
+//
+//            }
+        }
     }
 }
 
 class ComposeViewController: UIViewController, WKNavigationDelegate {
-
+    
     @IBOutlet weak var composeView: CustomWebView!
-    @IBOutlet weak var boldButton: UIButton!
+    
+    @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 42.0/255, green: 47.0/255, blue: 63.0/255, alpha: 1.0)
@@ -58,7 +109,7 @@ class ComposeViewController: UIViewController, WKNavigationDelegate {
             "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
             "var head = document.getElementsByTagName('head')[0];" +
             "head.appendChild(meta);"
-
+        
         let script: WKUserScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         composeView.configuration.userContentController.addUserScript(script)
     }
@@ -66,19 +117,5 @@ class ComposeViewController: UIViewController, WKNavigationDelegate {
     @objc func closeComposeView() {
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func formatBold(_ sender: UIButton) {
-        composeView.evaluateJavaScript("formatBold()", completionHandler: nil)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

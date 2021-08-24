@@ -7,14 +7,40 @@
 
 import UIKit
 
-class ComposeAccessoryView: UIView {
+protocol ComposeAccessoryViewDelegate {
+    func bold()
+    
+    func italic()
+    
+    func orderedList()
+    
+    func bulletList()
+}
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class ComposeAccessoryView: UIView {
+    
+    var delegate: ComposeAccessoryViewDelegate?
+        
+    @IBOutlet weak var boldView: UIImageView!
+    @IBOutlet weak var italicView: UIImageView!
+    @IBOutlet weak var underlineView: UIImageView!
+    @IBOutlet weak var ordredView: UIImageView!
+    @IBOutlet weak var bulletView: UIImageView!
+    
+    @IBOutlet weak var label: UILabel!
+    class func instanceFromNib() -> ComposeAccessoryView {
+        return UINib(nibName: "ComposeAccessoryView", bundle: .main).instantiate(withOwner: nil, options: nil)[0] as! ComposeAccessoryView
     }
-    */
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print("awake")
+        
+        boldView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(bold)))
+    }
+    
+    @objc func bold() {
+        delegate?.bold()
+    }
 
 }

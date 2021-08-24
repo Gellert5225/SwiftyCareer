@@ -71,3 +71,30 @@ function formatList() {
         console.log('User cursor is not in editor');
     }
 }
+
+function getBoldStatus() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            return currentBold;
+        } else {
+            return quill.getFormat(range).bold
+        }
+    } else {
+        return false;
+    }
+}
+
+quill.on('selection-change', function(range, oldRange, source) {
+  if (range) {
+    if (range.length == 0) {
+      console.log('User cursor is on', range.index);
+    } else {
+      var text = quill.getText(range.index, range.length);
+        window.webkit.messageHandlers.selectionHandler.postMessage('open_invitation');
+      console.log('User has highlighted', text);
+    }
+  } else {
+    console.log('Cursor not in the editor');
+  }
+});

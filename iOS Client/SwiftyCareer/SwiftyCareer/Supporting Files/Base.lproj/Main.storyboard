@@ -176,18 +176,13 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykP-Vu-eai">
-                                <rect key="frame" x="28" y="351" width="44" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGO-V8-CMP">
+                                <rect key="frame" x="20" y="351" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="B">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
-                                    <color key="baseForegroundColor" systemColor="opaqueSeparatorColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="formatBold:" destination="caa-su-62a" eventType="touchUpInside" id="Jsh-hy-sv6"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fmT-Hn-Cj1"/>
                         <color key="backgroundColor" red="0.16470588235294117" green="0.18431372549019609" blue="0.24705882352941178" alpha="1" colorSpace="deviceRGB"/>
@@ -199,8 +194,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hg7-pr-8OJ"/>
                     <connections>
-                        <outlet property="boldButton" destination="ykP-Vu-eai" id="css-zW-4XZ"/>
                         <outlet property="composeView" destination="0XO-ib-Tmy" id="XoE-cQ-IPP"/>
+                        <outlet property="label" destination="KGO-V8-CMP" id="hGw-FU-IZu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjz-Tm-Zc7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -231,8 +226,5 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LandingIcon" width="222" height="222"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

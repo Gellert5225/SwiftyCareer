@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Foundation
 
 class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHandler {
     
@@ -16,7 +17,6 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
     
     override var inputAccessoryView: UIView? {
         if (accessoryView == nil) {
-            print("called")
             accessoryView = Bundle.main.loadNibNamed("ComposeAccessoryView", owner: self, options: nil)?.first as? ComposeAccessoryView
             accessoryView!.frame = CGRect(x: 0, y: 0, width: 400, height: 50)
             accessoryView!.delegate = self
@@ -34,28 +34,6 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
         self.configuration.userContentController.add(self, name: selectionHandler)
     }
     
-    func bold() {
-        self.evaluateJavaScript("getBoldStatus()", completionHandler: { (result, error) in
-            DispatchQueue.main.async {
-                if let bold = result as? Int {
-                    print(bold)
-                    self.accessoryView!.label.text = "HA"
-                    self.accessoryView!.boldView.image = (bold == 0) ? UIImage(named: "BoldSelected") : UIImage(named: "Bold")
-                    self.accessoryView!.boldView.setNeedsDisplay()
-
-                } else { // selected text is not bold
-                    self.accessoryView!.boldView.image = UIImage(named: "Bold")
-                }
-                self.accessoryView!.boldView.setNeedsDisplay()
-                self.evaluateJavaScript("formatBold()")
-            }
-        })
-    }
-    
-    func italic() {
-        
-    }
-    
     func orderedList() {
         
     }
@@ -64,11 +42,44 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
         
     }
     
+    func format(_ format: String, sender: UIImageView) {
+        self.evaluateJavaScript("get\(format)Status()", completionHandler: { (result, error) in
+            DispatchQueue.main.async {
+                if let formatted = result as? Int {
+                    sender.image = (formatted == 0) ? UIImage(named: "\(format)Selected") : UIImage(named: format)
+                    sender.setNeedsDisplay()
+
+                } else { // selected text is not bold
+                    sender.image = UIImage(named: "\(format)Selected")
+                }
+                sender.setNeedsDisplay()
+                self.evaluateJavaScript("format\(format)()")
+            }
+        })
+    }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == selectionHandler {
-//            if let  {
-//
-//            }
+            if let body = message.body as? Dictionary<String, Any> {
+                print(body)
+                if (body["bold"] as! Int == 1) {
+                    accessoryView!.boldView.image = UIImage(named: "BoldSelected")
+                } else {
+                    accessoryView!.boldView.image = UIImage(named: "Bold")
+                }
+                
+                if (body["italic"] as! Int == 1) {
+                    accessoryView!.italicView.image = UIImage(named: "ItalicSelected")
+                } else {
+                    accessoryView!.italicView.image = UIImage(named: "Italic")
+                }
+                
+                if (body["underline"] as! Int == 1) {
+                    accessoryView!.underlineView.image = UIImage(named: "UnderlineSelected")
+                } else {
+                    accessoryView!.underlineView.image = UIImage(named: "Underline")
+                }
+            }
         }
     }
 }

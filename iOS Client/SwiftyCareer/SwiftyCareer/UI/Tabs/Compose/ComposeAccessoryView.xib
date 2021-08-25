@@ -23,28 +23,28 @@
                     </constraints>
                     <imageReference key="image" image="AddImage"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-mf-EWS">
+                <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-mf-EWS">
                     <rect key="frame" x="106" y="10" width="31" height="31"/>
                     <imageReference key="image" image="Bold"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip0-UG-4JW">
+                <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip0-UG-4JW">
                     <rect key="frame" x="184.5" y="10" width="31" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ip0-UG-4JW" secondAttribute="height" multiplier="1:1" id="JBu-YK-f7g"/>
                     </constraints>
-                    <imageReference key="image" image="UnderlineSelected"/>
+                    <imageReference key="image" image="Underline"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1M-05-2bF">
+                <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1M-05-2bF">
                     <rect key="frame" x="145" y="10" width="31" height="31"/>
-                    <imageReference key="image" image="ItalicSelected"/>
+                    <imageReference key="image" image="Italic"/>
                 </imageView>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKO-DQ-gct">
                     <rect key="frame" x="222" y="10" width="30" height="31"/>
-                    <imageReference key="image" image="OrderedSelected"/>
+                    <imageReference key="image" image="Ordered"/>
                 </imageView>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yps-WJ-Mrp">
                     <rect key="frame" x="258" y="10" width="30" height="31"/>
-                    <imageReference key="image" image="BulletSelected"/>
+                    <imageReference key="image" image="Bullet"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1P-lE-D83">
                     <rect key="frame" x="335" y="10" width="55" height="31"/>
@@ -57,13 +57,6 @@
                         <color key="titleColor" systemColor="labelColor"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfT-1y-5pP">
-                    <rect key="frame" x="56" y="15" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.16470588235294117" green="0.18431372549019609" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,7 +91,6 @@
                 <outlet property="boldView" destination="IkK-mf-EWS" id="Qnt-JO-Zp0"/>
                 <outlet property="bulletView" destination="Yps-WJ-Mrp" id="obr-5b-EHL"/>
                 <outlet property="italicView" destination="a1M-05-2bF" id="ONI-rh-iig"/>
-                <outlet property="label" destination="OfT-1y-5pP" id="t8L-E5-0MD"/>
                 <outlet property="ordredView" destination="GKO-DQ-gct" id="mxq-bY-g8I"/>
                 <outlet property="underlineView" destination="Ip0-UG-4JW" id="aJ0-x5-8cl"/>
             </connections>
@@ -108,10 +100,10 @@
     <resources>
         <image name="AddImage" width="32" height="32"/>
         <image name="Bold" width="30" height="30"/>
-        <image name="BulletSelected" width="30" height="30"/>
-        <image name="ItalicSelected" width="30" height="30"/>
-        <image name="OrderedSelected" width="30" height="30"/>
-        <image name="UnderlineSelected" width="30" height="30"/>
+        <image name="Bullet" width="30" height="30"/>
+        <image name="Italic" width="30" height="30"/>
+        <image name="Ordered" width="30" height="30"/>
+        <image name="Underline" width="30" height="30"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

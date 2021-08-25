@@ -33,12 +33,14 @@ quill.root.setAttribute('autocapitalize', 'off');
 quill.root.setAttribute('spellcheck','false');
 
 var currentBold = false;
+var currentItalic = false;
+var currentUnderline = false;
+var currentOrdered = null;
 
 function formatBold() {
     var range = quill.getSelection();
     if (range) {
         if (range.length == 0) {
-            console.log('User cursor is at index', range.index);
             currentBold = !currentBold;
             quill.format('bold', currentBold);
         } else {
@@ -47,28 +49,63 @@ function formatBold() {
             } else {
                 quill.format('bold', true);
             }
+            currentBold = !currentBold;
         }
-    } else {
-        console.log('User cursor is not in editor');
     }
 }
 
-function formatList() {
+function formatItalic() {
     var range = quill.getSelection();
     if (range) {
         if (range.length == 0) {
-            console.log('User cursor is at index', range.index);
-            currentBold = !currentBold;
-            quill.format('bold', currentBold);
+            currentItalic = !currentItalic;
+            quill.format('italic', currentItalic);
         } else {
-            if (quill.getFormat(range).bold === true) {
-                quill.format('list', false);
+            if (quill.getFormat(range).italic === true) {
+                quill.format('italic', false);
+            } else {
+                quill.format('italic', true);
+            }
+            currentItalic = !currentItalic;
+        }
+    }
+}
+
+function formatUnderline() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            currentUnderline = !currentUnderline;
+            quill.format('underline', currentUnderline);
+        } else {
+            if (quill.getFormat(range).italic === true) {
+                quill.format('underline', false);
+            } else {
+                quill.format('underline', true);
+            }
+            currentUnderline = !currentUnderline;
+        }
+    }
+}
+
+function formatOrdered() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            if (currentOrdered) {
+                quill.format('list', null);
+                currentOrdered = null;
+            } else {
+                quill.format('list', 'ordered');
+                currentOrdered = 'ordered';
+            }
+        } else {
+            if (quill.getFormat(range).list === 'ordered') {
+                quill.format('list', '');
             } else {
                 quill.format('list', 'ordered');
             }
         }
-    } else {
-        console.log('User cursor is not in editor');
     }
 }
 
@@ -85,16 +122,40 @@ function getBoldStatus() {
     }
 }
 
-quill.on('selection-change', function(range, oldRange, source) {
-  if (range) {
-    if (range.length == 0) {
-      console.log('User cursor is on', range.index);
+function getItalicStatus() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            return currentItalic;
+        } else {
+            return quill.getFormat(range).italic
+        }
     } else {
-      var text = quill.getText(range.index, range.length);
-        window.webkit.messageHandlers.selectionHandler.postMessage('open_invitation');
-      console.log('User has highlighted', text);
+        return false;
     }
-  } else {
-    console.log('Cursor not in the editor');
-  }
+}
+
+function getUnderlineStatus() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            return currentUnderline;
+        } else {
+            return quill.getFormat(range).underline
+        }
+    } else {
+        return false;
+    }
+}
+
+quill.on('selection-change', function(range, oldRange, source) {
+    if (range) {
+        if (range.length != 0) {
+            window.webkit.messageHandlers.selectionHandler.postMessage({
+                'bold': quill.getFormat(range).bold ? 1 : 0,
+                'italic': quill.getFormat(range).italic ? 1 : 0,
+                'underline': quill.getFormat(range).underline ? 1 : 0
+            });
+        }
+    }
 });

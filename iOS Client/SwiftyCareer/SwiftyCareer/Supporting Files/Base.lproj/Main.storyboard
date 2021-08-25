@@ -165,9 +165,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XO-ib-Tmy" customClass="CustomWebView" customModule="SwiftyCareer" customModuleProvider="target">
+                            <wkWebView opaque="NO" contentMode="scaleToFill" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XO-ib-Tmy" customClass="CustomWebView" customModule="SwiftyCareer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="255"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.13664974269999999" blue="0.18854168060000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="255" id="zYs-OB-hC7"/>
                                 </constraints>
@@ -176,13 +176,6 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGO-V8-CMP">
-                                <rect key="frame" x="20" y="351" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fmT-Hn-Cj1"/>
                         <color key="backgroundColor" red="0.16470588235294117" green="0.18431372549019609" blue="0.24705882352941178" alpha="1" colorSpace="deviceRGB"/>
@@ -195,7 +188,7 @@
                     <navigationItem key="navigationItem" id="Hg7-pr-8OJ"/>
                     <connections>
                         <outlet property="composeView" destination="0XO-ib-Tmy" id="XoE-cQ-IPP"/>
-                        <outlet property="label" destination="KGO-V8-CMP" id="hGw-FU-IZu"/>
+                        <outlet property="composeViewHeight" destination="zYs-OB-hC7" id="OTr-Hv-VsK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjz-Tm-Zc7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

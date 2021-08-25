@@ -27,10 +27,13 @@ var quill = new Quill('#postFeedEditor', {
     placeholder: 'What\'s on your mind?',
     theme: 'snow'
 });
+
 quill.root.setAttribute('autocomplete', 'off');
 quill.root.setAttribute('autocorrect', 'off');
 quill.root.setAttribute('autocapitalize', 'off');
 quill.root.setAttribute('spellcheck','false');
+quill.root.autofocus = true;
+quill.editor.autofocus = true;
 
 var currentBold = false;
 var currentItalic = false;

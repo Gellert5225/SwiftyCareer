@@ -106,7 +106,6 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == selectionHandler {
             if let body = message.body as? Dictionary<String, Any> {
-                print(body)
                 if (body["bold"] as! Int == 1) {
                     accessoryView!.boldView.image = UIImage(named: "BoldSelected")
                 } else {
@@ -133,14 +132,11 @@ class ComposeViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var composeViewHeight: NSLayoutConstraint!
     @IBOutlet weak var composeView: CustomWebView!
-    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowFunction(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-                
-        composeView.keyboardDisplayRequiresUserAction = false
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -174,6 +170,13 @@ class ComposeViewController: UIViewController, WKNavigationDelegate {
         
         let script: WKUserScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         composeView.configuration.userContentController.addUserScript(script)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        composeView.keyboardDisplayRequiresUserAction = false
+        composeView.becomeFirstResponder()
     }
     
     @objc func closeComposeView() {

@@ -22,7 +22,7 @@ class ComposeAccessoryView: UIView {
     @IBOutlet weak var boldView: UIImageView!
     @IBOutlet weak var italicView: UIImageView!
     @IBOutlet weak var underlineView: UIImageView!
-    @IBOutlet weak var ordredView: UIImageView!
+    @IBOutlet weak var orderedView: UIImageView!
     @IBOutlet weak var bulletView: UIImageView!
     
     class func instanceFromNib() -> ComposeAccessoryView {
@@ -35,6 +35,8 @@ class ComposeAccessoryView: UIView {
         boldView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(format(_:))))
         italicView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(format(_:))))
         underlineView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(format(_:))))
+        orderedView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(format(_:))))
+        bulletView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(format(_:))))
     }
     
     @objc func format(_ sender: UITapGestureRecognizer) {
@@ -51,10 +53,33 @@ class ComposeAccessoryView: UIView {
         case 3:
             format = "Underline"
             break
+        case 4:
+            format = "Ordered"
+            break;
+        case 5:
+            format = "Unordered"
+            break;
         default:
             break
         }
         delegate?.format(format, sender: imageView)
+    }
+    
+    public func getImageViewWithTag(tag: Int) -> UIImageView {
+        switch tag {
+        case 1:
+            return boldView
+        case 2:
+            return italicView
+        case 3:
+            return underlineView
+        case 4:
+            return orderedView
+        case 5:
+            return bulletView
+        default:
+            return UIImageView()
+        }
     }
 
 }

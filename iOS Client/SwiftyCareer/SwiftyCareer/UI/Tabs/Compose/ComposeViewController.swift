@@ -17,6 +17,9 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
     var accessoryView: ComposeAccessoryView?
     
     let selectionHandler = "selectionHandler"
+    let textChangeHandler = "textChangeHandler"
+    
+    let accesssoryImages = ["Bold": 1, "Italic": 2, "Underline": 3, "Ordered": 4]
     
     private var _keyboardDisplayRequiresUseraction = true
 
@@ -74,7 +77,9 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
         
         let config = WKWebViewConfiguration()
         config.userContentController.add(self, name: selectionHandler)
+        config.userContentController.add(self, name: textChangeHandler)
         self.configuration.userContentController.add(self, name: selectionHandler)
+        self.configuration.userContentController.add(self, name: textChangeHandler)
     }
     
     // MARK: ComposeAccessoryViewDelegate
@@ -104,28 +109,33 @@ class CustomWebView: WKWebView, ComposeAccessoryViewDelegate, WKScriptMessageHan
     
     // MARK: WKScriptMessageHandler
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == selectionHandler {
-            if let body = message.body as? Dictionary<String, Any> {
-                if (body["bold"] as! Int == 1) {
-                    accessoryView!.boldView.image = UIImage(named: "BoldSelected")
-                } else {
-                    accessoryView!.boldView.image = UIImage(named: "Bold")
-                }
-                
-                if (body["italic"] as! Int == 1) {
-                    accessoryView!.italicView.image = UIImage(named: "ItalicSelected")
-                } else {
-                    accessoryView!.italicView.image = UIImage(named: "Italic")
-                }
-                
-                if (body["underline"] as! Int == 1) {
-                    accessoryView!.underlineView.image = UIImage(named: "UnderlineSelected")
-                } else {
-                    accessoryView!.underlineView.image = UIImage(named: "Underline")
-                }
+        if let body = message.body as? Dictionary<String, Any> {
+            if (body["bold"] as! Int == 1) {
+                accessoryView!.boldView.image = UIImage(named: "BoldSelected")
+            } else {
+                accessoryView!.boldView.image = UIImage(named: "Bold")
+            }
+            
+            if (body["italic"] as! Int == 1) {
+                accessoryView!.italicView.image = UIImage(named: "ItalicSelected")
+            } else {
+                accessoryView!.italicView.image = UIImage(named: "Italic")
+            }
+            
+            if (body["underline"] as! Int == 1) {
+                accessoryView!.underlineView.image = UIImage(named: "UnderlineSelected")
+            } else {
+                accessoryView!.underlineView.image = UIImage(named: "Underline")
+            }
+            
+            if (body["list"] as! Int == 1) {
+                accessoryView!.orderedView.image = UIImage(named: "OrderedSelected")
+            } else {
+                accessoryView!.orderedView.image = UIImage(named: "Ordered")
             }
         }
     }
+    
 }
 
 class ComposeViewController: UIViewController, WKNavigationDelegate {

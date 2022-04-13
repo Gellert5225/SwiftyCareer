@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="51"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WYR-X6-NXO">
+                <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WYR-X6-NXO">
                     <rect key="frame" x="20" y="7" width="37" height="37"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="WYR-X6-NXO" secondAttribute="height" multiplier="1:1" id="0Fk-MC-ePn"/>
@@ -38,11 +38,11 @@
                     <rect key="frame" x="145" y="10" width="31" height="31"/>
                     <imageReference key="image" image="Italic"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKO-DQ-gct">
+                <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKO-DQ-gct">
                     <rect key="frame" x="222" y="10" width="30" height="31"/>
                     <imageReference key="image" image="Ordered"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yps-WJ-Mrp">
+                <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yps-WJ-Mrp">
                     <rect key="frame" x="258" y="10" width="30" height="31"/>
                     <imageReference key="image" image="Bullet"/>
                 </imageView>
@@ -91,7 +91,7 @@
                 <outlet property="boldView" destination="IkK-mf-EWS" id="Qnt-JO-Zp0"/>
                 <outlet property="bulletView" destination="Yps-WJ-Mrp" id="obr-5b-EHL"/>
                 <outlet property="italicView" destination="a1M-05-2bF" id="ONI-rh-iig"/>
-                <outlet property="ordredView" destination="GKO-DQ-gct" id="mxq-bY-g8I"/>
+                <outlet property="orderedView" destination="GKO-DQ-gct" id="ekh-QG-brI"/>
                 <outlet property="underlineView" destination="Ip0-UG-4JW" id="aJ0-x5-8cl"/>
             </connections>
             <point key="canvasLocation" x="46.875" y="163.125"/>

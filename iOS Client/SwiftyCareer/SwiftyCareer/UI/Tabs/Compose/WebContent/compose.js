@@ -38,7 +38,7 @@ quill.editor.autofocus = true;
 var currentBold = false;
 var currentItalic = false;
 var currentUnderline = false;
-var currentOrdered = null;
+var currentOrdered = false;
 
 function formatBold() {
     var range = quill.getSelection();
@@ -97,10 +97,10 @@ function formatOrdered() {
         if (range.length == 0) {
             if (currentOrdered) {
                 quill.format('list', null);
-                currentOrdered = null;
+                currentOrdered = false;
             } else {
                 quill.format('list', 'ordered');
-                currentOrdered = 'ordered';
+                currentOrdered = true;
             }
         } else {
             if (quill.getFormat(range).list === 'ordered') {
@@ -116,12 +116,12 @@ function getBoldStatus() {
     var range = quill.getSelection();
     if (range) {
         if (range.length == 0) {
-            return currentBold;
+            return quill.getFormat().bold;
         } else {
             return quill.getFormat(range).bold
         }
     } else {
-        return false;
+        return uill.getFormat().bold;
     }
 }
 
@@ -129,12 +129,12 @@ function getItalicStatus() {
     var range = quill.getSelection();
     if (range) {
         if (range.length == 0) {
-            return currentItalic;
+            return quill.getFormat().italic;
         } else {
             return quill.getFormat(range).italic
         }
     } else {
-        return false;
+        return quill.getFormat().italic;
     }
 }
 
@@ -142,12 +142,25 @@ function getUnderlineStatus() {
     var range = quill.getSelection();
     if (range) {
         if (range.length == 0) {
-            return currentUnderline;
+            return quill.getFormat().underline;
         } else {
             return quill.getFormat(range).underline
         }
     } else {
-        return false;
+        return quill.getFormat().italic;
+    }
+}
+
+function getOrderedStatus() {
+    var range = quill.getSelection();
+    if (range) {
+        if (range.length == 0) {
+            return quill.getFormat().list ? 1 : 0;
+        } else {
+            return quill.getFormat(range).list ? 1 : 0
+        }
+    } else {
+        return quill.getFormat().list ? 1 : 0;
     }
 }
 
@@ -157,8 +170,24 @@ quill.on('selection-change', function(range, oldRange, source) {
             window.webkit.messageHandlers.selectionHandler.postMessage({
                 'bold': quill.getFormat(range).bold ? 1 : 0,
                 'italic': quill.getFormat(range).italic ? 1 : 0,
-                'underline': quill.getFormat(range).underline ? 1 : 0
+                'underline': quill.getFormat(range).underline ? 1 : 0,
+                'list': quill.getFormat(range).list ? 1 : 0
             });
         }
     }
+});
+
+quill.on('text-change', function(delta, source) {
+    currentBold = quill.getFormat().bold ? true : false;
+    currentItalic = quill.getFormat().italic ? true : false;
+    currentUnderline = quill.getFormat().underline ? true : false;
+    currentOrdered = quill.getFormat().list ? true : false;
+    
+    window.webkit.messageHandlers.textChangeHandler.postMessage({
+        'formats': quill.getFormat(),
+        'bold': currentBold ? 1 : 0,
+        'italic': currentItalic ? 1 : 0,
+        'underline': currentUnderline ? 1 : 0,
+        'list': currentOrdered ? 1 : 0
+    });
 });
